@@ -24,7 +24,7 @@ Dinic.cpp	Dinic Max Flow
 ArticulationPointAndBridge.cpp	Articulations Points and Bridges
 BiconnectedComponents.cpp	Biconnected Components
 SCC.cpp	SCC - Strongly Connected Components / 2SAT
-LCA.cpp	Lowest Common Ancestor
+LCA.cpp	LCA - Lowest Common Ancestor
 
 #[Geometry]
 #Geometry.cpp	TODO
