@@ -1,0 +1,35 @@
+# Any line followed by a '#' character is ignored
+# Section headings must be in square brackets
+# Subsections within a section should follow the format:
+#   [filename within code directory][tab character \t][subsection title]
+
+[String Algorithms]
+StringAlignment.cpp	String Alignment
+KMP.cpp	KMP
+Trie.cpp	Trie
+Aho-Corasick.cpp	Aho-Corasick
+
+[Data Structures]
+Disjoint-Set.cpp	Disjoint-Set / Union-Find
+BIT.cpp	BIT
+SegmentTreeIterative.cpp	Segment Tree
+SegmentTreeIterativeReversed.cpp	Segment Tree with Interval Updates
+#SegmentTree.cpp	Segment Tree
+SegmentTreeLazy.cpp	Segment Tree with Lazy Propagation
+
+[Graph Algorithms]
+Graph.cpp	DFS/Toposort, BFS and Dijkstra
+Kruskal.cpp	Kruskal's MST - Minimum Spanning Tree
+Dinic.cpp	Dinic Max Flow
+ArticulationPointAndBridge.cpp	Articulations Points and Bridges
+BiconnectedComponents.cpp	Biconnected Components
+SCC.cpp	SCC - Strongly Connected Components / 2SAT
+LCA.cpp	Lowest Common Ancestor
+
+#[Geometry]
+#Geometry.cpp	TODO
+#ConvexHull.cpp	TODO
+
+[Miscellaneous]
+LIS.cpp	LIS - Longest Increasing Subsequence
+BinarySearch.cpp	Binary Search
