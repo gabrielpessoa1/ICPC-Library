@@ -1,17 +1,5 @@
-int adj[ms], to[me], ant[me], z;
-int idx[ms], low[ms], ind, comp[ms], ncomp, n;
+int idx[ms], low[ms], ind, comp[ms], ncomp;
 stack<int> st;
-
-void clear() {
-    memset(adj, -1, sizeof adj);
-    z = 0;
-}
-
-void add(int u, int v) {
-    to[z] = v;
-    ant[z] = adj[u];
-    adj[u] = z++;
-}
 
 int dfs(int v) {
     if(~idx[v]) return idx[v] ? idx[v] : ind;

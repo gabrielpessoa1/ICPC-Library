@@ -1,6 +1,4 @@
-int to[me], ant[me], cap[me];
-int adj[ms], copy_adj[ms], fila[ms], level[ms];
-int z;
+int copy_adj[ms], fila[ms], level[ms];
 
 void clear() {
     memset(adj, -1, sizeof adj);
@@ -10,7 +8,7 @@ void clear() {
 int add(int u, int v, int k) {
     to[z] = v;
     ant[z] = adj[u];
-    cap[z] = k;
+    wt[z] = k;
     adj[u] = z++;
 }
 
@@ -22,7 +20,7 @@ int bfs(int source, int sink) {
 	while(front < size) {
 		v = fila[front++];
 		for(int i = adj[v]; i != -1; i = ant[i]) {
-			if(cap[i] && level[to[i]] == -1) {
+			if(wt[i] && level[to[i]] == -1) {
 				level[to[i]] = level[v] + 1;
 				fila[size++] = to[i];
 			}
@@ -35,9 +33,9 @@ int dfs(int v, int sink, int flow) {
 	if(v == sink) return flow;
 	int f;
 	for(int &i = copy_adj[v]; i != -1; i = ant[i]) {
-		if(cap[i] && level[to[i]] == level[v] + 1 && (f = dfs(to[i], sink, min(flow, cap[i])))) {
-			cap[i] -= f;
-			cap[i ^ 1] += f;
+		if(wt[i] && level[to[i]] == level[v] + 1 && (f = dfs(to[i], sink, min(flow, wt[i])))) {
+			wt[i] -= f;
+			wt[i ^ 1] += f;
 			return f;
 		}
 	}

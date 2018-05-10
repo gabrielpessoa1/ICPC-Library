@@ -1,16 +1,4 @@
-int par[ms][mlg], lvl[ms], adj[ms], to[me], ant[me], z, n;
-int n;
-
-void clear() {
-    memset(adj, -1, sizeof adj);
-    z = 0;
-}
-
-void add(int u, int v) {
-    to[z] = v;
-    ant[z] = adj[u];
-    adj[u] = z++;
-}
+int par[ms][mlg], lvl[ms];
 
 void dfs(int v, int p, int l = 0) {
     lvl[v] = l;

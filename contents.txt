@@ -17,14 +17,18 @@ Trees/SegmentTreeIterativeReversed.cpp	Segment Tree with Interval Updates
 Trees/SegmentTreeLazy.cpp	Segment Tree with Lazy Propagation
 
 [Graph Algorithms]
-Graph/Graph.cpp	DFS/Toposort, BFS and Dijkstra
-Graph/Disjoint-Set.cpp	Disjoint-Set / Union-Find
-Graph/Kruskal.cpp	Kruskal's MST - Minimum Spanning Tree
+Graph/Graph.cpp	Graph Structure
+Graph/DFS.cpp	DFS / Toposort
+Graph/BFS.cpp	BFS / Shortest Path in a Unweighted Graph
+Graph/Dijkstra.cpp	Dijkstra / Shortest Path in a Weighted Graph
 Graph/Dinic.cpp	Dinic Max Flow
 Graph/ArticulationPointAndBridge.cpp	Articulations Points and Bridges
 Graph/BiconnectedComponents.cpp	Biconnected Components
 Graph/SCC.cpp	SCC - Strongly Connected Components / 2SAT
 Graph/LCA.cpp	LCA - Lowest Common Ancestor
+Graph/Floyd-Warshall.cpp	Floyd-Warshall / Shortest path between all pairs
+Graph/Disjoint-Set.cpp	Disjoint-Set / Union-Find
+Graph/Kruskal.cpp	Kruskal's MST - Minimum Spanning Tree
 
 #[Geometry]
 #Geometry.cpp	TODO
