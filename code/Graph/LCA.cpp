@@ -4,8 +4,7 @@ void dfs(int v, int p, int l = 0) {
     lvl[v] = l;
     par[v][0] = p;
     for(int i = adj[v]; i > - 1; i = ant[i]) {
-        int u = to[i];
-        if(u != p) dfs(u, v, l + 1);
+        if(to[i] != p) dfs(to[i], v, l + 1);
     }
 }
 

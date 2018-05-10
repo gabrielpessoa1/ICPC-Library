@@ -1,19 +1,16 @@
-int dis[ms];
-queue<int> q;
+int dis[ms], q[ms], front, rear;
 
 void bfs(int x) {
     memset(vis, 0, sizeof dis);
-    dis[x] = 0;
-    q.push(x);
-    while(!q.empty()) {
-        int v = q.front(); q.pop();
-        // process node v;
+    dis[x] = 0;	front = 0; rear = 0;
+    q[rear++] = x;
+    while(front < size) {
+        int v = fila[front++];
         for(int i = adj[v]; i > -1; i = ant[i]) {
-            int u = to[i];
-            if(vis[u]) continue;
-            vis[u] = true;
-            dis[u] = dis[v] + 1;
-            q.push(u);
+            if(vis[to[i]]) continue;
+            vis[to[i]] = true;
+            dis[to[i]] = dis[v] + 1;
+            q[rear++] = to[i];
         }
     }
 }

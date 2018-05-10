@@ -12,10 +12,9 @@ void dijkstra(int x) {
         v = x.second;
         if(x.first > dis[v]) continue;
         for(int i = adj[v]; i > -1; i = ant[i]) {
-            int u = to[i], w = wt[i];
-            if(dis[v]+w < dis[u]) {
-                dis[u] = dis[v] + w;
-                pq.push(ii(dis[u], u));
+            if(dis[v]+wt[i] < dis[to[i]]) {
+                dis[to[i]] = dis[v] + wt[i];
+                pq.push(ii(dis[to[i]], to[i]));
             }
         }
     }

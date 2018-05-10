@@ -2,9 +2,9 @@
 
 typedef pair<int, int> ii;
 typedef pair<int, ii> iii;
-typedef vector<iii> viii;
 
-iii e[me], z;
+iii e[me], mst[me];
+int z, mstLen;
 
 void add(int u, int v, int w) {
     e[z++] = iii(u, ii(v, w));
@@ -12,7 +12,6 @@ void add(int u, int v, int w) {
 
 int kruskal() {
     int ans = 0;
-    // viii mst;
     dsBuild();
     sort(e, e + z);
     for(auto i : e) {
@@ -20,7 +19,7 @@ int kruskal() {
         if(dsFind(u) != dsFind(v)) {
             dsUnion(u, v);
             ans += w;
-            // mst.push_back(i)
+            mst[mstLen++] = i;
         }
     }
     return ans;

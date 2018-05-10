@@ -3,10 +3,7 @@ int vis[ms], topo[ms], topoLen;
 void dfs(int v) {
     if(vis[v]) return;
     vis[v] = true;
-    // process node v
-    for(int i = adj[v]; i > -1; i = ant[i]) {
-        dfs(to[i]);
-    }
+    for(int i = adj[v]; i > -1; i = ant[i]) dfs(to[i]);
     topo[topoLen++] = v;
 }
 
