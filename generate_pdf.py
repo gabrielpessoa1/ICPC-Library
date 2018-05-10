@@ -3,7 +3,7 @@
 
 import subprocess
 code_dir = "code"
-title = "Biblioteca da Maratona de Gabriel Pessoa :)"
+title = "Biblioteca de Gabriel Pessoa :)"
 
 def get_sections():
     sections = []

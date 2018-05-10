@@ -31,8 +31,8 @@ Graph/Disjoint-Set.cpp	Disjoint-Set / Union-Find
 Graph/Kruskal.cpp	Kruskal's MST - Minimum Spanning Tree
 
 [Geometry]
-Geometry.cpp	Geometry
-#ConvexHull.cpp	Convex Hull
+Geometry/Geometry.cpp	Geometry
+Geometry/ConvexHull.cpp	Convex Hull
 
 [Miscellaneous]
 Miscellaneous/LIS.cpp	LIS - Longest Increasing Subsequence
