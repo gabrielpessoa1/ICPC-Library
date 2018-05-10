@@ -1,6 +1,4 @@
-int arr[4 * ms];
-int seg[4 * ms];
-int n;
+int arr[4 * ms], seg[4 * ms], n;
 
 void build(int idx = 0, int l = 0, int r = n - 1) {
     int mid = (l+r)/2, left = 2 * idx + 1, right = 2 * idx + 2;

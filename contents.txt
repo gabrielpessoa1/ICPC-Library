@@ -11,9 +11,9 @@ String/Aho-Corasick.cpp	Aho-Corasick
 
 [Trees]
 Trees/BIT.cpp	BIT - Binary Indexed Tree
-Trees/SegmentTreeIterative.cpp	Segment Tree
-Trees/SegmentTreeIterativeReversed.cpp	Segment Tree with Interval Updates
-#Trees/SegmentTree.cpp	Segment Tree
+Trees/SegmentTreeIterative.cpp	Iterative Segment Tree
+Trees/SegmentTreeIterativeReversed.cpp	Iterative Segment Tree with Interval Updates
+Trees/SegmentTree.cpp	Recursive Segment Tree
 Trees/SegmentTreeLazy.cpp	Segment Tree with Lazy Propagation
 
 [Graph Algorithms]

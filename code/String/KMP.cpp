@@ -1,6 +1,5 @@
-int b[ms];
 string p, t;
-int n, m; 
+int b[ms], n, m; 
 
 void kmpPreprocess() {
     int i = 0, j = -1;

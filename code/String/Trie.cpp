@@ -1,6 +1,4 @@
-int trie[ms][sigma];
-int z;
-int terminal[ms];
+int trie[ms][sigma], terminal[ms], z;
 
 void init() {
     memset(trie[0], -1, sizeof trie[0]);
