@@ -4,32 +4,32 @@
 #   [filename within code directory][tab character \t][subsection title]
 
 [String Algorithms]
-StringAlignment.cpp	String Alignment
-KMP.cpp	KMP
-Trie.cpp	Trie
-Aho-Corasick.cpp	Aho-Corasick
+String/StringAlignment.cpp	String Alignment
+String/KMP.cpp	KMP
+String/Trie.cpp	Trie
+String/Aho-Corasick.cpp	Aho-Corasick
 
-[Data Structures]
-Disjoint-Set.cpp	Disjoint-Set / Union-Find
-BIT.cpp	BIT
-SegmentTreeIterative.cpp	Segment Tree
-SegmentTreeIterativeReversed.cpp	Segment Tree with Interval Updates
-#SegmentTree.cpp	Segment Tree
-SegmentTreeLazy.cpp	Segment Tree with Lazy Propagation
+[Trees]
+Trees/BIT.cpp	BIT - Binary Indexed Tree
+Trees/SegmentTreeIterative.cpp	Segment Tree
+Trees/SegmentTreeIterativeReversed.cpp	Segment Tree with Interval Updates
+#Trees/SegmentTree.cpp	Segment Tree
+Trees/SegmentTreeLazy.cpp	Segment Tree with Lazy Propagation
 
 [Graph Algorithms]
-Graph.cpp	DFS/Toposort, BFS and Dijkstra
-Kruskal.cpp	Kruskal's MST - Minimum Spanning Tree
-Dinic.cpp	Dinic Max Flow
-ArticulationPointAndBridge.cpp	Articulations Points and Bridges
-BiconnectedComponents.cpp	Biconnected Components
-SCC.cpp	SCC - Strongly Connected Components / 2SAT
-LCA.cpp	LCA - Lowest Common Ancestor
+Graph/Graph.cpp	DFS/Toposort, BFS and Dijkstra
+Graph/Disjoint-Set.cpp	Disjoint-Set / Union-Find
+Graph/Kruskal.cpp	Kruskal's MST - Minimum Spanning Tree
+Graph/Dinic.cpp	Dinic Max Flow
+Graph/ArticulationPointAndBridge.cpp	Articulations Points and Bridges
+Graph/BiconnectedComponents.cpp	Biconnected Components
+Graph/SCC.cpp	SCC - Strongly Connected Components / 2SAT
+Graph/LCA.cpp	LCA - Lowest Common Ancestor
 
 #[Geometry]
 #Geometry.cpp	TODO
 #ConvexHull.cpp	TODO
 
 [Miscellaneous]
-LIS.cpp	LIS - Longest Increasing Subsequence
-BinarySearch.cpp	Binary Search
+Miscellaneous/LIS.cpp	LIS - Longest Increasing Subsequence
+Miscellaneous/BinarySearch.cpp	Binary Search

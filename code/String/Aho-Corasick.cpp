@@ -1,4 +1,4 @@
-// Construa a Trie do seu dicionario
+// Construa a Trie do seu dicionario com o codigo acima
 
 int fail[ms];
 

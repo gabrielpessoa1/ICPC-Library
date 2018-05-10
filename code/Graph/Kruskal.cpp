@@ -1,11 +1,10 @@
-// Implement Disjoint-Set data structure
+// Usa a estrutura de Disjoint-Set acima
 
 typedef pair<int, int> ii;
 typedef pair<int, ii> iii;
 typedef vector<iii> viii;
 
 iii e[me], z;
-int n;
 
 void add(int u, int v, int w) {
     e[z++] = iii(u, ii(v, w));
