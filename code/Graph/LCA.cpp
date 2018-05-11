@@ -20,7 +20,7 @@ void processAncestors(int root = 0) {
 int lca(int a, int b) {
     if(lvl[b] > lvl[a]) swap(a, b);
     for(int i = mlg; i >= 0; i--) {
-        if(lvl[a] - (1 << i) <= lvl[b]) a = par[a][i];
+        if(lvl[a] - (1 << i) >= lvl[b]) a = par[a][i];
     }
     if(a == b) return a;
     for(int i = mlg; i >= 0; i--) {
