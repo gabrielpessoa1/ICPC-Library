@@ -1,16 +1,14 @@
 // Construa a Trie do seu dicionario com o codigo acima
 
-int fail[ms];
+int fail[ms], q[ms], front, rear;
 
 void buildFailure() {
-    queue<int> q;
-    q.push(0);
-    while(!q.empty()) {
-        int node = q.front();
-        q.pop();
+    front = 0; rear = 0; q[rear++] = 0;
+    while(front < rear) {
+        int node = q[front++];
         for(int pos = 0; pos < sigma; pos++) {
             int &v = trie[node][pos];
-            int f = max(0, trie[fail[node]][pos]);
+            int f = node == 0 ? 0 : trie[fail[node]][pos];
             if(v == -1) {
                 v = f;
             } else {
@@ -26,8 +24,8 @@ void buildFailure() {
 int search(string &txt) {
     int node = 0;
     int ans = 0;
-    for(char c : txt) {
-        int pos = get_id(c);
+    for(int i = 0; i < txt.length(); i++) {
+        int pos = get_id(txt[i]);
         node = trie[node][pos];
         // processar informacoes no no atual
        ans += terminal[node];
