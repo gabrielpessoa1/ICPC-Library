@@ -9,7 +9,7 @@ int dfs(int v, int par = -1) {
             if(temp >= idx[v]) art[v] = true;
             if(temp > idx[v]) bridge[i] = true;
             low = min(low, temp);
-        } else if(to[i] != par) low = min(low, idx[w]);
+        } else if(to[i] != par) low = min(low, idx[to[i]]);
     }
     return low;
 }
