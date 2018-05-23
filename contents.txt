@@ -30,6 +30,13 @@ Graph/Floyd-Warshall.cpp	Floyd-Warshall / Shortest path between all pairs
 Graph/Disjoint-Set.cpp	Disjoint-Set / Union-Find
 Graph/Kruskal.cpp	Kruskal's MST - Minimum Spanning Tree
 
+[Math]
+Math/DiscreteLog.cpp	Discrete Logarithm
+Math/GCD.cpp	GCD - Greatest Common Divisor
+Math/ExtendedEuclides.cpp	Extended Euclides
+Math/FastExp.cpp	Fast Exponentiation
+Math/MatrixFastExp.cpp	Matrix Fast Exponentiation
+
 [Geometry]
 Geometry/Geometry.cpp	Geometry
 Geometry/ConvexHull.cpp	Convex Hull

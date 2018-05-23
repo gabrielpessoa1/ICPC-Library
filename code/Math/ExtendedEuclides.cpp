@@ -1,10 +1,3 @@
-// euclides para gcd:
-
-ll gcd(ll a, ll b) {
-	while(b) a %= b, swap(a, b);
-	return a;
-}
-
 // euclides estendido: acha u e v da equacao:
 // u * x + v * y = gcd(x, y);
 // u eh inverso modular de x no modulo y
