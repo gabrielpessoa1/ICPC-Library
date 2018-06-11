@@ -4,8 +4,8 @@ int maxSegOverlap(vector<pair<int, int>> v) {
     // tipo 1 = Inicio de segmento
     // tipo 0 = Fim de segmento
     for(int i = 0; i < n; i++) {
-        events[i*2] = make_pair(v[i].first, 1);
-        events[i*2+1] = make_pair(v[i].second, 0);
+        events[i*2] = {v[i].first, 1};
+        events[i*2+1] = {v[i].second, 0};
     }
     sort(events.begin(), events.end());
     int qnt = 0, ans = 0;
