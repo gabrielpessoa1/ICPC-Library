@@ -1,6 +1,6 @@
 int intersectionPoints(vector<pair<PT, PT>> v) {
     int n = v.size();
-    vector<pair<int, int> events, vertInt;
+    vector<pair<int, int>> events, vertInt;
     for(int i = 0; i < n; i++) {
         if(v.first.x == v.second.x) { // Segmento Vertical
             int y0 = min(v.first.y, v.second.y), y1 = max(v.first.y, v.second.y);
