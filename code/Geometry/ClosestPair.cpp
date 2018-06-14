@@ -11,6 +11,7 @@ double closestPair(vector<PT> p) {
             it != ptsInv.end() && it->y <= p[i].y + d; it++) {
             d = min(d, !(p[i] - swapCoord(*it)));
         }
+        ptsInv.insert(swapCoord(p[i]));
     }
     return d;
 }
