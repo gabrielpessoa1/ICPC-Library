@@ -2,7 +2,7 @@ const ll mod = 1e9+7;
 const int m = 2; // size of matrix
 
 struct Matrix { 
-	int mat[m][m];
+	ll mat[m][m];
 	Matrix operator * (const Matrix &p) {
 		Matrix ans;
 		for(int i = 0; i < m; i++)
