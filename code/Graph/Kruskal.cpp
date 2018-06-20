@@ -7,19 +7,19 @@ iii e[me], mst[me];
 int z, mstLen;
 
 void add(int u, int v, int w) {
-    e[z++] = iii(u, ii(v, w));
+    e[z++] = iii(w, ii(u, v));
 }
 
 int kruskal() {
     int ans = 0;
     dsBuild();
     sort(e, e + z);
-    for(auto i : e) {
-        int u = i.second.first, v = i.second.second, w = i.first;
+    for(int i = 0; i < n; i++) {
+        int u = e[i].second.first, v = e[i].second.second, ew = e[i].first;
         if(dsFind(u) != dsFind(v)) {
             dsUnion(u, v);
             ans += w;
-            mst[mstLen++] = i;
+            mst[mstLen++] = e[i];
         }
     }
     return ans;
