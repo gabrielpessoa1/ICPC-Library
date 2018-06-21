@@ -1,3 +1,5 @@
+// Utiliza uma seg tree
+
 int intersectionPoints(vector<pair<PT, PT>> v) {
     int n = v.size();
     vector<pair<int, int>> events, vertInt;

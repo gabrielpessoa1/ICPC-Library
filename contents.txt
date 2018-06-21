@@ -2,6 +2,7 @@
 # Section headings must be in square brackets
 # Subsections within a section should follow the format:
 #   [filename within code directory][tab character \t][subsection title]
+# tab character:	
 
 [String Algorithms]
 String/StringAlignment.cpp	String Alignment
@@ -37,7 +38,7 @@ Math/GCD.cpp	GCD - Greatest Common Divisor
 Math/ExtendedEuclides.cpp	Extended Euclides
 Math/FastExp.cpp	Fast Exponentiation
 Math/MatrixFastExp.cpp	Matrix Fast Exponentiation
-#Math/FFT.cpp FFT
+Math/FFT.cpp	FFT - Fast Fourier Transform
 #Math/NTT.cpp NTT
 
 [Geometry]
