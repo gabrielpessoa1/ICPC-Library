@@ -8,6 +8,7 @@ String/StringAlignment.cpp	String Alignment
 String/KMP.cpp	KMP
 String/Trie.cpp	Trie
 String/Aho-Corasick.cpp	Aho-Corasick
+#String/Rabin-Karp.cpp	Rabin-Karp
 
 [Trees]
 Trees/BIT.cpp	BIT - Binary Indexed Tree
@@ -17,18 +18,18 @@ Trees/SegmentTree.cpp	Recursive Segment Tree
 Trees/SegmentTreeLazy.cpp	Segment Tree with Lazy Propagation
 
 [Graph Algorithms]
-Graph/Graph.cpp	Graph Structure
-Graph/DFS.cpp	DFS / Toposort
-Graph/BFS.cpp	BFS / Shortest Path in a Unweighted Graph
-Graph/Dijkstra.cpp	Dijkstra / Shortest Path in a Weighted Graph
+#Graph/Graph.cpp	Graph Structure
+#Graph/DFS.cpp	DFS / Toposort
+#Graph/BFS.cpp	BFS / Shortest Path in a Unweighted Graph
+#Graph/Dijkstra.cpp	Dijkstra / Shortest Path in a Weighted Graph
 Graph/Dinic.cpp	Dinic Max Flow
 Graph/ArticulationPointAndBridge.cpp	Articulations Points and Bridges
 Graph/BiconnectedComponents.cpp	Biconnected Components
 Graph/SCC.cpp	SCC - Strongly Connected Components / 2SAT
 Graph/LCA.cpp	LCA - Lowest Common Ancestor
-Graph/Floyd-Warshall.cpp	Floyd-Warshall / Shortest path between all pairs
-Graph/Disjoint-Set.cpp	Disjoint-Set / Union-Find
-Graph/Kruskal.cpp	Kruskal's MST - Minimum Spanning Tree
+#Graph/Floyd-Warshall.cpp	Floyd-Warshall / Shortest path between all pairs
+#Graph/Disjoint-Set.cpp	Disjoint-Set / Union-Find
+#Graph/Kruskal.cpp	Kruskal's MST - Minimum Spanning Tree
 
 [Math]
 Math/DiscreteLog.cpp	Discrete Logarithm
@@ -36,10 +37,15 @@ Math/GCD.cpp	GCD - Greatest Common Divisor
 Math/ExtendedEuclides.cpp	Extended Euclides
 Math/FastExp.cpp	Fast Exponentiation
 Math/MatrixFastExp.cpp	Matrix Fast Exponentiation
+#Math/FFT.cpp FFT
+#Math/NTT.cpp NTT
 
 [Geometry]
 Geometry/Geometry.cpp	Geometry
 Geometry/ConvexHull.cpp	Convex Hull
+Geometry/ClosestPair.cpp	ClosestPair
+Geometry/IntersectionPoints.cpp	Intersection Points
+Geometry/MaxSegOverlap.cpp	Maximum Segments Overlap (Sweep Line)
 
 [Miscellaneous]
 Miscellaneous/LIS.cpp	LIS - Longest Increasing Subsequence
