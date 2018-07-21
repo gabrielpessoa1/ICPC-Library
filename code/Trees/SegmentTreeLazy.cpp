@@ -37,11 +37,7 @@ void update(int V, int L, int R, int idx = 0, int l = 0, int r = n -1) {
     }
     if(l > R || r < L) return;
     if(L <= l && r <= R) {
-        seg[idx] += V * (r - l + 1);
-        if(l < r) {
-            lazy[left] += V;
-            lazy[right] += V;
-        }
+        lazy[idx] += V;
         return;
     }
     update(V, L, R, left, l, mid); update(V, L, R, right, mid + 1, r);
