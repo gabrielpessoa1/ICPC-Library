@@ -4,18 +4,18 @@ int dfs(int v) {
     if(~idx[v]) return idx[v] ? idx[v] : ind;
     low[v] = idx[v] = idx++;
     st[top++] = v;
-    onStack[v] = true;
-    for(int w = adj[x]; ~w; w = ant[w]) {
+    for(int w = adj[v]; ~w; w = ant[w]) {
         low[v] = min(low[v], dfs(to[w]));
     }
     if(low[v] == idx[v]) {
-        while(top > -1) {
+        idx[st[--top]] = 0;
+        while(st[top] != v) {
             int w = st[--top];
             idx[w] = 0;
             low[w] = low[v];
             comp[w] = ncomp;
         }
-        ncomp++;
+        comp[v] = ncomp++;
     }
     return low[v];
 }
@@ -24,7 +24,7 @@ bool solveSat() {
     memset(idx, -1, sizeof idx);
     ind = 1; top = -1;
     for(int i = 0; i < n; i++) dfs(i);
-    for(int i = 0; i < n; i++) if(low[i] == low[i^1]) return false;
+    for(int i = 0; i < n; i++) if(comp[i] == comp[i^1]) return false;
     return true;
 }
 
