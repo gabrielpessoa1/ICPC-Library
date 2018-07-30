@@ -44,7 +44,7 @@ vector<range> update(int l, int r, int v) { // [l, r)
 
 int query(int v) { // Substituir -1 por flag para quando não houver resposta
 	auto it = ranges.upper_bound(v);
-	if(it == ranges[k].begin()) {
+	if(it == ranges.begin()) {
 		return -1;
 	}
 	it--;
