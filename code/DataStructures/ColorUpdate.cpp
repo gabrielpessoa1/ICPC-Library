@@ -41,3 +41,12 @@ vector<range> update(int l, int r, int v) { // [l, r)
 	ranges.insert(range(l, r, v));
 	return ans;
 }
+
+int query(int v) { // Substituir -1 por flag para quando não houver resposta
+	auto it = ranges.upper_bound(v);
+	if(it == ranges[k].begin()) {
+		return -1;
+	}
+	it--;
+	return it->r >= v ? it->v : -1;
+}
