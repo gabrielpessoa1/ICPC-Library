@@ -10,7 +10,7 @@ void calcReversedBits(int n) {
         lg++;
     }
     for(int i = 1; i < n; i++) {
-        bits[i] = (bits[i >> 1] >> 1) | ((i & 1) << lg);
+        rbit[i] = (rbit[i >> 1] >> 1) | ((i & 1) << lg);
     }
 }
 
