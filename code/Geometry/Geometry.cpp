@@ -2,8 +2,7 @@ const double inf = 1e100, eps = 1e-9;
 
 struct PT {
 	double x, y;
-	PT(){}
-	PT(double x, double y) : x(x), y(y) {}
+	PT(double x = 0, double y = 0) : x(x), y(y) {}
 	PT operator + (const PT &p) { return PT(x + p.x, y + p.y); }
 	PT operator - (const PT &p) { return PT(x - p.x, y - p.y); }
 	PT operator * (double c) { return PT(x * c, y * c); }
