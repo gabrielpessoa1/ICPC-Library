@@ -1,19 +1,23 @@
 const double inf = 1e100, eps = 1e-9;
 
 struct PT {
-    double x, y;
-    PT(double x, double y) : x(x), y(y) {}
-    PT operator + (const PT &p) { return PT(x + p.x, y + p.y); }
-    PT operator - (const PT &p) { return PT(x - p.x, y - p.y); }
-    PT operator * (double c) { return PT(x * c, y * c); }
-    PT operator / (double c) { return PT(x / c, y / c); }
-    bool operator <(const PT &p) const {
+	double x, y;
+	PT(double x, double y) : x(x), y(y) {}
+	PT operator + (const PT &p) { return PT(x + p.x, y + p.y); }
+	PT operator - (const PT &p) { return PT(x - p.x, y - p.y); }
+	PT operator * (double c) { return PT(x * c, y * c); }
+	PT operator / (double c) { return PT(x / c, y / c); }
+	bool operator <(const PT &p) const {
 		return x < p.x || (x == p.x && y < p.y);
+	}
+	bool operator ==(const PT &p) const {
+		return fabs(x - p.x) < eps && fabs(y - p.y) < eps;
 	}
 };
 
 double dot(PT p, PT q) { return p.x * q.x + p.y * q.y; }
 double dist2(PT p, PT q) { return dot(p - q, p - q); }
+double dist(PT p, PT q) {return hypot(p.x-q.x, p.y-q.y); }
 double cross(PT p, PT q) { return p.x * q.y - p.y * q.x; }
 
 // Rotaciona o ponto CCW ou CW ao redor da origem
