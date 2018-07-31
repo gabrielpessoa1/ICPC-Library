@@ -72,10 +72,11 @@ bool segmentsIntersect(PT a, PT b, PT c, PT d) {
     return true;
 }
 
-// Calcula a intersecao entre as linhas a - b e c - d assumindo que uma unica intersecao existe
-// Para intersecao de segmentos, cheque primeiro se os segmentos se intersectam
+// Calcula a intersecao entre as retas a - b e c - d assumindo que uma unica intersecao existe
+// Para intersecao de segmentos, cheque primeiro se os segmentos se intersectam e que nao paralelos
 PT computeLineIntersection(PT a, PT b, PT c, PT d) {
     b = b - a; d = c - d; c = c - a;
+    assert(cross(b, d) != 0); // garante que as retas nao sao paralelas, remover pra evitar tle
     return a + b * cross(c, d) / cross(b, d);
 }
 
