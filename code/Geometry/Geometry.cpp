@@ -8,7 +8,8 @@ struct PT {
 	PT operator * (double c) { return PT(x * c, y * c); }
 	PT operator / (double c) { return PT(x / c, y / c); }
 	bool operator <(const PT &p) const {
-		return x < p.x || (x == p.x && y < p.y);
+		if(fabs(x - p.x) >= eps) return x < p.x;
+		return fabs(y - p.y) >= eps && y < p.y;
 	}
 	bool operator ==(const PT &p) const {
 		return fabs(x - p.x) < eps && fabs(y - p.y) < eps;
