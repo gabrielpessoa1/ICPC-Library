@@ -9,7 +9,6 @@ String/StringAlignment.cpp	String Alignment
 String/KMP.cpp	KMP
 String/Trie.cpp	Trie
 String/Aho-Corasick.cpp	Aho-Corasick
-#String/Rabin-Karp.cpp	Rabin-Karp
 
 [Data Structures]
 DataStructures/BIT.cpp	BIT - Binary Indexed Tree
@@ -40,14 +39,13 @@ Math/ExtendedEuclides.cpp	Extended Euclides
 Math/FastExp.cpp	Fast Exponentiation
 Math/MatrixFastExp.cpp	Matrix Fast Exponentiation
 Math/FFT.cpp	FFT - Fast Fourier Transform
-#Math/NTT.cpp NTT
 
 [Geometry]
 Geometry/Geometry.cpp	Geometry
 Geometry/ConvexHull.cpp	Convex Hull
 Geometry/ClosestPair.cpp	ClosestPair
 Geometry/IntersectionPoints.cpp	Intersection Points
-Geometry/MaxSegOverlap.cpp	Maximum Segments Overlap (Sweep Line)
+#Geometry/MaxSegOverlap.cpp	Maximum Segments Overlap (Sweep Line)
 
 [Miscellaneous]
 Miscellaneous/LIS.cpp	LIS - Longest Increasing Subsequence
