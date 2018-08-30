@@ -1,23 +1,23 @@
 Formula de Euler: V - E + F = 2 (para grafo planar)
 Handshaking: Numero par de vertices tem grau impar
-Kirchhoff's Theorem: Monta matriz onde Mi,i = Grau[i] e Mi,j = -1 se houver aresta i-j ou 0 c.c, remove uma linha e uma coluna qualquer e o numero de spanning trees nesse grafo eh o det da matriz
+Kirchhoff's Theorem: Monta matriz onde Mi,i = Grau[i] e Mi,j = -1 se houver aresta i-j ou 0 caso contrario, remove uma linha e uma coluna qualquer e o numero de spanning trees nesse grafo eh o det da matriz
 
 Grafo contem caminho hamiltoniano se:
-Dirac’s theorem: If the degree of each node is at least n/2.
-Ore’s theorem: If the sum of degrees of each non-adjacent pair of nodes is at least n.
+Dirac's theorem: Se o grau de cada vertice for pelo menos n/2
+Ore's theorem: Se a soma dos graus que cada par nao-adjacente de vertices for pelo menos n
 
 Trees:
 Tem Catalan(N) Binary trees de N vertices
 Tem Catalan(N-1) Arvores enraizadas com N vertices
 Caley Formula: n^(n-2) arvores em N vertices com label
-Prufer code: Cada etapa voce remove a folha com menor label e o label do vizinho eh adicionado ao codigo até ter 2 vertices
+Prufer code: Cada etapa voce remove a folha com menor label e o label do vizinho eh adicionado ao codigo ate ter 2 vertices
 
 Flow:
 Max Edge-disjoint paths: Max flow com arestas com peso 1
-Max Node-disjoint paths: Mesma coisa mas dividindo vertice chegada e saida com aresta de peso 1
+Max Node-disjoint paths: Faz a mesma coisa mas separa cada vertice em um com as arestas de chegadas e um com as arestas de saida e uma aresta de peso 1 conectando o vertice com aresta de chegada com ele mesmo com arestas de saida
 Konig's Theorem: minimum node cover = maximum matching se o grafo for bipartido
 Min Node disjoint path cover: formar grafo bipartido de vertices duplicados, onde aresta sai do vertice tipo A e chega em tipo B, entao o path cover eh N - matching
 Min General path cover: Mesma coisa mas colocando arestas de A pra B sempre que houver caminho de A pra B
 Dilworth's Theorem: Min General Path cover = Max Antichain (set de vertices tal que nao existe caminho no grafo entre vertices desse set)
-
-Hall's marriage: um grafo tem um matching completo do lado W se para cada subconjunto de W, |W| <= |vizinhosW| onde |W| eh quantos vertices tem em W
+Hall's marriage: um grafo tem um matching completo do lado X se para cada subconjunto W de X, 
+    |W| <= |vizinhosW| onde |W| eh quantos vertices tem em W

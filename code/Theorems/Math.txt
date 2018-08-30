@@ -1,37 +1,37 @@
-Goldbach's conjecture: todo numero par n > 2 pode ser representado com n = a + b onde a e b sao primos
-Twin prime conjecture: existem infinitos pares p, p + 2 onde ambos sao primos
-Legendre's conjecture: sempre tem um primo entre n^2 e (n+1)^2
-Lagrange's theorem: todo numero inteiro pode ser inscrito como a soma de 4 quadrados
-Zeckendorf's theorem: todo numero pode ser representado pela soma de dois numeros de fibonnacis diferentes e nao consecutivos
-Euclid's formula: toda tripla de pitagoras primitiva pode ser gerada com (n^2 - m^2, 2nm, n^2+m^2) onde n, m sao coprimos e um deles eh par
-Wilson's theorem: n eh primo quando (n-1)! mod n = n - 1
-Mcnugget theorem: Para dois coprimos x, y o maior inteiro que nao pode ser escrito como ax + by eh (x-1)(y-1)/2
+Goldbach's: todo numero par n > 2 pode ser representado com n = a + b onde a e b sao primos
+Twin prime: existem infinitos pares p, p + 2 onde ambos sao primos
+Legendre's: sempre tem um primo entre n^2 e (n+1)^2
+Lagrange's: todo numero inteiro pode ser inscrito como a soma de 4 quadrados
+Zeckendorf's: todo numero pode ser representado pela soma de dois numeros de fibonnacis diferentes e nao consecutivos
+Euclid's: toda tripla de pitagoras primitiva pode ser gerada com 
+    (n^2 - m^2, 2nm, n^2+m^2) onde n, m sao coprimos e um deles eh par
+Wilson's: n eh primo quando (n-1)! mod n = n - 1
+Mcnugget: Para dois coprimos x, y o maior inteiro que nao pode ser escrito como ax + by eh (x-1)(y-1)/2
 
 Fermat: Se p eh primo entao a^(p-1) % p = 1
 Se x e m tambem forem coprimos entao x^k % m = x^(k mod(m-1)) % m
 Euler's theorem: x^(phi(m)) mod m = 1 onde phi(m) eh o totiente de euler
 
 Chinese remainder theorem: 
-Equacoes do tipo x = a1 mod m1, x = a2 mod m2, etc...
-onde todos os pares m1, m2, ... mn sao coprimos
-Deixe Xk = m1*m2*..*mn/mk e  Xk^-1 mod mk = inverso de Xk mod mk, entao
+Para equacoes no formato x = a1 mod m1, ... , x = an mod mn onde todos os pares m1, ... , mn sao coprimos
+Deixe Xk = m1*m2*..*mn/mk e Xk^-1 mod mk = inverso de Xk mod mk, entao
 x = somatorio com k de 1 ate n de ak*Xk*(Xk,mk^-1 mod mk)
 Para achar outra solucao so somar m1*m2*..*mn a solucao existente
 
-Catalan number: exemplo expressoes de parenteses bem formadas (nunca fecha mais doque abriu antes)
+Catalan number: exemplo expressoes de parenteses bem formadas
 C0 = 1, Cn = somatorio de i=0 -> n-1 de Ci*C(n-1+1)
 outra forma: Cn = (2n escolhe n)/(n+1)
-Mais generico:
 Bertrand's ballot theorem: p votos tipo A e q votos tipo B com p>q, prob de em todo ponto ter mais As do que Bs antes dele = (p-q)/(p+q)
 Se puder empates entao prob = (p+1-q)/(p+1), para achar quantidade de possibilidades nos dois casos basta multiplicar por (p + q escolhe q)
 
 Hockey-stick: Somatorio de i = r -> n de (i escolhe r) = (n + 1 escolhe r + 1)
 Vandermonde: (m+n escolhe r) = somatorio de k = 0 -> r de (m escolhe k) * (n escolhe r - k)
 
-Burnside lemma: colares diferentes nao contando rotacoes
-quando m = quantidade decores e n = comprimento
+Burnside lemma: colares diferentes nao contando rotacoes quando m = cores e n = comprimento
 (m^n + somatorio i =1 - > n-1 de m^gcd(i, n))/n
 
 Distribuicao uniforme a,a+1, ..., b Expected[X] = (a+b)/2
-Distribuicao binomial com n tentativas de probabilidade p, X = sucessos: P(X = x) = p^x * (1-p)^(n-x) * (n escolhe x) e E[X] = p*n
-Distribuicao geometrica onde continuamos ate ter sucesso, X = tentativas: P(X = x) = (1-p)^(x-1) * p e E[X] = 1/p
+Distribuicao binomial com n tentativas de probabilidade p, X = sucessos: 
+    P(X = x) = p^x * (1-p)^(n-x) * (n escolhe x) e E[X] = p*n
+Distribuicao geometrica onde continuamos ate ter sucesso, X = tentativas: 
+    P(X = x) = (1-p)^(x-1) * p e E[X] = 1/p
