@@ -15,7 +15,7 @@ Prufer code: Cada etapa voce remove a folha com menor label e o label do vizinho
 Flow:
 Max Edge-disjoint paths: Max flow com arestas com peso 1
 Max Node-disjoint paths: Faz a mesma coisa mas separa cada vertice em um com as arestas de chegadas e um com as arestas de saida e uma aresta de peso 1 conectando o vertice com aresta de chegada com ele mesmo com arestas de saida
-Konig's Theorem: minimum node cover = maximum matching se o grafo for bipartido
+Konig's Theorem: minimum node cover = maximum matching se o grafo for bipartido, complemento eh o maximum independent set
 Min Node disjoint path cover: formar grafo bipartido de vertices duplicados, onde aresta sai do vertice tipo A e chega em tipo B, entao o path cover eh N - matching
 Min General path cover: Mesma coisa mas colocando arestas de A pra B sempre que houver caminho de A pra B
 Dilworth's Theorem: Min General Path cover = Max Antichain (set de vertices tal que nao existe caminho no grafo entre vertices desse set)
