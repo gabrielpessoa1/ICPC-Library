@@ -1,23 +1,26 @@
-int idx[ms], low[ms], ind, comp[ms], ncomp, st[ms], top;
+vector<int> g[ms];
+int idx[ms], low[ms], z, comp[ms], ncomp, st[ms], top;
 
-int dfs(int v) {
-    if(~idx[v]) return idx[v] ? idx[v] : ind;
-    low[v] = idx[v] = idx++;
-    st[top++] = v;
-    for(int w = adj[v]; ~w; w = ant[w]) {
-        low[v] = min(low[v], dfs(to[w]));
+int dfs(int u) {
+    if(~idx[u]) return idx[u] ? idx[u] : z;
+    low[u] = idx[u] = z++;
+    st.push(u);
+    for(int v : g[u]) {
+        low[u] = min(low[u], dfs(v));
     }
-    if(low[v] == idx[v]) {
-        idx[st[--top]] = 0;
-        while(st[top] != v) {
-            int w = st[--top];
-            idx[w] = 0;
-            low[w] = low[v];
-            comp[w] = ncomp;
+    if(low[u] == idx[u]) {
+        idx[st.top()] = 0;
+        st.pop();
+        while(st.top() != u) {
+            int v = st.top();
+            st.pop();
+            idx[v] = 0;
+            low[v] = low[u];
+            comp[v] = ncomp;
         }
-        comp[v] = ncomp++;
+        comp[u] = ncomp++;
     }
-    return low[v];
+    return low[u];
 }
 
 bool solveSat() {
@@ -31,7 +34,7 @@ bool solveSat() {
 // Operacoes comuns de 2-sat
 // ~v = "nao v"
 #define trad(v) (v<0?((~v)*2)^1:v*2)
-void addImp(int a, int b) { add(trad(a), trad(b)); }
+void addImp(int a, int b) { g[trad(a)].push(trad(b)); }
 void addOr(int a, int b) { addImp(~a, b); addImp(~b, a); }
 void addEqual(int a, int b) { addOr(a, ~b); addOr(~a, b); }
 void addDiff(int a, int b) { addEqual(a, ~b); }
