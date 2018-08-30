@@ -1,5 +1,6 @@
 typedef pair<int, int> ii;
 
+vector<ii> g[ms];
 int dis[ms];
 priority_queue<ii, vector<ii>, greater<ii>> pq;
 
@@ -9,12 +10,13 @@ void dijkstra(int x) {
     pq.push(ii(0, x));
     while(!pq.empty()) {
         ii x = pq.top(); pq.pop();
-        v = x.second;
-        if(x.first > dis[v]) continue;
-        for(int i = adj[v]; i > -1; i = ant[i]) {
-            if(dis[v]+wt[i] < dis[to[i]]) {
-                dis[to[i]] = dis[v] + wt[i];
-                pq.push(ii(dis[to[i]], to[i]));
+        int u = x.second;
+        if(x.first > dis[u]) continue;
+        for(auto e : g[u]) {
+            int v = e.first, w = e.second;
+            if(dis[u]+w < dis[v]) {
+                dis[v] = dis[u] + w;
+                pq.push(ii(dis[v], v));
             }
         }
     }
