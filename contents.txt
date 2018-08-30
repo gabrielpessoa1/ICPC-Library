@@ -18,6 +18,8 @@ DataStructures/SegmentTreeIterativeReversed.cpp	Iterative Segment Tree with Inte
 DataStructures/SegmentTree.cpp	Recursive Segment Tree
 DataStructures/SegmentTreeLazy.cpp	Segment Tree with Lazy Propagation
 DataStructures/ColorUpdate.cpp	Color Updates Structure
+DataStructures/PolicyBased.cpp	Policy Based Structures
+DataStructures/HLD.cpp	Heavy Light Decomposition
 
 [Graph Algorithms]
 #Graph/Graph.cpp	Graph Structure
@@ -52,3 +54,4 @@ Geometry/MaxSegOverlap.cpp	Maximum Segments Overlap (Sweep Line)
 [Miscellaneous]
 Miscellaneous/LIS.cpp	LIS - Longest Increasing Subsequence
 Miscellaneous/BinarySearch.cpp	Binary Search
+Miscellaneous/TernarySearch.cpp	Ternary Search
