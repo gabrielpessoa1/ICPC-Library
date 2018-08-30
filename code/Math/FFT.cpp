@@ -41,8 +41,8 @@ void fft(Complex a[], int n, bool inv = false) {
     }
 }
 
-void multiply(ll x[], ll y[], ll ans[], int nx, int ny) {
-    int n = nx + ny;
+void multiply(ll x[], ll y[], ll ans[], int nx, int ny, int &n) {
+    n = nx + ny;
     calcReversedBits(n);
     for(int i = 0; i < nx; i++) {
         a[i] = Complex(x[i]);
