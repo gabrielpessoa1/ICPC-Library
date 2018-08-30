@@ -1,10 +1,10 @@
 int vis[ms], topo[ms], topoLen;
 
-void dfs(int v) {
-    if(vis[v]) return;
-    vis[v] = true;
-    for(int i = adj[v]; i > -1; i = ant[i]) dfs(to[i]);
-    topo[topoLen++] = v;
+void dfs(int u) {
+    if(vis[u]) return;
+    vis[u] = true;
+    for(int v : g[u]) dfs(v);
+    topo[topoLen++] = u;
 }
 
 void dfs() {
