@@ -1,3 +1,7 @@
+const int ms = 1e3; // Quantidade maxima de vertices
+const int me = 1e5; // Quantidade maxima de arestas
+
+int adj[ms], to[me], ant[me], z, n;
 int idx[ms], bc[me], ind, nbc, child, st[me], top;
 
 void generateBc(int edge) {
@@ -31,6 +35,8 @@ void biconnected() {
     nbc = 0;
     top = -1;
     memset(idx, -1, sizeof idx);
+    memset(art, 0, sizeof art);
+    memset(bridge, 0, sizeof bridge);
     for(int i = 0; i < n; i++) if(idx[i] == -1) {
         child = 0;
         dfs(i);
