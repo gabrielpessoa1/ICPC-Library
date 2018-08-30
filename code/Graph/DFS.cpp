@@ -1,3 +1,4 @@
+vector<int> g[ms];
 int vis[ms], topo[ms], topoLen;
 
 void dfs(int u) {
