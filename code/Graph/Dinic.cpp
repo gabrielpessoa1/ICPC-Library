@@ -42,7 +42,8 @@ int dfs(int v, int sink, int flow) {
 	if(v == sink) return flow;
 	int f;
 	for(int &i = copy_adj[v]; i != -1; i = ant[i]) {
-		if(wt[i] && level[to[i]] == level[v] + 1 && (f = dfs(to[i], sink, min(flow, wt[i])))) {
+		if(wt[i] && level[to[i]] == level[v] + 1 && 
+			(f = dfs(to[i], sink, min(flow, wt[i])))) {
 			wt[i] -= f;
 			wt[i ^ 1] += f;
 			return f;
