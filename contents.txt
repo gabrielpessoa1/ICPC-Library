@@ -34,6 +34,7 @@ Graph/LCA.cpp	LCA - Lowest Common Ancestor
 #Graph/Floyd-Warshall.cpp	Floyd-Warshall / Shortest path between all pairs
 #Graph/Disjoint-Set.cpp	Disjoint-Set / Union-Find
 #Graph/Kruskal.cpp	Kruskal's MST - Minimum Spanning Tree
+Graph/Theorems.txt  Teoremas e Formulas Uteis de Grafos
 
 [Math]
 Math/DiscreteLog.cpp	Discrete Logarithm
