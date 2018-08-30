@@ -1,5 +1,4 @@
-Biblioteca para Maratona de Programação
-Biblioteca de Gabriel Pessoa :)
+The AC is a lie - ICPC Library
 =================
 
 Biblioteca de algoritmos e estruturas de dados para programação competitiva, principalmente maratona de programação.
