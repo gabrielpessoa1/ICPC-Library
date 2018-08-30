@@ -1,1 +1,4 @@
-*.tex
+contents.tex
+notebook.*
+!notebook.pdf
+!notebook.tex
