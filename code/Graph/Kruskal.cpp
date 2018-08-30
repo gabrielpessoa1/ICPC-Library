@@ -15,7 +15,7 @@ int kruskal() {
     dsBuild();
     sort(e, e + z);
     for(int i = 0; i < n; i++) {
-        int u = e[i].second.first, v = e[i].second.second, ew = e[i].first;
+        int u = e[i].second.first, v = e[i].second.second, w = e[i].first;
         if(dsFind(u) != dsFind(v)) {
             dsUnion(u, v);
             ans += w;
