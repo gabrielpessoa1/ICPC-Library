@@ -1,8 +1,13 @@
-typedef complex<double> Complex;
 
-const double pi = acosl(-1.0);
+typedef complex<double> Complex;
+typedef long double ld;
+typedef long long ll;
+
+const int ms = 2*(maxn);
+const ld pi = acosl(-1.0);
 
 int rbit[1 << 23];
+Complex a[ms], b[ms];
 
 void calcReversedBits(int n) {
     int lg = 0;
@@ -15,7 +20,6 @@ void calcReversedBits(int n) {
 }
 
 void fft(Complex a[], int n, bool inv = false) {
-    calcReversedBits(n);
     for(int i = 0; i < n; i++) {
         if(rbit[i] > i) swap(a[i], a[rbit[i]]);
     }
@@ -34,5 +38,24 @@ void fft(Complex a[], int n, bool inv = false) {
     }
     if(inv) {
         for(int i = 0; i < n; i++) a[i] /= n;
+    }
+}
+
+void multiply(ll x[], ll y[], ll ans[], int nx, int ny) {
+    int n = nx + ny;
+    calcReversedBits(n);
+    for(int i = 0; i < nx; i++) {
+        a[i] = Complex(x[i]);
+    }
+    for(int i = 0; i < ny; i++) {
+        b[i] = Complex(y[i]);
+    }
+    fft(a, n); fft(b, n);
+    for(int i = 0; i < n; i++) {
+        a[i] = a[i] * b[i];
+    }
+    fft(a, n, true);
+    for(int i = 0; i < n; i++) {
+        ans[i] = ll(a[i].real() + 0.5);
     }
 }
