@@ -57,4 +57,6 @@ Miscellaneous/BinarySearch.cpp	Binary Search
 Miscellaneous/TernarySearch.cpp	Ternary Search
 
 [Teoremas e formulas uteis]
-Theorems/Graph.txt  Grafos
+Theorems/Graph.txt	Grafos
+Theorems/Math.txt	Math
+Theorems/Geometry.txt	Geometry
