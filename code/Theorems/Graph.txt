@@ -19,3 +19,5 @@ Konig's Theorem: minimum node cover = maximum matching se o grafo for bipartido
 Min Node disjoint path cover: formar grafo bipartido de vertices duplicados, onde aresta sai do vertice tipo A e chega em tipo B, entao o path cover eh N - matching
 Min General path cover: Mesma coisa mas colocando arestas de A pra B sempre que houver caminho de A pra B
 Dilworth's Theorem: Min General Path cover = Max Antichain (set de vertices tal que nao existe caminho no grafo entre vertices desse set)
+
+Hall's marriage: um grafo tem um matching completo do lado W se para cada subconjunto de W, |W| <= |vizinhosW| onde |W| eh quantos vertices tem em W
