@@ -19,6 +19,8 @@ DataStructures/SegmentTreeLazy.cpp	Segment Tree with Lazy Propagation
 DataStructures/ColorUpdate.cpp	Color Updates Structure
 DataStructures/PolicyBased.cpp	Policy Based Structures
 DataStructures/HLD.cpp	Heavy Light Decomposition
+DataStructures/CentroidDecomposition.cpp	Centroid Decomposition
+DetaStructures/SparseTable.cpp	Sparse Table
 
 [Graph Algorithms]
 #Graph/DFS.cpp	DFS / Toposort
@@ -32,6 +34,7 @@ Graph/BiconnectedComponents.cpp	Articulation Points/Bridges/Biconnected Componen
 Graph/SCC.cpp	SCC - Strongly Connected Components / 2SAT
 Graph/LCA.cpp	LCA - Lowest Common Ancestor
 Graph/Sack.cpp	Sack
+Graph/MinCostMaxFlow.cpp	Min Cost Max Flow
 
 [Math]
 Math/DiscreteLog.cpp	Discrete Logarithm
@@ -40,6 +43,8 @@ Math/ExtendedEuclides.cpp	Extended Euclides
 Math/FastExp.cpp	Fast Exponentiation
 Math/MatrixFastExp.cpp	Matrix Fast Exponentiation
 Math/FFT.cpp	FFT - Fast Fourier Transform
+Math/NTT.cpp	NTT - Number Theoretic Transform
+Math/MillerAndRho.cpp Miller and Rho
 
 [Geometry]
 Geometry/Geometry.cpp	Geometry
