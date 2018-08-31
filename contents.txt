@@ -20,7 +20,7 @@ DataStructures/ColorUpdate.cpp	Color Updates Structure
 DataStructures/PolicyBased.cpp	Policy Based Structures
 DataStructures/HLD.cpp	Heavy Light Decomposition
 DataStructures/CentroidDecomposition.cpp	Centroid Decomposition
-DetaStructures/SparseTable.cpp	Sparse Table
+DataStructures/SparseTable.cpp	Sparse Table
 
 [Graph Algorithms]
 #Graph/DFS.cpp	DFS / Toposort
@@ -44,7 +44,7 @@ Math/FastExp.cpp	Fast Exponentiation
 Math/MatrixFastExp.cpp	Matrix Fast Exponentiation
 Math/FFT.cpp	FFT - Fast Fourier Transform
 Math/NTT.cpp	NTT - Number Theoretic Transform
-Math/MillerAndRho.cpp Miller and Rho
+Math/MillerAndRho.cpp	Miller and Rho
 
 [Geometry]
 Geometry/Geometry.cpp	Geometry
