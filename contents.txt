@@ -40,7 +40,7 @@ Math/ExtendedEuclides.cpp	Extended Euclides
 Math/FastExp.cpp	Fast Exponentiation
 Math/MatrixFastExp.cpp	Matrix Fast Exponentiation
 Math/FFT.cpp	FFT - Fast Fourier Transform
-Math/NTT.cpp  NTT - Number Theoretic Transform
+Math/NTT.cpp	NTT - Number Theoretic Transform
 
 [Geometry]
 Geometry/Geometry.cpp	Geometry
