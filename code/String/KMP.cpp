@@ -18,7 +18,8 @@ void kmpSearch() {
         if(j == m) {
             //ocorrencia aqui comecando em i - j
             ans++;
-            j = borda[j];
+            j = b[j];
         }
     }
+    return ans;
 }
