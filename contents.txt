@@ -9,6 +9,7 @@ String/StringAlignment.cpp	String Alignment
 String/KMP.cpp	KMP
 String/Trie.cpp	Trie
 String/Aho-Corasick.cpp	Aho-Corasick
+String/ZAlgorithm.cpp	Algoritmo de Z
 
 [Data Structures]
 DataStructures/BIT.cpp	BIT - Binary Indexed Tree
