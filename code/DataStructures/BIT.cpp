@@ -1,4 +1,4 @@
-int arr[ms], bit[ms], n;
+int bit[ms], n;
 
 void update(int v, int idx) {
     while(idx <= n) {
