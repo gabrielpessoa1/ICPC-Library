@@ -32,6 +32,7 @@ DataStructures/SparseTable.cpp	Sparse Table
 #Graph/Disjoint-Set.cpp	Disjoint-Set / Union-Find
 #Graph/Kruskal.cpp	Kruskal's MST - Minimum Spanning Tree
 Graph/Dinic.cpp	Dinic Max Flow
+Graph/EulerPath.cpp	Euler Path and Circuit
 Graph/BiconnectedComponents.cpp	Articulation Points/Bridges/Biconnected Components
 Graph/SCC.cpp	SCC - Strongly Connected Components / 2SAT
 Graph/LCA.cpp	LCA - Lowest Common Ancestor
