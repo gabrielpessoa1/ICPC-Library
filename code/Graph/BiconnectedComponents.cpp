@@ -4,6 +4,8 @@ const int me = 1e5; // Quantidade maxima de arestas
 int adj[ms], to[me], ant[me], z, n;
 int idx[ms], bc[me], ind, nbc, child, st[me], top;
 
+// Funcao de add e clear no dinic
+
 void generateBc(int edge) {
     while(st[--top] != edge) {
         bc[st[top]] = nbc;
