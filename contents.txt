@@ -61,6 +61,7 @@ Geometry/IntersectionPoints.cpp	Intersection Points
 Miscellaneous/LIS.cpp	LIS - Longest Increasing Subsequence
 Miscellaneous/BinarySearch.cpp	Binary Search
 Miscellaneous/TernarySearch.cpp	Ternary Search
+Miscellaneous/Random.cpp	Random Number Generator
 
 [Teoremas e formulas uteis]
 Theorems/Graph.txt	Grafos
