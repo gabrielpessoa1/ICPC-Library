@@ -13,6 +13,7 @@ String/ZAlgorithm.cpp	Algoritmo de Z
 
 [Data Structures]
 DataStructures/BIT.cpp	BIT - Binary Indexed Tree
+DataStructures/BIT2D.cpp	BIT 2D
 DataStructures/SegmentTreeIterative.cpp	Iterative Segment Tree
 DataStructures/SegmentTreeIterativeReversed.cpp	Iterative Segment Tree with Interval Updates
 DataStructures/SegmentTree.cpp	Recursive Segment Tree
