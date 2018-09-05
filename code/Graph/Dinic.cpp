@@ -17,7 +17,7 @@ int add(int u, int v, int k) {
     swap(u, v);
     to[z] = v;
     ant[z] = adj[u];
-    wt[z] = 0;
+    wt[z] = 0; // Lembrar de colocar = 0
     adj[u] = z++;
 }
 
