@@ -38,6 +38,7 @@ Graph/SCC.cpp	SCC - Strongly Connected Components / 2SAT
 Graph/LCA.cpp	LCA - Lowest Common Ancestor
 Graph/Sack.cpp	Sack
 Graph/MinCostMaxFlow.cpp	Min Cost Max Flow
+Graph/Hungarian.cpp	Hungarian Algorithm - Maximum Cost Matching
 
 [Math]
 Math/DiscreteLog.cpp	Discrete Logarithm
