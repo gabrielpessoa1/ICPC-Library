@@ -1,10 +1,11 @@
-int par[ms][mlg], lvl[ms];
+int par[ms][mlg+1], lvl[ms];
+vector<int> g[ms];
 
 void dfs(int v, int p, int l = 0) {
     lvl[v] = l;
     par[v][0] = p;
-    for(int i = adj[v]; i > - 1; i = ant[i]) {
-        if(to[i] != p) dfs(to[i], v, l + 1);
+    for(int u : g[v]) {
+        if(u != p) dfs(u, v, l + 1);
     }
 }
 
