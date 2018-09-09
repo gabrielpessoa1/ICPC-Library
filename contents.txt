@@ -68,3 +68,4 @@ Miscellaneous/Random.cpp	Random Number Generator
 Theorems/Graph.txt	Grafos
 Theorems/Math.txt	Math
 Theorems/Geometry.txt	Geometry
+Theorems/Mersenne.txt	Mersenne's Primes
