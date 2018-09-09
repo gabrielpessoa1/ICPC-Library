@@ -56,6 +56,7 @@ Geometry/Geometry.cpp	Geometry
 Geometry/ConvexHull.cpp	Convex Hull
 Geometry/ClosestPair.cpp	ClosestPair
 Geometry/IntersectionPoints.cpp	Intersection Points
+Geometry/CHT.cpp	Convex Hull Trick
 #Geometry/MaxSegOverlap.cpp	Maximum Segments Overlap (Sweep Line)
 
 [Miscellaneous]
