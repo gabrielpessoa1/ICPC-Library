@@ -10,6 +10,7 @@ String/KMP.cpp	KMP
 String/Trie.cpp	Trie
 String/Aho-Corasick.cpp	Aho-Corasick
 String/ZAlgorithm.cpp	Algoritmo de Z
+String/SuffixArray.cpp	Suffix Array
 
 [Data Structures]
 DataStructures/BIT.cpp	BIT - Binary Indexed Tree
