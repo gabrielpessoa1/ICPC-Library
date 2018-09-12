@@ -20,6 +20,7 @@ DataStructures/SegmentTreeIterative.cpp	Iterative Segment Tree
 DataStructures/SegmentTreeIterativeReversed.cpp	Iterative Segment Tree with Interval Updates
 DataStructures/SegmentTree.cpp	Recursive Segment Tree
 DataStructures/SegmentTreeLazy.cpp	Segment Tree with Lazy Propagation
+DataStructures/SegmentTreePersistent.cpp	Persistent Segment Tree
 DataStructures/ColorUpdate.cpp	Color Updates Structure
 DataStructures/PolicyBased.cpp	Policy Based Structures
 DataStructures/HLD.cpp	Heavy Light Decomposition
