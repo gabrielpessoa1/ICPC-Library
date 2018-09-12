@@ -1,11 +1,13 @@
 // Construa a Trie do seu dicionario com o codigo acima
 
-int fail[ms], q[ms], front, rear;
+int fail[ms];
+queue<int> q;
 
 void buildFailure() {
-    front = 0; rear = 0; q[rear++] = 0;
-    while(front < rear) {
-        int node = q[front++];
+    q.push(0);
+    while(!q.empty()) {
+        int node = q.front();
+        q.pop();
         for(int pos = 0; pos < sigma; pos++) {
             int &v = trie[node][pos];
             int f = node == 0 ? 0 : trie[fail[node]][pos];
