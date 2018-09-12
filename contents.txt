@@ -56,7 +56,7 @@ Math/MillerAndRho.cpp	Miller and Rho
 [Geometry]
 Geometry/Geometry.cpp	Geometry
 Geometry/ConvexHull.cpp	Convex Hull
-Geometry/ClosestPair.cpp	ClosestPair
+Geometry/ClosestPair.cpp	Closest Pair
 Geometry/IntersectionPoints.cpp	Intersection Points
 #Geometry/MaxSegOverlap.cpp	Maximum Segments Overlap (Sweep Line)
 Geometry/JavaAWT.java	Java Geometry Library
