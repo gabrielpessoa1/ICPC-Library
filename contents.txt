@@ -15,6 +15,7 @@ String/SuffixArray.cpp	Suffix Array
 [Data Structures]
 DataStructures/BIT.cpp	BIT - Binary Indexed Tree
 DataStructures/BIT2D.cpp	BIT 2D
+DataStructures/CompressedBIT2D.cpp	BIT 2D Comprimida
 DataStructures/SegmentTreeIterative.cpp	Iterative Segment Tree
 DataStructures/SegmentTreeIterativeReversed.cpp	Iterative Segment Tree with Interval Updates
 DataStructures/SegmentTree.cpp	Recursive Segment Tree
@@ -22,6 +23,7 @@ DataStructures/SegmentTreeLazy.cpp	Segment Tree with Lazy Propagation
 DataStructures/ColorUpdate.cpp	Color Updates Structure
 DataStructures/PolicyBased.cpp	Policy Based Structures
 DataStructures/HLD.cpp	Heavy Light Decomposition
+DataStructures/HLD+ETT.cpp	Heavy Light Decomposition + Euler Tour Technique
 DataStructures/CentroidDecomposition.cpp	Centroid Decomposition
 DataStructures/SparseTable.cpp	Sparse Table
 
@@ -57,6 +59,7 @@ Geometry/ConvexHull.cpp	Convex Hull
 Geometry/ClosestPair.cpp	ClosestPair
 Geometry/IntersectionPoints.cpp	Intersection Points
 #Geometry/MaxSegOverlap.cpp	Maximum Segments Overlap (Sweep Line)
+Geometry/JavaAWT.java	Java Geometry Library
 
 [Dynamic Programming]
 Geometry/CHT.cpp	Convex Hull Trick
@@ -66,6 +69,8 @@ Miscellaneous/LIS.cpp	LIS - Longest Increasing Subsequence
 Miscellaneous/BinarySearch.cpp	Binary Search
 Miscellaneous/TernarySearch.cpp	Ternary Search
 Miscellaneous/Random.cpp	Random Number Generator
+Miscellaneous/SubmaskEnumeration.cpp	Submask Enumeration
+Miscellaneous/FastIO.java	Java Fast I/O
 
 [Teoremas e formulas uteis]
 Theorems/Graph.txt	Grafos
