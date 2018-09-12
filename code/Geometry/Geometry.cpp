@@ -47,6 +47,13 @@ double distancePointSegment(PT a, PT b, PT c) {
     return sqrt(dist2(c, projectPointSegment(a, b, c)));
 }
 
+// Determina se o ponto c esta em um segmento a - b
+bool ptInSegment(PT a, PT b, PT c) {
+  bool x = min(a.x, b.x) <= c.x && c.x <= max(a.x, b.x);
+  bool y = min(a.y, b.y) <= c.y && c.y <= max(a.y, b.y);
+  return x && y && (cross((b-a),(c-a)) == 0); // testar com eps se for double
+}
+
 // Calcula distancia entre o ponto (x, y, z) e o plano ax + by + cz = d
 double distancePointPlane(double x, double y, double z, double a, double b, double c, double d) {
     return abs(a * x + b * y + c * z - d) / sqrt(a * a + b * b + c * c);
@@ -86,10 +93,35 @@ PT computeCircleCenter(PT a, PT b, PT c) {
     b = (a + b) / 2;
     c = (a + c) / 2;
     return computeLineIntersection(b, b + rotateCW90(a - b), c, c + rotateCW90(a - c));
+} 
+
+// Determina se o ponto p esta dentro do triangulo (a, b, c)
+bool ptInsideTriangle(PT p, PT a, PT b, PT c) {
+  if(cross(b-a, c-b) < 0) swap(a, b);
+  ll x = cross(b-a, p-b);
+  ll y = cross(c-b, p-c);
+  ll z = cross(a-c, p-a);
+  if(x > 0 && y > 0 && z > 0) return true;
+  if(!x) return ptInSegment(a,b,p);
+  if(!y) return ptInSegment(b,c,p);
+  if(!z) return ptInSegment(c,a,p);
+  return false;
 }
 
+// Determina se o ponto esta num poligono convexo em O(lgn)
+bool pointInConvexPolygon(const vector<PT> &p, PT q) {
+  PT pivot = p[0];
+  int x = 1, y = p.size();
+  while(y-x != 1) {
+    int z = (x+y)/2;
+    PT diagonal = pivot - p[z];
+    if(cross(p[x] - pivot, q - pivot) * cross(q-pivot, p[z] - pivot) >= 0) y = z;
+    else x = z;
+  }
+  return ptInsideTriangle(q, p[x], p[y], pivot);
+}
 
-// Determina se o ponto esta num poligno possivelmente nao-convexo
+// Determina se o ponto esta num poligono possivelmente nao-convexo
 // Retorna 1 para pontos estritamente dentro, 0 para pontos estritamente fora do poligno 
 // e 0 ou 1 para os pontos restantes
 // Eh possivel converter num teste exato usando inteiros e tomando cuidado com a divisao
