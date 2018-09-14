@@ -24,7 +24,7 @@ DataStructures/SegmentTreePersistent.cpp	Persistent Segment Tree
 DataStructures/ColorUpdate.cpp	Color Updates Structure
 DataStructures/PolicyBased.cpp	Policy Based Structures
 DataStructures/HLD.cpp	Heavy Light Decomposition
-DataStructures/HLD+ETT.cpp	Heavy Light Decomposition + Euler Tour Technique
+#DataStructures/HLD+ETT.cpp	Heavy Light Decomposition + Euler Tour Technique
 DataStructures/CentroidDecomposition.cpp	Centroid Decomposition
 DataStructures/SparseTable.cpp	Sparse Table
 DataStructures/LiChaoTree.cpp	Li Chao Tree
