@@ -63,7 +63,7 @@ Geometry/IntersectionPoints.cpp	Intersection Points
 Geometry/JavaAWT.java	Java Geometry Library
 
 [Dynamic Programming]
-Geometry/CHT.cpp	Convex Hull Trick
+DP/CHT.cpp	Convex Hull Trick
 
 [Miscellaneous]
 Miscellaneous/LIS.cpp	LIS - Longest Increasing Subsequence

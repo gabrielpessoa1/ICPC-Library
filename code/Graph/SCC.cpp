@@ -2,33 +2,33 @@ vector<int> g[ms];
 int idx[ms], low[ms], z, comp[ms], ncomp, st[ms], top;
 
 int dfs(int u) {
-    if(~idx[u]) return idx[u] ? idx[u] : z;
-    low[u] = idx[u] = z++;
-    st.push(u);
-    for(int v : g[u]) {
-        low[u] = min(low[u], dfs(v));
+  if(~idx[u]) return idx[u] ? idx[u] : z;
+  low[u] = idx[u] = z++;
+  st.push(u);
+  for(int v : g[u]) {
+    low[u] = min(low[u], dfs(v));
+  }
+  if(low[u] == idx[u]) {
+    idx[st.top()] = 0;
+    st.pop();
+    while(st.top() != u) {
+      int v = st.top();
+      st.pop();
+      idx[v] = 0;
+      low[v] = low[u];
+      comp[v] = ncomp;
     }
-    if(low[u] == idx[u]) {
-        idx[st.top()] = 0;
-        st.pop();
-        while(st.top() != u) {
-            int v = st.top();
-            st.pop();
-            idx[v] = 0;
-            low[v] = low[u];
-            comp[v] = ncomp;
-        }
-        comp[u] = ncomp++;
-    }
-    return low[u];
+    comp[u] = ncomp++;
+  }
+  return low[u];
 }
 
 bool solveSat() {
-    memset(idx, -1, sizeof idx);
-    ind = 1; top = -1;
-    for(int i = 0; i < n; i++) dfs(i);
-    for(int i = 0; i < n; i++) if(comp[i] == comp[i^1]) return false;
-    return true;
+  memset(idx, -1, sizeof idx);
+  ind = 1; top = -1;
+  for(int i = 0; i < n; i++) dfs(i);
+  for(int i = 0; i < n; i++) if(comp[i] == comp[i^1]) return false;
+  return true;
 }
 
 // Operacoes comuns de 2-sat

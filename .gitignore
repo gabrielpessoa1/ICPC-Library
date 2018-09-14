@@ -2,3 +2,4 @@ contents.tex
 notebook.*
 !notebook.pdf
 !notebook.tex
+.vscode
