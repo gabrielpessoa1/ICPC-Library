@@ -14,7 +14,8 @@ int sz[N], par[N], h[N];
 
 void dfs_sz(int v = 0, int p = -1){
 	sz[v] = 1;
-	for(auto &u: g[v]){
+	for(int i = 0; i < g[v].size(); i++){
+		int &u = g[v][i];
 		if(u == p) continue;
 		h[u] = 1+h[v], par[u] = v;
 		dfs_sz(u, v);
@@ -30,7 +31,8 @@ int t, in[N], out[N], rin[N], nxt[N];
 void dfs_hld(int v = 0, int p = -1){
 	in[v] = t++;
 	rin[in[v]] = v;
-	for(auto &u : g[v]){
+	for(int i = 0; i < g[v].size(); i++){
+		int &u = g[v][i];
 		if(u == p) continue;
 		nxt[u] = (u == g[v][0] ? nxt[v] : u);
 		dfs_hld(u, v);
