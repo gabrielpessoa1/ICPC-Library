@@ -44,10 +44,10 @@ int getLCA(int a, int b){
 int queryUp(int a, int p = 0){
 	int ans = 0;
 	while(nxt[a] != nxt[p]){
-		ans +=  query(in[nxt[a]], in[a]+1);
+		ans +=  query(in[nxt[a]], in[a]);
 		a = par[nxt[a]];
 	}
-	ans += query(in[p], in[a]+1);
+	ans += query(in[p], in[a]);
 	return ans;
 }
 
