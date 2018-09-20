@@ -5,7 +5,7 @@ int dis[ms];
 priority_queue<ii, vector<ii>, greater<ii>> pq;
 
 void dijkstra(int x) {
-  memset(dis, 63, sizeof dis);
+  memset(dis, 0x3f, sizeof dis);
   dis[x] = 0;
   pq.push(ii(0, x));
   while(!pq.empty()) {
