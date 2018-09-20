@@ -27,7 +27,7 @@ DataStructures/HLD.cpp	Heavy Light Decomposition
 #DataStructures/HLD+ETT.cpp	Heavy Light Decomposition + Euler Tour Technique
 DataStructures/CentroidDecomposition.cpp	Centroid Decomposition
 DataStructures/SparseTable.cpp	Sparse Table
-DataStructures/LiChaoTree.cpp	Li Chao Tree
+DataStructures/LiChaoTree.cpp	Li Chao Tree  
 
 [Graph Algorithms]
 #Graph/DFS.cpp	DFS / Toposort
@@ -54,6 +54,7 @@ Math/MatrixFastExp.cpp	Matrix Fast Exponentiation
 Math/FFT.cpp	FFT - Fast Fourier Transform
 Math/NTT.cpp	NTT - Number Theoretic Transform
 Math/MillerAndRho.cpp	Miller and Rho
+Math/DetMod.cpp	Determinant using Mod
 
 [Geometry]
 Geometry/Geometry.cpp	Geometry
