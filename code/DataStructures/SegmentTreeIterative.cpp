@@ -10,7 +10,7 @@ void update(int p, int value) { // set value at position p
 
 int query(int l, int r) {
   int res = 0;
-  for(l += n, r += n; l < r; l >>= 1, r >>= 1) {
+  for(l += n, r += n+1; l < r; l >>= 1, r >>= 1) {
     if(l&1) res += t[l++];
     if(r&1) res += t[--r];
   }
@@ -20,7 +20,7 @@ int query(int l, int r) {
 // If is non-commutative
 S query(int l, int r) {
   S resl, resr;
-  for (l += n, r += n; l < r; l >>= 1, r >>= 1) {
+  for (l += n, r += n+1; l < r; l >>= 1, r >>= 1) {
   if (l&1) resl = combine(resl, t[l++]);
   if (r&1) resr = combine(t[--r], resr);
   }

@@ -5,7 +5,7 @@ void build() {
 }
 
 void update(int l, int r, int value) {
-  for(l += n, r += n; l < r; l >>= 1, r >>= 1) {
+  for(l += n, r += n+1; l < r; l >>= 1, r >>= 1) {
     if(l&1) t[l++] += value;
     if(r&1) t[--r] += value;
   }
