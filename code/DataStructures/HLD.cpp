@@ -23,7 +23,7 @@ void dfs_hld(int v = 0, int p = -1){
   for(int i = 0; i < g[v].size(); i++){
     int &u = g[v][i];
     if(u == p) continue;
-    nxt[u] = (u == g[v][0] ? nxt[v] : u);
+    nxt[u] = u == g[v][0] ? nxt[v] : u;
     dfs_hld(u, v);
   }
   out[v] = t;
