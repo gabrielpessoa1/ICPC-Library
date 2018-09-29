@@ -68,7 +68,7 @@ DP/CHT.cpp	Convex Hull Trick
 
 [Miscellaneous]
 Miscellaneous/LIS.cpp	LIS - Longest Increasing Subsequence
-Miscellaneous/BinarySearch.cpp	Binary Search
+#Miscellaneous/BinarySearch.cpp	Binary Search
 Miscellaneous/TernarySearch.cpp	Ternary Search
 Miscellaneous/Random.cpp	Random Number Generator
 Miscellaneous/SubmaskEnumeration.cpp	Submask Enumeration
