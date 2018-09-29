@@ -1,15 +1,17 @@
-int smallestSolution() {
-  int x = -1;
-  for(int b = z; b >= 1; b /= 2) {
-    while(!ok(x+b)) x += b;
+int smallestSolution(int l, int r) {
+  while(l < r) {
+    int m = (l+r)/2;
+    if(check(m)) r = m;
+    else l = m + 1;
   }
-  return x + 1;
+  return l;
 }
 
-int maximumValue() {
-  int x = -1;
-  for(int b = z; b >= 1; b /= 2) {
-    while(f(x+b) < f(x+b+1)) x += b;
+int biggestSolution(int l, int r) {
+  while(r - l > 1) {
+    int m = (l+r)/2;
+    if(check(m)) l = m;
+    else r = m;
   }
-  return x + 1;
+  return check(r) ? r : l;
 }
