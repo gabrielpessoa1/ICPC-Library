@@ -2,6 +2,7 @@ vector<int> g[ms];
 int dis[ms];
 queue<int> q;
 
+//Calculando menor distancia de um vertice x aos outros
 void bfs(int x) {
   memset(dis, 63, sizeof dis);
   dis[x] = 0;
