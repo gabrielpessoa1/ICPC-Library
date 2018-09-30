@@ -44,7 +44,7 @@ PT projectPointSegment(PT a, PT b, PT c) {
 }
 // Calcula distancia entre o ponto c e o segmento a - b
 double distancePointSegment(PT a, PT b, PT c) {
-    return sqrt(dist2(c, projectPointSegment(a, b, c)));
+    return dist(c, projectPointSegment(a, b, c));
 }
 
 // Determina se o ponto c esta em um segmento a - b
