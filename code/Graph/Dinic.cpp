@@ -9,7 +9,7 @@ void clear() {
   z = 0;
 }
 
-int add(int u, int v, int k) {
+void add(int u, int v, int k) {
   to[z] = v;
   ant[z] = adj[u];
   wt[z] = k;
