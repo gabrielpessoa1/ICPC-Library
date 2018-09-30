@@ -4,7 +4,7 @@ const int me = 1e5; // Quantidade maxima de arestas
 int adj[ms], to[me], ant[me], wt[me], z, n;
 int copy_adj[ms], fila[ms], level[ms];
 
-void clear() {
+void clear() { // Lembrar de chamar no main
   memset(adj, -1, sizeof adj);
   z = 0;
 }
