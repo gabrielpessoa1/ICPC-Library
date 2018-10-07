@@ -9,15 +9,15 @@ int dfs(int u) {
     low[u] = min(low[u], dfs(v));
   }
   if(low[u] == idx[u]) {
-    idx[st.top()] = 0;
-    st.pop();
     while(st.top() != u) {
       int v = st.top();
-      st.pop();
       idx[v] = 0;
       low[v] = low[u];
       comp[v] = ncomp;
+      st.pop();
     }
+    idx[st.top()] = 0;
+    st.pop();
     comp[u] = ncomp++;
   }
   return low[u];
