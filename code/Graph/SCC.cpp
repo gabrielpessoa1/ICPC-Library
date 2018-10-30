@@ -1,5 +1,6 @@
 vector<int> g[ms];
-int idx[ms], low[ms], z, comp[ms], ncomp, st[ms], top;
+int idx[ms], low[ms], z, comp[ms], ncomp;
+stack<int> st;
 
 int dfs(int u) {
   if(~idx[u]) return idx[u] ? idx[u] : z;
@@ -25,7 +26,7 @@ int dfs(int u) {
 
 bool solveSat() {
   memset(idx, -1, sizeof idx);
-  ind = 1; top = -1;
+  z = 1; ncomp = 0;
   for(int i = 0; i < n; i++) dfs(i);
   for(int i = 0; i < n; i++) if(comp[i] == comp[i^1]) return false;
   return true;
