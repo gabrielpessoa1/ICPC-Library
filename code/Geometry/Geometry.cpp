@@ -24,7 +24,7 @@ double cross(PT p, PT q) { return p.x * q.y - p.y * q.x; }
 // Rotaciona o ponto CCW ou CW ao redor da origem
 PT rotateCCW90(PT p) { return PT(-p.y, p.x); }
 PT rotateCW90(PT p) { return PT(p.y, -p.x); }
-PT rotateCCW(PT p, double d) {
+PT rotateCCW(PT p, double t) {
     return PT(p.x * cos(t) - p.y * sin(t), p.x * sin(t) + p.y * cos(t));
 }
 
