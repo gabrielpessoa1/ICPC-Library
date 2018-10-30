@@ -24,6 +24,7 @@ outra forma: Cn = (2n escolhe n)/(n+1)
 Bertrand's ballot theorem: p votos tipo A e q votos tipo B com p>q, prob de em todo ponto ter mais As do que Bs antes dele = (p-q)/(p+q)
 Se puder empates entao prob = (p+1-q)/(p+1), para achar quantidade de possibilidades nos dois casos basta multiplicar por (p + q escolhe q)
 
+Alguma formula de coeficientes binomiais: Somatorio de k = 0 -> m de (-1)^k * (n escolhe k) = (-1)^m* (n -1 escolhe m)
 Hockey-stick: Somatorio de i = r -> n de (i escolhe r) = (n + 1 escolhe r + 1)
 Vandermonde: (m+n escolhe r) = somatorio de k = 0 -> r de (m escolhe k) * (n escolhe r - k)
 
