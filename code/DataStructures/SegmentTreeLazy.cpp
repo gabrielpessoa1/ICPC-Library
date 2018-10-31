@@ -26,9 +26,9 @@ void propagate(int idx, int l, int r) {
 int query(int L, int R, int idx = 0, int l = 0, int r = n - 1) {
   int mid = (l+r)/2, left = 2 * idx + 1, right = 2 * idx + 2;
   propagate(idx, l, r);
-  if(R < l || L > r) return 0; // Valor que não atrapalhe
+  if(R < l || L > r) return 0; // Valor que nao atrapalhe
   if(L <= l && r <= R) return seg[idx];
-  return query(L, R, left, l, mid) + query(L, R, right, mid + 1, r); //merge
+  return query(L, R, left, l, mid) + query(L, R, right, mid + 1, r); // merge
 }
 
 void update(int V, int L, int R, int idx = 0, int l = 0, int r = n -1) {
@@ -36,7 +36,7 @@ void update(int V, int L, int R, int idx = 0, int l = 0, int r = n -1) {
   propagate(idx, l, r);
   if(l > R || r < L) return;
   if(L <= l && r <= R) {
-    lazy[idx] += V; // merge de lazy/ou só colocar
+    lazy[idx] += V; // merge de lazy/ou so colocar
     propagate(idx, l, r);
     return;
   }
