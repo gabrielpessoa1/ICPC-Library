@@ -23,7 +23,6 @@ DataStructures/SegmentTreeLazy.cpp	Segment Tree with Lazy Propagation
 DataStructures/SegmentTreePersistent.cpp	Persistent Segment Tree
 DataStructures/ColorUpdate.cpp	Color Updates Structure
 DataStructures/PolicyBased.cpp	Policy Based Structures
-DataStructures/HLD.cpp	Heavy Light Decomposition
 DataStructures/CentroidDecomposition.cpp	Centroid Decomposition
 DataStructures/SparseTable.cpp	Sparse Table
 DataStructures/LiChaoTree.cpp	Li Chao Tree
@@ -40,6 +39,7 @@ Graph/EulerPath.cpp	Euler Path and Circuit
 Graph/BiconnectedComponents.cpp	Articulation Points/Bridges/Biconnected Components
 Graph/SCC.cpp	SCC - Strongly Connected Components / 2SAT
 Graph/LCA.cpp	LCA - Lowest Common Ancestor
+Graph/HLD.cpp	Heavy Light Decomposition
 Graph/Sack.cpp	Sack
 Graph/MinCostMaxFlow.cpp	Min Cost Max Flow
 Graph/Hungarian.cpp	Hungarian Algorithm - Maximum Cost Matching
