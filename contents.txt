@@ -21,10 +21,11 @@ DataStructures/SegmentTreeIterativeReversed.cpp	Iterative Segment Tree with Inte
 DataStructures/SegmentTree.cpp	Recursive Segment Tree
 DataStructures/SegmentTreeLazy.cpp	Segment Tree with Lazy Propagation
 DataStructures/SegmentTreePersistent.cpp	Persistent Segment Tree
-DataStructures/ColorUpdate.cpp	Color Updates Structure
-DataStructures/PolicyBased.cpp	Policy Based Structures
-DataStructures/CentroidDecomposition.cpp	Centroid Decomposition
+DataStructures/Treap.cpp	Treap
 DataStructures/SparseTable.cpp	Sparse Table
+DataStructures/PolicyBased.cpp	Policy Based Structures
+DataStructures/ColorUpdate.cpp	Color Updates Structure
+DataStructures/CentroidDecomposition.cpp	Centroid Decomposition
 DataStructures/LiChaoTree.cpp	Li Chao Tree
 
 [Graph Algorithms]
