@@ -68,7 +68,8 @@ Geometry/JavaAWT.java	Java Geometry Library
 
 [Dynamic Programming]
 DP/CHT.cpp	Convex Hull Trick
-DP/DeQ.cpp	Divide and Conquer
+DP/DeQ.cpp	Divide and Conquer Optimization
+DP/Knuth.cpp	Knuth Optimization
 
 [Miscellaneous]
 Miscellaneous/LIS.cpp	LIS - Longest Increasing Subsequence
