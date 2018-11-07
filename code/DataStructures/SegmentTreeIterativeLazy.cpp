@@ -1,36 +1,36 @@
 struct LazyContext {
   int v;
 
-	LazyContext(int v = 0) : v(v) { }
-	
-	void reset() {
-		v = 0;
-	}
-	
-	void operator += (LazyContext o) {
-		v += o.v;
-	}
+  LazyContext(int v = 0) : v(v) { }
+  
+  void reset() {
+  v = 0;
+  }
+  
+  void operator += (LazyContext o) {
+  v += o.v;
+  }
 };
 
 struct Node {
   int sz, v;
 
-	Node() { // neutral element
+  Node() { // neutral element
         v = 0; sz = 0;
-	}
-	
-	Node(int i) { // init
+  }
+  
+  Node(int i) { // init
         v = i; sz = 1;
-	}
-	
-	Node(Node &l, Node &r) { // merge
+  }
+  
+  Node(Node &l, Node &r) { // merge
         sz = l.sz + r.sz;
         v = l.v + r.v;
-	}
-	
-	void apply(LazyContext lazy) {
-		v += lazy.v * sz;
-	}
+  }
+  
+  void apply(LazyContext lazy) {
+  v += lazy.v * sz;
+  }
 };
 
 Node tree[2*ms];
