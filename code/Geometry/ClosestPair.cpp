@@ -9,7 +9,7 @@ double closestPair(vector<PT> p) {
     }
     for(auto it = ptsInv.lower_bound(PT(p[i].y - d, p[i].x - d)); 
       it != ptsInv.end() && it->x <= p[i].y + d; it++) {
-      d = min(d, !(p[i] - swapCoord(*it)));
+      d = min(d, dist(p[i] - swapCoord(*it), PT(0, 0)));
     }
     ptsInv.insert(swapCoord(p[i]));
   }
