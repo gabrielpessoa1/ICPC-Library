@@ -2,3 +2,6 @@ Formula de Euler: V - E + F = 2
 Pick Theorem: Para achar pontos em coords inteiras num poligono Area = i + b/2 - 1 onde i eh o o numero de pontos dentro do poligono e b de pontos no perimetro do poligono
 Two ears theorem: Todo poligono simples com mais de 3 vertices tem pelo menos 2 orelhas, vertices que podem ser removidos sem criar um crossing, remover orelhas repetidamente triangula o poligono
 Incentro triangulo:  (a(Xa, Ya) + b(Xb, Yb) + c(Xc, Yc))/(a+b+c) onde a = lado oposto ao vertice a, incentro eh onde cruzam as bissetrizes, eh o centro da circunferencia inscrita e eh equidistante aos lados
+
+Delaunay Triangulation: Triangulacao onde nenhum ponto esta dentro de nenhum circulo circunscrito nos triangulos
+Eh uma triangulacao que maximiza o menor angulo e a MST euclidiana de um conjunto de pontos eh um subconjunto da triangulacao
