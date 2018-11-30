@@ -49,6 +49,7 @@ Graph/Hungarian.cpp	Hungarian Algorithm - Maximum Cost Matching
 [Math]
 Math/DiscreteLog.cpp	Discrete Logarithm
 Math/GCD.cpp	GCD - Greatest Common Divisor
+Math/Sieve.cpp	Sieve of Eratosthenes
 Math/ExtendedEuclides.cpp	Extended Euclides
 Math/FastExp.cpp	Fast Exponentiation
 Math/MatrixFastExp.cpp	Matrix Fast Exponentiation
