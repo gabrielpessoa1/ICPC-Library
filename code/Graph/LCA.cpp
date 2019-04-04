@@ -1,20 +1,14 @@
 int par[ms][mlg+1], lvl[ms];
 vector<int> g[ms];
 
-void dfs(int v, int p, int l = 0) {
+void dfs(int v, int p, int l = 0) { // chamar como dfs(root, root)
   lvl[v] = l;
   par[v][0] = p;
+  for(int k = 1; k <= mlg; k++) {
+    par[v][k] = par[par[v][k-1]][k-1];
+  }
   for(int u : g[v]) {
     if(u != p) dfs(u, v, l + 1);
-  }
-}
-
-void processAncestors(int root = 0) {
-  dfs(root, root);
-  for(int k = 1; k <= mlg; k++) {
-    for(int i = 0; i < n; i++) {
-      par[i][k] = par[par[i][k-1]][k-1];
-    }
   }
 }
 
