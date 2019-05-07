@@ -1,6 +1,6 @@
 int bit[ms], n;
 
-void update(int v, int idx) {
+void update(int idx, int v) {
   while(idx <= n) {
     bit[idx] += v;
     idx += idx & -idx;
@@ -8,10 +8,10 @@ void update(int v, int idx) {
 }
 
 int query(int idx) {
-  int r = 0;
+  int ans = 0;
   while(idx > 0) {
-    r += bit[idx];
+    ans += bit[idx];
     idx -= idx & -idx;
   }
-  return r;
+  return ans;
 }
