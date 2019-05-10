@@ -5,21 +5,22 @@
 # tab character:	
 
 [String Algorithms]
-String/StringAlignment.cpp	String Alignment
+#String/StringAlignment.cpp	String Alignment
 String/KMP.cpp	KMP
+String/kmp_automaton.cpp	KMP Automaton
 String/Trie.cpp	Trie
 String/Aho-Corasick.cpp	Aho-Corasick
 String/ZAlgorithm.cpp	Algoritmo de Z
 String/SuffixArray.cpp	Suffix Array
 
 [Data Structures]
-DataStructures/BIT.cpp	BIT - Binary Indexed Tree
-DataStructures/BIT2D.cpp	BIT 2D
+#DataStructures/BIT.cpp	BIT - Binary Indexed Tree
+#DataStructures/BIT2D.cpp	BIT 2D
 DataStructures/CompressedBIT2D.cpp	BIT 2D Comprimida
 DataStructures/SegmentTreeIterative.cpp	Iterative Segment Tree
-DataStructures/SegmentTreeIterativeReversed.cpp	Iterative Segment Tree with Interval Updates
+#DataStructures/SegmentTreeIterativeReversed.cpp	Iterative Segment Tree with Interval Updates
 DataStructures/SegmentTreeIterativeLazy.cpp	Iterative Segment Tree with Lazy Propagation
-DataStructures/SegmentTree.cpp	Recursive Segment Tree
+#DataStructures/SegmentTree.cpp	Recursive Segment Tree
 DataStructures/SegmentTreeLazy.cpp	Segment Tree with Lazy Propagation
 DataStructures/SegmentTreePersistent.cpp	Persistent Segment Tree
 DataStructures/Treap.cpp	Treap
@@ -48,10 +49,10 @@ Graph/Hungarian.cpp	Hungarian Algorithm - Maximum Cost Matching
 
 [Math]
 Math/DiscreteLog.cpp	Discrete Logarithm
-Math/GCD.cpp	GCD - Greatest Common Divisor
-Math/Sieve.cpp	Sieve of Eratosthenes
+#Math/GCD.cpp	GCD - Greatest Common Divisor
+#Math/Sieve.cpp	Sieve of Eratosthenes
 Math/ExtendedEuclides.cpp	Extended Euclides
-Math/FastExp.cpp	Fast Exponentiation
+#Math/FastExp.cpp	Fast Exponentiation
 Math/MatrixFastExp.cpp	Matrix Fast Exponentiation
 Math/FFT.cpp	FFT - Fast Fourier Transform
 Math/NTT.cpp	NTT - Number Theoretic Transform
@@ -62,7 +63,7 @@ Math/DetMod.cpp	Determinant using Mod
 Geometry/Geometry.cpp	Geometry
 Geometry/ConvexHull.cpp	Convex Hull
 Geometry/ClosestPair.cpp	Closest Pair
-Geometry/IntersectionPoints.cpp	Intersection Points
+#Geometry/IntersectionPoints.cpp	Intersection Points
 #Geometry/MaxSegOverlap.cpp	Maximum Segments Overlap (Sweep Line)
 Geometry/Delaunay.cpp	Delaunay Triangulation
 Geometry/JavaAWT.java	Java Geometry Library
