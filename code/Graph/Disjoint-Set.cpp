@@ -3,6 +3,7 @@ int ds[ms], sz[ms], n;
 void dsBuild() {
   for(int i = 0; i < n; i++) {
     ds[i] = i;
+    sz[i] = 1;
   }
 }
 
