@@ -12,6 +12,7 @@ int dsFind(int i) {
     ds[i] = ds[ds[i]];
     i = ds[i];
   }
+  return ds[i];
 }
 
 void dsUnion(int a, int b) {
