@@ -51,7 +51,7 @@ double distancePointSegment(PT a, PT b, PT c) {
 bool ptInSegment(PT a, PT b, PT c) {
   bool x = min(a.x, b.x) <= c.x && c.x <= max(a.x, b.x);
   bool y = min(a.y, b.y) <= c.y && c.y <= max(a.y, b.y);
-  return x && y && (cross((b-a),(c-a)) == 0); // testar com eps se for double
+  return x && y && cross(b-a, c-a) == 0; // testar com eps se for double
 }
 
 // Calcula distancia entre o ponto (x, y, z) e o plano ax + by + cz = d
