@@ -10,6 +10,6 @@ vector<PT> convexHull(vector<PT> p)) {
     while(k >= t && cross(h[k - 1] - h[k - 2], p[i] - h[k - 2]) <= 0) k--;
     h[k++] = p[i];
   }
-  h.resize(k);
+  h.resize(k); // n+1 points where the first is equal to the last
   return h;
 }
