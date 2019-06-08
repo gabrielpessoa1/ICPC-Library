@@ -65,6 +65,7 @@ Geometry/ConvexHull.cpp	Convex Hull
 Geometry/ClosestPair.cpp	Closest Pair
 #Geometry/IntersectionPoints.cpp	Intersection Points
 #Geometry/MaxSegOverlap.cpp	Maximum Segments Overlap (Sweep Line)
+Geometry/Halfplaneintersection.cpp	Half Plane Intersection
 Geometry/Delaunay.cpp	Delaunay Triangulation
 Geometry/JavaAWT.java	Java Geometry Library
 
@@ -79,6 +80,7 @@ Miscellaneous/LIS.cpp	LIS - Longest Increasing Subsequence
 Miscellaneous/TernarySearch.cpp	Ternary Search
 Miscellaneous/Random.cpp	Random Number Generator
 Miscellaneous/SubmaskEnumeration.cpp	Submask Enumeration
+Miscellaneous/SosDP.cpp	Sum over Subsets DP
 Miscellaneous/FastIO.java	Java Fast I/O
 
 [Teoremas e formulas uteis]
