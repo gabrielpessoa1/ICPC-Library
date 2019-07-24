@@ -50,12 +50,12 @@ void reverse (pitem t, int l, int r) {
 	merge (t, t, t3);
 }
 
-pitem unite (pitem l, pitem r) {
+void unite (pitem & t, pitem l, pitem r) {
 	if (!l || !r) return l ? l : r;
 	if (l->prior < r->prior)  swap (l, r);
 	pitem lt, rt;
 	split (r, lt, rt, l->key);
-	l->l = unite (l->l, lt);
-	l->r = unite (l->r, rt);
+	unite (l->l, l->l, lt);
+	unite (l-> r, l->r, rt);
 	return l;
 }
