@@ -47,11 +47,11 @@ int queryUp(int a, int p = 0){
     ans +=  query(in[nxt[a]], in[a]);
     a = par[nxt[a]];
   }
-  ans += query(in[p], in[a]);
+  ans += query(in[p] + 1, in[a]);
   return ans;
 }
 
 int queryPath(int u, int v) {
   int lca = getLCA(u, v);
-  return queryUp(u, lca) + queryUp(v, lca) - queryUp(lca, lca);
+  return queryUp(u, lca) + queryUp(v, lca) + queryUp(lca, lca);
 }
