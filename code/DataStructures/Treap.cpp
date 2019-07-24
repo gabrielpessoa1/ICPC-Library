@@ -1,6 +1,6 @@
 typedef struct item * pitem;
 struct item {
-	int prior, value, cnt;
+	int prior, value, cnt; 
 	bool rev;
 	pitem l, r;
 };
@@ -33,7 +33,7 @@ void merge (pitem & t, pitem l, pitem r) {
 void split (pitem t, pitem & l, pitem & r, int key) {
 	if (!t) return void( l = r = 0 );
 	push (t);
-	int cur_key = cnt(t->l);
+	int cur_key = cnt(t->l); // t->key if not implicit
 	if (key <= cur_key)
 		split (t->l, l, t->l, key),  r = t;
 	else
@@ -54,7 +54,7 @@ pitem unite (pitem l, pitem r) {
 	if (!l || !r) return l ? l : r;
 	if (l->prior < r->prior)  swap (l, r);
 	pitem lt, rt;
-	split (r, l->key, lt, rt);
+	split (r, lt, rt, l->key);
 	l->l = unite (l->l, lt);
 	l->r = unite (l->r, rt);
 	return l;
