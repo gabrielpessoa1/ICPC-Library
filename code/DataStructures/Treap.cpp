@@ -51,11 +51,11 @@ void reverse (pitem t, int l, int r) {
 }
 
 void unite (pitem & t, pitem l, pitem r) {
-	if (!l || !r) return l ? l : r;
+	if (!l || !r) return void ( t = l ? l : r );
 	if (l->prior < r->prior)  swap (l, r);
 	pitem lt, rt;
 	split (r, lt, rt, l->key);
 	unite (l->l, l->l, lt);
 	unite (l-> r, l->r, rt);
-	return l;
+	t = l;
 }
