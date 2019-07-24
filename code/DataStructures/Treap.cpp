@@ -1,6 +1,6 @@
 typedef struct item * pitem;
 struct item {
-	int prior, value, cnt; 
+	int prior, value, cnt;
 	bool rev;
 	pitem l, r;
 };
