@@ -45,6 +45,6 @@ void update(int L, int R, int V, int idx = 0, int l = 0, int r = n-1) {
     }
     return;
   }
-  update(V, L, R, 2*idx+1, l, mid); update(V, L, R, 2*idx+2, mid+1, r);
+  update(L, R, V, 2*idx+1, l, mid); update(L, R, V, 2*idx+2, mid+1, r);
   seg[idx] = seg[2*idx+1] + seg[2*idx+2]; // Merge
 }
