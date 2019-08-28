@@ -1,16 +1,5 @@
 int arr[ms],  seg[4 * ms], lazy[4 * ms], n;
 
-void propagate(int idx, int l, int r) 
-  if(lazy[idx]) {
-    seg[idx] += lazy[idx] * (r - l + 1); // Aplicar lazy no seg
-    if(l < r) {
-      lazy[2*idx+1] += lazy[idx];  // Merge de lazy
-      lazy[2*idx+2] += lazy[idx];  // Merge de lazy
-    }
-    lazy[idx] = 0; // Limpar a lazy
-  }
-}
-
 void build(int idx = 0, int l = 0, int r = n-1) {
   int mid = (l+r)/2;
   lazy[idx] = 0;
@@ -20,6 +9,17 @@ void build(int idx = 0, int l = 0, int r = n-1) {
   }
   build(2*idx+1, l, mid); build(2*idx+2, mid+1, r);
   seg[idx] = seg[2*idx+1] + seg[2*idx+2]; // Merge
+}
+
+void propagate(int idx, int l, int r) 
+  if(lazy[idx]) {
+    seg[idx] += lazy[idx] * (r - l + 1); // Aplicar lazy no seg
+    if(l < r) {
+      lazy[2*idx+1] += lazy[idx];  // Merge de lazy
+      lazy[2*idx+2] += lazy[idx];  // Merge de lazy
+    }
+    lazy[idx] = 0; // Limpar a lazy
+  }
 }
 
 int query(int L, int R, int idx = 0, int l = 0, int r = n-1) {
