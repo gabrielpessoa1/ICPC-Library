@@ -1,4 +1,4 @@
-int arr[4 * ms],  seg[4 * ms], lazy[4 * ms], n;
+int arr[ms],  seg[4 * ms], lazy[4 * ms], n;
 
 void propagate(int idx, int l, int r) 
   if(lazy[idx]) {
