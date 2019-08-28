@@ -38,8 +38,11 @@ void update(int L, int R, int V, int idx = 0, int l = 0, int r = n-1) {
   }
   if(l > R || r < L) return;
   if(L <= l && r <= R) {
-    lazy[idx] += V; // Merge de lazy/ou so colocar
-    propagate(idx, l, r);
+    seg[idx] += V * (r - l + 1); // Aplicar V no seg
+    if(l < r) {
+      lazy[2*idx+1] += V;  // Merge de lazy
+      lazy[2*idx+2] += V;  // Merge de lazy
+    }
     return;
   }
   update(V, L, R, 2*idx+1, l, mid); update(V, L, R, 2*idx+2, mid+1, r);
