@@ -1,6 +1,6 @@
 int arr[4 * ms],  seg[4 * ms], lazy[4 * ms], n;
 
-void build(int idx = 0, int l = 0, int r = n - 1) {
+void build(int idx = 0, int l = 0, int r = n-1) {
   int mid = (l+r)/2, left = 2 * idx + 1, right = 2 * idx + 2;
   lazy[idx] = 0;
   if(l == r) {
@@ -12,7 +12,7 @@ void build(int idx = 0, int l = 0, int r = n - 1) {
 }
 
 void propagate(int idx, int l, int r) {
-  int mid = (l+r)/2, left = 2 * idx + 1, right = 2 * idx + 2;
+  int mid = (l+r)/2;
   if(lazy[idx]) {
     seg[idx] += lazy[idx] * (r - l + 1); // Aplicar lazy no seg
     if(l < r) {
@@ -23,16 +23,16 @@ void propagate(int idx, int l, int r) {
   }  
 }
 
-int query(int L, int R, int idx = 0, int l = 0, int r = n - 1) {
-  int mid = (l+r)/2, left = 2 * idx + 1, right = 2 * idx + 2;
+int query(int L, int R, int idx = 0, int l = 0, int r = n-1) {
+  int mid = (l+r)/2;
   propagate(idx, l, r);
   if(R < l || L > r) return 0; // Valor que nao atrapalhe
   if(L <= l && r <= R) return seg[idx];
-  return query(L, R, left, l, mid) + query(L, R, right, mid + 1, r); // Merge
+  return query(L, R, 2*idx+1, l, mid) + query(L, R, 2*idx+2, mid+1, r); // Merge
 }
 
-void update(int V, int L, int R, int idx = 0, int l = 0, int r = n -1) {
-  int mid = (l+r)/2, left = 2 * idx + 1, right = 2 * idx + 2;
+void update(int L, int R, int V, int idx = 0, int l = 0, int r = n-1) {
+  int mid = (l+r)/2;
   propagate(idx, l, r);
   if(l > R || r < L) return;
   if(L <= l && r <= R) {
@@ -40,6 +40,6 @@ void update(int V, int L, int R, int idx = 0, int l = 0, int r = n -1) {
     propagate(idx, l, r);
     return;
   }
-  update(V, L, R, left, l, mid); update(V, L, R, right, mid + 1, r);
-  seg[idx] = seg[left] + seg[right]; // Merge
+  update(V, L, R, 2*idx+1, l, mid); update(V, L, R, 2*idx+2, mid+1, r);
+  seg[idx] = seg[2*idx+1] + seg[2*idx+2]; // Merge
 }
