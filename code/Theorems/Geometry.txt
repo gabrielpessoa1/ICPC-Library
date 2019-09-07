@@ -5,3 +5,8 @@ Incentro triangulo:  (a(Xa, Ya) + b(Xb, Yb) + c(Xc, Yc))/(a+b+c) onde a = lado o
 
 Delaunay Triangulation: Triangulacao onde nenhum ponto esta dentro de nenhum circulo circunscrito nos triangulos
 Eh uma triangulacao que maximiza o menor angulo e a MST euclidiana de um conjunto de pontos eh um subconjunto da triangulacao
+
+Brahmagupta’s formula: Area cyclic quadrilateral
+s = (a+b+c+d)/2
+area = sqrt((s-a)*(s-b)*(s-c)*(s-d))
+d = 0 => area = sqrt((s-a)*(s-b)*(s-c)*s)
