@@ -1,4 +1,4 @@
-// src: tfg50
+// src tfg50
 template<class T = int>
 struct Bit2D {
 public:
