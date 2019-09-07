@@ -1,57 +1,91 @@
-// HLD + Euler Tour by adamant
+// src: tfg
+class HLD {
+public:
+	void init(int n) {
+		// this doesn't delete edges!
+		sz.resize(n);
+		in.resize(n);
+		out.resize(n);
+		rin.resize(n);
+		p.resize(n);
+		edges.resize(n);
+		nxt.resize(n);
+		h.resize(n);
+	}
 
-int sz[ms], par[ms], h[ms];
-int t, in[ms], out[ms], rin[ms], nxt[ms];
+	void addEdge(int u, int v) {
+		edges[u].push_back(v);
+		edges[v].push_back(u);
+	}
 
-void dfs_sz(int v = 0, int p = -1){
-  sz[v] = 1;
-  for(int i = 0; i < g[v].size(); i++){
-    int &u = g[v][i];
-    if(u == p) continue;
-    h[u] = h[v]+1, par[u] = v;
-    dfs_sz(u, v);
-    sz[v] += sz[u];
-    if(g[v][0] == p || sz[u] > sz[g[v][0]]){
-      swap(u, g[v][0]);
-    }
-  }
-}
+	void setRoot(int n) {
+		t = 0;
+		p[n] = n;
+		h[n] = 0;
+		prep(n, n);
+		nxt[n] = n;
+		hld(n);
+	}
 
-void dfs_hld(int v = 0, int p = -1){
-  in[v] = t++;
-  rin[in[v]] = v;
-  for(int i = 0; i < g[v].size(); i++){
-    int &u = g[v][i];
-    if(u == p) continue;
-    nxt[u] = u == g[v][0] ? nxt[v] : u;
-    dfs_hld(u, v);
-  }
-  out[v] = t;
-}
+	int getLCA(int u, int v) {
+		while(!inSubtree(nxt[u], v)) {
+			u = p[nxt[u]];
+		}
+		while(!inSubtree(nxt[v], u)) {
+			v = p[nxt[v]];
+		}
+		return in[u] < in[v] ? u : v;
+	}
 
-int up(int v){
-  return (nxt[v] != v) ? nxt[v] : (~par[v] ? par[v] : v); 
-}
+	bool inSubtree(int u, int v) {
+		// is v in the subtree of u?
+		return in[u] <= in[v] && in[v] < out[u];
+	}
 
-int getLCA(int a, int b){
-  while(nxt[a] != nxt[b]){
-    if(h[a] == 0 || h[up(a)] < h[up(b)]) swap(a, b);
-    a = up(a);
-  }
-  return h[a] < h[b] ? a : b;
-}
+	vector<pair<int, int>> getPathtoAncestor(int u, int anc) {
+		// returns ranges [l, r) that the path has
+		vector<pair<int, int>> ans;
+		//assert(inSubtree(anc, u));
+		while(nxt[u] != nxt[anc]) {
+			ans.emplace_back(in[nxt[u]], in[u] + 1);
+			u = p[nxt[u]];
+		}
+		// this includes the ancestor!
+		ans.emplace_back(in[anc], in[u] + 1);
+		return ans;
+	}
+private:
+	vector<int> in, out, p, rin, sz, nxt, h;
+	vector<vector<int>> edges;
+	int t;
 
-int queryUp(int a, int p = 0){
-  int ans = 0;
-  while(nxt[a] != nxt[p]){
-    ans +=  query(in[nxt[a]], in[a]);
-    a = par[nxt[a]];
-  }
-  ans += query(in[p] + 1, in[a]);
-  return ans;
-}
+	void prep(int on, int par) {
+		sz[on] = 1;
+		p[on] = par;
+		for(int i = 0; i < (int) edges[on].size(); i++) {
+			int &u = edges[on][i];
+			if(u == par) {
+				swap(u, edges[on].back());
+				edges[on].pop_back();
+				i--;
+			} else {
+				h[u] = 1 + h[on];
+				prep(u, on);
+				sz[on] += sz[u];
+				if(sz[u] > sz[edges[on][0]]) {
+					swap(edges[on][0], u);
+				}
+			}
+		}
+	}
 
-int queryPath(int u, int v) {
-  int lca = getLCA(u, v);
-  return queryUp(u, lca) + queryUp(v, lca) + queryUp(lca, lca);
-}
+	void hld(int on) {
+		in[on] = t++;
+		rin[in[on]] = on;
+		for(auto u : edges[on]) {
+			nxt[u] = (u == edges[on][0] ? nxt[on] : u);
+			hld(u);
+		}
+		out[on] = t;
+	}
+};
