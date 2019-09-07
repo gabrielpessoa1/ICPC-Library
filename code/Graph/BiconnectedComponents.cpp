@@ -1,46 +1,64 @@
-const int ms = 1e3; // Quantidade maxima de vertices
-const int me = 1e5; // Quantidade maxima de arestas
+int adj[ms], to[me], ant[me], z;
+int num[ms], low[ms], timer;
+int art[ms], bridge[me], rch;
+int bc[ms], nbc;
+stack<int> st;
+bool f[me];
 
-int adj[ms], to[me], ant[me], z, n;
-int idx[ms], bc[me], ind, nbc, child, st[me], top;
-
-// Funcao de add e clear no dinic
-
-void generateBc(int edge) {
-  while(st[--top] != edge) {
-    bc[st[top]] = nbc;
-  }
-  bc[edge] = nbc++;
+void clear() { // Lembrar de chamar no main
+  memset(adj, -1, sizeof adj);
+  z = 0;
 }
 
-int dfs(int v, int par = -1) {
-  int low = idx[v] = ind++;
-  for(int i = adj[v]; i > -1; i = ant[i]) {
-    if(idx[to[i]] == -1) {
-      if(par == -1) child++;
-      st[top++] = i;
-      int temp = dfs(to[i], v);
-      if(par == -1 && child > 1 || ~par && temp >= idx[v]) generateBc(i);
-      if(temp >= idx[v]) art[v] = true;
-      if(temp > idx[v]) bridge[i] = true;
-      low = min(low, temp);
-    } else if(to[i] != par && idx[to[i]] < low) {
-      low = idx[to[i]];
-      st[top++] = i;
+
+void add(int u, int v) {
+  to[z] = v;
+  ant[z] = adj[u];
+  adj[u] = z++;
+}
+
+void generateBc (int v) {
+  while (!st.empty()) {
+    int u = st.top();
+    st.pop();
+    bc[u] = nbc;
+    if (v == u) break;
+  }
+  ++nbc;
+}
+
+void dfs (int v, int p) {
+  st.push(v);
+  low[v] = num[v] = ++timer;
+  for (int i = adj[v]; i != -1; i = ant[i]) {
+    if (f[i] || f[i^1]) continue;
+    f[i] = 1;
+    int u = to[i];
+    if (num[u] == -1) {
+      dfs(u, v);
+      if (low[u] > num[v]) bridge[i] = bridge[i^1] = 1;
+      art[v] |= p != -1 && low[u] >= num[v];
+      if (p == -1 && rch > 1) art[v] = 1;
+      else rch ++;
+      low[v] = min(low[v], low[u]);
+    } else {
+      low[v] = min(low[v], num[u]);
     }
   }
-  return low;
+  if (low[v] == num[v]) generateBc(v);
 }
 
-void biconnected() {
-  ind = 0;
-  nbc = 0;
-  top = -1;
-  memset(idx, -1, sizeof idx);
-  memset(art, 0, sizeof art);
+void biCon (int n) {
+  nbc = 0, timer = 0;
+  memset(num, -1, sizeof num);
+  memset(bc, -1, sizeof bc);
   memset(bridge, 0, sizeof bridge);
-  for(int i = 0; i < n; i++) if(idx[i] == -1) {
-    child = 0;
-    dfs(i);
+  memset(art, 0, sizeof art);
+  memset(f, 0, sizeof f);
+  for (int i = 0; i < n; i++) {
+    if (num[i] == -1) {
+      rch = 0;
+      dfs(i, 0);
+    }
   }
 }
