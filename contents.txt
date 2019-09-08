@@ -44,7 +44,7 @@ Graph/Sack.cpp	Sack
 Graph/Hungarian.cpp	Hungarian Algorithm - Maximum Cost Matching
 
 [Dynamic Programming]
-DP/DynamicHull.cpp	Dynamic Hull
+#DP/DynamicHull.cpp	Dynamic Hull
 DP/LineContainer.cpp	Line Container
 DP/LiChaoTree.cpp	Li Chao Tree
 DP/DeQ.cpp	Divide and Conquer Optimization
