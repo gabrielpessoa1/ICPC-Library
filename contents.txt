@@ -102,6 +102,7 @@ Miscellaneous/SosDP.cpp	Sum over Subsets DP
 Miscellaneous/FastIO.java	Java Fast I/O
 Miscellaneous/Dates.cpp	Dates
 Miscellaneous/Regex.java	Regular Expressions
+Miscellaneous/LatLong.cpp	Lat Long
 
 [Teoremas e formulas uteis]
 Theorems/Graph.txt	Grafos
