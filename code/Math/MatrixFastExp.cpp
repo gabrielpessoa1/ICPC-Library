@@ -14,7 +14,7 @@ struct Matrix {
 };
 
 Matrix fExp(Matrix a, ll b) {
-  Matrix ans;	
+  Matrix ans;
   for(int i = 0; i < m; i++) for(int j = 0; j < m; j++)
     ans.mat[i][j] = i == j;
   while(b) {

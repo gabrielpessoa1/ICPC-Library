@@ -11,7 +11,7 @@ ll det (int n) {
   }
   ll res = 1;
   for (int i = 0; i < n; i++) {
-    if (!mat[i][i])	{
+    if (!mat[i][i]) {
       bool flag = false;
       for (int j = i + 1; j < n; j++) {
         if (mat[j][i]) {

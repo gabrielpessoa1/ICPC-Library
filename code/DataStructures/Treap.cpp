@@ -58,12 +58,12 @@ void split (pitem t, pitem & l, pitem & r, int key) {
 }
 
 void reverse (pitem t, int l, int r) {
-	pitem t1, t2, t3;
-	split (t, t1, t2, l);
-	split (t2, t2, t3, r-l+1);
-	t2->rev ^= true;
-	merge (t, t1, t2);
-	merge (t, t, t3);
+  pitem t1, t2, t3;
+  split (t, t1, t2, l);
+  split (t2, t2, t3, r-l+1);
+  t2->rev ^= true;
+  merge (t, t1, t2);
+  merge (t, t, t3);
 }
 
 void unite (pitem & t, pitem l, pitem r) {

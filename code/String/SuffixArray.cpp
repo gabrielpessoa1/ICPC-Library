@@ -50,7 +50,7 @@ namespace SA {
       if (pos[i] + 1 == n) {
         k = 0;
         continue;
-      }	
+      }
       int j = sa[pos[i] + 1];
       while(i + k < n && j + k < n && s[i + k] == s[j + k]) k++;
       lcp[pos[i]] = k;
@@ -74,8 +74,8 @@ vector<int> suffix_array(const string& in) {
     /*Start*/
     for (int h = 1; h < n && c < n; h <<= 1) {// executes log n times
         for (int i = 0; i < n; i++) pos2bckt[out[i]] = bckt[i];
-	for (int i = n - 1; i >= 0; i--) bpos[bckt[i]] = i;
-	for (int i = 0; i < n; i++)
+  for (int i = n - 1; i >= 0; i--) bpos[bckt[i]] = i;
+  for (int i = 0; i < n; i++)
             if (out[i] >= n - h) temp[bpos[bckt[i]]++] = out[i];
         for (int i = 0; i < n; i++)
             if (out[i] >= h) temp[bpos[pos2bckt[out[i] - h]]++] = out[i] - h;

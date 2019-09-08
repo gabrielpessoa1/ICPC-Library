@@ -15,8 +15,8 @@ private:
   vector<Edge> edges;
   vector<cost_t> dis;
   vector<int> prev, id_prev;
-	vector<int> q;
-	vector<bool> inq;
+  vector<int> q;
+  vector<bool> inq;
   
   pair<flow_t, cost_t> spfa(int src, int sink) {
     fill(dis.begin(), dis.end(), int(1e9)); //cost_t inf
@@ -27,21 +27,21 @@ private:
     inq[src] = true;
     dis[src] = 0;
     for(int on = 0; on < (int) q.size(); on++) {
-    	int cur = q[on];
-    	inq[cur] = false;
-    	for(auto id : adj[cur]) {
-    		if (edges[id].cap == 0) continue;
-    		int to = edges[id].to;
-    		if (dis[to] > dis[cur] + edges[id].cost) {
-    			prev[to] = cur;
-    			id_prev[to] = id;
-    			dis[to] = dis[cur] + edges[id].cost;
-    			if (!inq[to]) {
-    				q.push_back(to);
-    				inq[to] = true;	
-    			}
-    		}
-    	}
+      int cur = q[on];
+      inq[cur] = false;
+      for(auto id : adj[cur]) {
+        if (edges[id].cap == 0) continue;
+        int to = edges[id].to;
+        if (dis[to] > dis[cur] + edges[id].cost) {
+          prev[to] = cur;
+          id_prev[to] = id;
+          dis[to] = dis[cur] + edges[id].cost;
+          if (!inq[to]) {
+            q.push_back(to);
+            inq[to] = true;  
+          }
+        }
+      }
     }
     flow_t mn = flow_t(1e9);
     for(int cur = sink; prev[cur] != -1; cur = prev[cur]) {
@@ -79,9 +79,9 @@ public:
   }
   void add(int from, int to, flow_t cap, cost_t cost) {
     adj[from].push_back(int(edges.size()));
-		edges.push_back(Edge(to, cap, cost));
-		adj[to].push_back(int(edges.size()));
-		edges.push_back(Edge(from, 0, -cost));
+    edges.push_back(Edge(to, cap, cost));
+    adj[to].push_back(int(edges.size()));
+    edges.push_back(Edge(from, 0, -cost));
   }
   pair<flow_t, cost_t> maxflow(int src, int sink) {
     pair<flow_t, cost_t> ans(0, 0), got;

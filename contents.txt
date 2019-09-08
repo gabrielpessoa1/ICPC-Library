@@ -22,26 +22,6 @@ DataStructures/MaxQueue.cpp	Max Queue
 DataStructures/PolicyBased.cpp	Policy Based Structures
 DataStructures/ColorUpdate.cpp	Color Updates Structure
 
-[Dynamic Programming]
-DP/DynamicHull.cpp	Dynamic Hull
-DP/LineContainer.cpp	Line Container
-DP/LiChaoTree.cpp	Li Chao Tree
-DP/DeQ.cpp	Divide and Conquer Optimization
-DP/Knuth.cpp	Knuth Optimization
-
-[Geometry]
-Geometry/Geometry.cpp	Geometry
-Geometry/ConvexHull.cpp	Convex Hull
-Geometry/CutPolygon.cpp	Cut Polygon
-Geometry/SpanningCircle.cpp	Smallest Enclosing Circle
-Geometry/Minkowski.cpp	Minkowski
-Geometry/HalfPlaneIntersection.cpp	Half Plane Intersection
-Geometry/ClosestPair.cpp	Closest Pair
-#Geometry/IntersectionPoints.cpp	Intersection Points
-#Geometry/MaxSegOverlap.cpp	Maximum Segments Overlap (Sweep Line)
-Geometry/Delaunay.cpp	Delaunay Triangulation
-Geometry/JavaAWT.java	Java Geometry Library
-
 [Graph Algorithms]
 #Graph/DFS.cpp	DFS / Toposort
 #Graph/BFS.cpp	BFS / Shortest Path in a Unweighted Graph
@@ -63,6 +43,13 @@ Graph/CentroidDecomposition.cpp	Centroid Decomposition
 Graph/Sack.cpp	Sack
 Graph/Hungarian.cpp	Hungarian Algorithm - Maximum Cost Matching
 
+[Dynamic Programming]
+DP/DynamicHull.cpp	Dynamic Hull
+DP/LineContainer.cpp	Line Container
+DP/LiChaoTree.cpp	Li Chao Tree
+DP/DeQ.cpp	Divide and Conquer Optimization
+DP/Knuth.cpp	Knuth Optimization
+
 [Math]
 Math/CRT.cpp	Chinese Remainder Theorem
 Math/Diophantine.cpp	Diophantine Equations
@@ -80,6 +67,28 @@ Math/MillerAndRho.cpp	Miller and Rho
 Math/DetMod.cpp	Determinant using Mod
 Math/Lagrange.cpp	Lagrange Interpolation
 
+[Geometry]
+Geometry/Geometry.cpp	Geometry
+Geometry/ConvexHull.cpp	Convex Hull
+Geometry/CutPolygon.cpp	Cut Polygon
+Geometry/SpanningCircle.cpp	Smallest Enclosing Circle
+Geometry/Minkowski.cpp	Minkowski
+Geometry/HalfPlaneIntersection.cpp	Half Plane Intersection
+Geometry/ClosestPair.cpp	Closest Pair
+#Geometry/IntersectionPoints.cpp	Intersection Points
+#Geometry/MaxSegOverlap.cpp	Maximum Segments Overlap (Sweep Line)
+Geometry/Delaunay.cpp	Delaunay Triangulation
+Geometry/JavaAWT.java	Java Geometry Library
+
+[String Algorithms]
+#String/StringAlignment.cpp	String Alignment
+String/KMP.cpp	KMP
+String/KmpAutomaton.cpp	KMP Automaton
+String/Trie.cpp	Trie
+String/Aho-Corasick.cpp	Aho-Corasick
+String/ZAlgorithm.cpp	Algoritmo de Z
+String/SuffixArray.cpp	Suffix Array
+
 [Miscellaneous]
 Miscellaneous/LIS.cpp	LIS - Longest Increasing Subsequence
 #Miscellaneous/BinarySearch.cpp	Binary Search
@@ -92,15 +101,7 @@ Miscellaneous/SubmaskEnumeration.cpp	Submask Enumeration
 Miscellaneous/SosDP.cpp	Sum over Subsets DP
 Miscellaneous/FastIO.java	Java Fast I/O
 Miscellaneous/Dates.cpp	Dates
-
-[String Algorithms]
-#String/StringAlignment.cpp	String Alignment
-String/KMP.cpp	KMP
-String/KmpAutomaton.cpp	KMP Automaton
-String/Trie.cpp	Trie
-String/Aho-Corasick.cpp	Aho-Corasick
-String/ZAlgorithm.cpp	Algoritmo de Z
-String/SuffixArray.cpp	Suffix Array
+Miscellaneous/Regex.java	Regular Expressions
 
 [Teoremas e formulas uteis]
 Theorems/Graph.txt	Grafos
