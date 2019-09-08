@@ -91,6 +91,7 @@ Miscellaneous/UnorderedMapTricks.cpp	Unordered Map Tricks
 Miscellaneous/SubmaskEnumeration.cpp	Submask Enumeration
 Miscellaneous/SosDP.cpp	Sum over Subsets DP
 Miscellaneous/FastIO.java	Java Fast I/O
+Miscellaneous/Dates.cpp	Dates
 
 [String Algorithms]
 #String/StringAlignment.cpp	String Alignment
