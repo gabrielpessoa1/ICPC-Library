@@ -4,15 +4,6 @@
 #   [filename within code directory][tab character \t][subsection title]
 # tab character:	
 
-[String Algorithms]
-#String/StringAlignment.cpp	String Alignment
-String/KMP.cpp	KMP
-String/kmp_automaton.cpp	KMP Automaton
-String/Trie.cpp	Trie
-String/Aho-Corasick.cpp	Aho-Corasick
-String/ZAlgorithm.cpp	Algoritmo de Z
-String/SuffixArray.cpp	Suffix Array
-
 [Data Structures]
 #DataStructures/BIT.cpp	BIT - Binary Indexed Tree
 #DataStructures/BIT2D.cpp	BIT 2D
@@ -24,31 +15,60 @@ DataStructures/SegmentTreeIterativeLazy.cpp	Iterative Segment Tree with Lazy Pro
 DataStructures/SegmentTreeLazy.cpp	Segment Tree with Lazy Propagation
 DataStructures/SegmentTreePersistent.cpp	Persistent Segment Tree
 DataStructures/Treap.cpp	Treap
+DataStructures/PersistentTreap.cpp	Persistent Treap
+DataStructures/KDTree.cpp	KD-Tree
 DataStructures/SparseTable.cpp	Sparse Table
+DataStructures/MaxQueue.cpp	Max Queue
 DataStructures/PolicyBased.cpp	Policy Based Structures
 DataStructures/ColorUpdate.cpp	Color Updates Structure
-DataStructures/CentroidDecomposition.cpp	Centroid Decomposition
-DataStructures/LiChaoTree.cpp	Li Chao Tree
+
+[Dynamic Programming]
+DP/DynamicHull.cpp	Dynamic Hull
+DP/LineContainer.cpp	Line Container
+DP/LiChaoTree.cpp	Li Chao Tree
+DP/DeQ.cpp	Divide and Conquer Optimization
+DP/Knuth.cpp	Knuth Optimization
+
+[Geometry]
+Geometry/Geometry.cpp	Geometry
+Geometry/ConvexHull.cpp	Convex Hull
+Geometry/CutPolygon.cpp	Cut Polygon
+Geometry/SpanningCircle.cpp	Smallest Enclosing Circle
+Geometry/Minkowski.cpp	Minkowski
+Geometry/HalfPlaneIntersection.cpp	Half Plane Intersection
+Geometry/ClosestPair.cpp	Closest Pair
+#Geometry/IntersectionPoints.cpp	Intersection Points
+#Geometry/MaxSegOverlap.cpp	Maximum Segments Overlap (Sweep Line)
+Geometry/Delaunay.cpp	Delaunay Triangulation
+Geometry/JavaAWT.java	Java Geometry Library
 
 [Graph Algorithms]
 #Graph/DFS.cpp	DFS / Toposort
 #Graph/BFS.cpp	BFS / Shortest Path in a Unweighted Graph
 #Graph/Dijkstra.cpp	Dijkstra / Shortest Path in a Weighted Graph
-#Graph/Floyd-Warshall.cpp	Floyd-Warshall / Shortest path between all pairs
-#Graph/Disjoint-Set.cpp	Disjoint-Set / Union-Find
+#Graph/FloydWarshall.cpp	Floyd-Warshall / Shortest path between all pairs
+#Graph/DisjointSet.cpp	Disjoint-Set / Union-Find
 #Graph/Kruskal.cpp	Kruskal's MST - Minimum Spanning Tree
+Graph/SimpleDisjointSet.cpp	Simple Disjoint Set
+Graph/Boruvka.cpp	Boruvka
 Graph/Dinic.cpp	Dinic Max Flow
+Graph/VertexCover.cpp	Minimum Vertex Cover
+Graph/MinCostMaxFlow.cpp	Min Cost Max Flow
 Graph/EulerPath.cpp	Euler Path and Circuit
 Graph/BiconnectedComponents.cpp	Articulation Points/Bridges/Biconnected Components
 Graph/SCC.cpp	SCC - Strongly Connected Components / 2SAT
 Graph/LCA.cpp	LCA - Lowest Common Ancestor
 Graph/HLD.cpp	Heavy Light Decomposition
+Graph/CentroidDecomposition.cpp	Centroid Decomposition
 Graph/Sack.cpp	Sack
-Graph/MinCostMaxFlow.cpp	Min Cost Max Flow
 Graph/Hungarian.cpp	Hungarian Algorithm - Maximum Cost Matching
 
 [Math]
+Math/CRT.cpp	Chinese Remainder Theorem
+Math/Diophantine.cpp	Diophantine Equations
 Math/DiscreteLog.cpp	Discrete Logarithm
+Math/DiscreteRoot.cpp	Discrete Root
+Math/PrimitiveRoot.cpp	Primitive Root
 #Math/GCD.cpp	GCD - Greatest Common Divisor
 #Math/Sieve.cpp	Sieve of Eratosthenes
 Math/ExtendedEuclides.cpp	Extended Euclides
@@ -58,30 +78,28 @@ Math/FFT.cpp	FFT - Fast Fourier Transform
 Math/NTT.cpp	NTT - Number Theoretic Transform
 Math/MillerAndRho.cpp	Miller and Rho
 Math/DetMod.cpp	Determinant using Mod
-
-[Geometry]
-Geometry/Geometry.cpp	Geometry
-Geometry/ConvexHull.cpp	Convex Hull
-Geometry/ClosestPair.cpp	Closest Pair
-#Geometry/IntersectionPoints.cpp	Intersection Points
-#Geometry/MaxSegOverlap.cpp	Maximum Segments Overlap (Sweep Line)
-Geometry/Halfplaneintersection.cpp	Half Plane Intersection
-Geometry/Delaunay.cpp	Delaunay Triangulation
-Geometry/JavaAWT.java	Java Geometry Library
-
-[Dynamic Programming]
-DP/CHT.cpp	Convex Hull Trick
-DP/DeQ.cpp	Divide and Conquer Optimization
-DP/Knuth.cpp	Knuth Optimization
+Math/Lagrange.cpp	Lagrange Interpolation
 
 [Miscellaneous]
 Miscellaneous/LIS.cpp	LIS - Longest Increasing Subsequence
 #Miscellaneous/BinarySearch.cpp	Binary Search
 Miscellaneous/TernarySearch.cpp	Ternary Search
+Miscellaneous/CountSort.cpp	Count Sort
 Miscellaneous/Random.cpp	Random Number Generator
+Miscellaneous/Rect.cpp	Rectangle Hash
+Miscellaneous/UnorderedMapTricks.cpp	Unordered Map Tricks
 Miscellaneous/SubmaskEnumeration.cpp	Submask Enumeration
 Miscellaneous/SosDP.cpp	Sum over Subsets DP
 Miscellaneous/FastIO.java	Java Fast I/O
+
+[String Algorithms]
+#String/StringAlignment.cpp	String Alignment
+String/KMP.cpp	KMP
+String/KmpAutomaton.cpp	KMP Automaton
+String/Trie.cpp	Trie
+String/Aho-Corasick.cpp	Aho-Corasick
+String/ZAlgorithm.cpp	Algoritmo de Z
+String/SuffixArray.cpp	Suffix Array
 
 [Teoremas e formulas uteis]
 Theorems/Graph.txt	Grafos
