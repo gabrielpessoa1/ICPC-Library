@@ -13,7 +13,7 @@ DataStructures/SegmentTreeIterative.cpp	Iterative Segment Tree
 DataStructures/SegmentTreeIterativeLazy.cpp	Iterative Segment Tree with Lazy Propagation
 #DataStructures/SegmentTree.cpp	Recursive Segment Tree
 DataStructures/SegmentTreeLazy.cpp	Segment Tree with Lazy Propagation
-DataStructures/SegmentTreePersistent.cpp	Persistent Segment Tree
+#DataStructures/SegmentTreePersistent.cpp	Persistent Segment Tree
 DataStructures/Treap.cpp	Treap
 DataStructures/PersistentTreap.cpp	Persistent Treap
 DataStructures/KDTree.cpp	KD-Tree
