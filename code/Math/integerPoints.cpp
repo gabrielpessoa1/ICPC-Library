@@ -1,4 +1,4 @@
-//p and q have to be coprimes
+//gcd(p, q) == 1
 ll get(ll p, ll q, ll n, bool floor = true) {
   if (n == 0) {
       return 0;
