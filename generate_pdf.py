@@ -3,7 +3,7 @@
 
 import subprocess
 code_dir = "code"
-title = "The AC is a lie - ICPC Library"
+title = "Amigos do Beto - ICPC Library"
 
 def get_sections():
     sections = []

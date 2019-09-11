@@ -1,4 +1,4 @@
-The AC is a lie - ICPC Library
+Amigos do Beto - ICPC Library
 =================
 
 Biblioteca de algoritmos e estruturas de dados para programação competitiva, principalmente maratona de programação.
