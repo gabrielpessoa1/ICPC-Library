@@ -90,6 +90,7 @@ String/Aho-Corasick.cpp	Aho-Corasick
 String/ZAlgorithm.cpp	Algoritmo de Z
 String/SuffixArray.cpp	Suffix Array
 String/SuffixTree.cpp	Suffix Tree
+String/SuffixAutomaton.cpp	Suffix Automaton
 
 [Miscellaneous]
 Miscellaneous/LIS.cpp	LIS - Longest Increasing Subsequence
