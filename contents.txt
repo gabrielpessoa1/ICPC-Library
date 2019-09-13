@@ -66,6 +66,7 @@ Math/NTT.cpp	NTT - Number Theoretic Transform
 Math/MillerAndRho.cpp	Miller and Rho
 Math/DetMod.cpp	Determinant using Mod
 Math/Lagrange.cpp	Lagrange Interpolation
+Math/IntegerPoints.cpp	Count integer points inside triangle
 
 [Geometry]
 Geometry/Geometry.cpp	Geometry
@@ -88,6 +89,7 @@ String/Trie.cpp	Trie
 String/Aho-Corasick.cpp	Aho-Corasick
 String/ZAlgorithm.cpp	Algoritmo de Z
 String/SuffixArray.cpp	Suffix Array
+String/SuffixTree.cpp	Suffix Tree
 
 [Miscellaneous]
 Miscellaneous/LIS.cpp	LIS - Longest Increasing Subsequence
