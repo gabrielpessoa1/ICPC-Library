@@ -1,26 +1,24 @@
 // Usa a estrutura de Disjoint-Set acima
 
-typedef pair<int, int> ii;
-typedef pair<int, ii> iii;
+struct Edge{
+	int u, v, cost;
+	bool operator < (Edge b) {
+		return cost < b.cost;
+	}
+};
 
-iii e[me], mst[me];
-int z, mstLen;
-
-void add(int u, int v, int w) {
-  e[z++] = iii(w, ii(u, v));
-}
-
-int kruskal() {
-  int ans = 0;
-  dsBuild();
-  sort(e, e + z);
-  for(int i = 0; i < n; i++) {
-    int u = e[i].second.first, v = e[i].second.second, w = e[i].first;
-    if(dsFind(u) != dsFind(v)) {
-      dsUnion(u, v);
-      ans += w;
-      mst[mstLen++] = e[i];
-    }
-  }
-  return ans;
+void Kruskal() {
+	vector<Edge> edge(m);
+	for (int i = 0; i < m; i++) {
+		cin >> edge[i].u >> edge[i].v >> edge[i].cost;
+	}
+	sort(edge.begin(), edge.end());
+	long long total = 0;
+	for (int i = 0; i < m; i++) {
+		if (find(edge[i].u) != find(edge[i].v)) {
+			merge(edge[i].u, edge[i].v);
+			mst.push_back(edge[i]);
+      total += edge[i].cost;
+		}
+	}
 }
