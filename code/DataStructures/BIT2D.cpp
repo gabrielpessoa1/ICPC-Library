@@ -2,9 +2,10 @@ int bit[ms][ms], n, m;
 
 void update(int v, int x, int y) {
   while(x <= n) {
-    while(y <= m) {
-      bit[x][y] += v;
-      y += y&-y;
+    int yTemp = y;
+    while(yTemp <= m) {
+      bit[x][yTemp] += v;
+      yTemp += yTemp&-yTemp;
     }
     x += x&-x;
   }
