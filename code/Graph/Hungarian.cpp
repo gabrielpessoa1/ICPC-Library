@@ -1,92 +1,61 @@
-const int inf = 0x3f3f3f3f;
+//input: matrix n x m, n <= m
+//return vector p of size n, where p[i] is the match for i
+// and minimum cost
+// time complexity: O(n^2 * m)
 
-int n, w[ms][ms], maxm;
-int lx[ms], ly[ms], xy[ms], yx[ms];
-int slack[ms], slackx[ms], prev[ms];
-bool S[ms], T[ms];
+int u[ms], v[ms], p[ms], way[ms], minv[ms];
+bool used[ms];
 
-void init_labels() {
-  memset(lx, 0, sizeof lx); memset(ly, 0, sizeof ly);
-  for(int x = 0; x < n; x++) for(int y = 0; y < n; y++) {
-    lx[x] = max(lx[x], cos[x][y]);
-  }
-}
-
-void updateLabels() {
-  int delta = inf;
-  for(int y = 0; y < n; y++) if(!T[y]) delta = min(delta, slack[y]);
-  for(int x = 0; x < n; x++) if(S[x]) lx[x] -= delta;
-  for(int y = 0; y < n; y++) if(T[y]) ly[y] += delta;
-  for(int y = 0; y < n; y++) if(!T[y]) slack[y] -= delta;
-}
-
-void addTree(int x, int prevx) {
-  S[x] = 1; prev[x] = prevx;
-  for(int y = 0; y < n; y++) if(lx[x] + ly[y] - w[x][y] < slack[y]) {
-    slack[y] = lx[x] + ly[y] - cost[x][y];
-    slackx[y] = x;
-  }
-}
-
-void augment() {
-  if(maxm == n) return;
-  int x, y, root;
-  int q[ms], wr = 0, rd = 0;
-  memset(S, 0, sizeof S); memset(T, 0, sizeof T);
-  memset(prev, -1, sizeof prev);
-  for(int x = 0; x < n; x++) if(xy[x] == -1) {
-    q[wr++] = root = x;
-    prev[x] = -2;
-    S[x] = 1;
-    break;
-  }
-  for(int y = 0; y < n; y++) {
-    slack[y] = lx[root] + ly[y] - w[root][y];
-    slackx[y] = root;
-  }
-  while(true) {
-    while(rd < wr) {
-      x = q[rd++];
-      for(y = 0; y < n; y++) if(w[x][y] == lx[x] + ly[y] && !T[y]) {
-        if(yx[y] == -1) break;
-        T[y] = 1;
-        q[wr++] = yx[y];
-        addTree(yx[y], x);
-      }
-      if(y < n) break;
-    }
-    if(y < n) break;
-    updateLabels();
-    wr = rd = 0;
-    for(y = 0; y < n; y++) if(!T[y] && !slack[y]) {
-      if(yx[y] == -1) {
-        x = slackx[y];
-        break;
-      } else {
-        T[y] = true;
-        if(!S[yx[y]]) {
-          q[wr++] = yx[y];
-          addTree(yx[y], slackx[y]);
+pair<vector<int>, int> solve(const vector<vector<int>> &matrix) {
+  int n = matrix.size();
+  if(n == 0) return {vector<int>(), 0};
+  int m = matrix[0].size();
+  assert(n <= m);
+  memset(u, 0, (n+1)*sizeof(int));
+  memset(v, 0, (m+1)*sizeof(int));
+  memset(p, 0, (m+1)*sizeof(int));
+  for(int i = 1; i <= n; i++) {
+    memset(minv, 0x3f, (m+1)*sizeof(int));
+    memset(way, 0, (m+1)*sizeof(int));
+    for(int j = 0; j <= m; j++) used[j] = 0;
+    p[0] = i;
+    int k0 = 0;
+    do {
+      used[k0] = 1;
+      int i0 = p[k0], delta = inf, k1;
+      for(int j = 1; j <= m; j++) {
+        if(!used[j]) {
+          int cur = matrix[i0-1][j-1] - u[i0] - v[j];
+          if (cur < minv[j]) {
+            minv[j] = cur;
+            way[j] = k0;
+          }
+          if(minv[j] < delta) {
+            delta = minv[j];
+            k1 = j;
+          }
         }
       }
-    }
-    if(y < n) break;
+      for(int j = 0; j <= m; j++) {
+        if(used[j]) {
+          u[p[j]] += delta;
+          v[j] -= delta;
+        } else {
+          minv[j] -= delta;
+        }
+      }
+      k0 = k1;
+    } while(p[k0]);
+    do {
+      int k1 = way[k0];
+      p[k0] = p[k1];
+      k0 = k1;
+    } while(k0);
   }
-  if(y < n) {
-    maxm++;
-    for(int cx = x, cy = y,ty; cx != -2; cx = prev[cx], cy = ty) {
-      ty = xy[cx]; 
-      yx[cy] = cx; 
-      xy[cx] = cy;
-    }
-    augment();
+  vector<int> ans(n, -1);
+  for(int j = 1; j <= m; j++) {
+    if(!p[j]) continue;
+    ans[p[j] - 1] = j - 1;
   }
-}
-
-int hungarian() {
-  int ans = 0; maxm = 0;
-  memset(xy, -1, sizeof xy); memset(yx, -1, sizeof yx);
-  initLabels(); augment();
-  for(int x = 0; x < n; x++) ans += w[x][xy[x]];
-  return ans;
+  return {ans, -v[0]};
 }
