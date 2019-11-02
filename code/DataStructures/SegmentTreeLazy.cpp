@@ -12,7 +12,6 @@ void build(int idx = 0, int l = 0, int r = n-1) {
 }
 
 void apply(int idx, int l, int r) {
-  int mid = (l+r)/2;
   if(lazy[idx] && !canBreak) { // if not beats canBreak = false
     if(l < r) {
       lazy[2*idx+1] += lazy[idx];  // Merge de lazy
