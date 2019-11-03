@@ -47,3 +47,7 @@ Distribuicao binomial com n tentativas de probabilidade p, X = sucessos:
 Distribuicao geometrica onde continuamos ate ter sucesso, X = tentativas: 
     P(X = x) = (1-p)^(x-1) * p e E[X] = 1/p
 Linearity of expectation: Tendo duas variaveis X e Y e constantes a e b, o valor esperado de aX + bY = a*E[X] + b*E[X]
+V(X) = E((X-u)^2)
+V(X) = E(X^2) - E(X^2)
+
+PG: a1 * (q^n - 1)/(q - 1)
