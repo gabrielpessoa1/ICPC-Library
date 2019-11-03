@@ -1,15 +1,15 @@
 vector<PT> convexHull(vector<PT> p, bool needs = 1) {
-  if(needs) sort(pts.begin(), pts.end());
-  pts.erase(unique(pts.begin(), pts.end()), pts.end());
+  if(needs) sort(p.begin(), p.end());
+  p.erase(unique(p.begin(), p.end()), p.end());
   int n = p.size(), k = 0;
-  if(n <= 1) return pts;
+  if(n <= 1) return p;
   vector<PT> h(n + 2);
   for(int i = 0; i < n; i++) {
-    while(k >= 2 && cmp(cross(h[k - 1] - h[k - 2], p[i] - h[k - 2])) <= 0) k--;
+    while(k >= 2 && cross(h[k - 1] - h[k - 2], p[i] - h[k - 2]) <= 0) k--;
     h[k++] = p[i];
   }
   for(int i = n - 2, t = k + 1; i >= 0; i--) {
-    while(k >= t && cmp(cross(h[k - 1] - h[k - 2], p[i] - h[k - 2])) <= 0) k--;
+    while(k >= t && cross(h[k - 1] - h[k - 2], p[i] - h[k - 2]) <= 0) k--;
     h[k++] = p[i];
   }
   h.resize(k); // n+1 points where the first is equal to the last
