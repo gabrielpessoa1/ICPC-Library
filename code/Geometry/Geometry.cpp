@@ -177,27 +177,25 @@ vector<PT> circleLine (PT a, PT b, PT c, double r) {
 
 bool ptInsideTriangle(PT p, PT a, PT b, PT c) {
   if(cross(b-a, c-b) < 0) swap(a, b);
-  long long x = cross(b-a, p-b);
-  long long y = cross(c-b, p-c);
-  long long z = cross(a-c, p-a);
-  if(x > 0 && y > 0 && z > 0) return true;
-  if(!x) return ptInSegment(a,b,p);
-  if(!y) return ptInSegment(b,c,p);
-  if(!z) return ptInSegment(c,a,p);
-  return false;
+  if(ptInSegment(a,b,p)) return 1;
+  if(ptInSegment(b,c,p)) return 1;
+  if(ptInSegment(c,a,p)) return 1;
+  bool x = cross(b-a, p-b) < 0;
+  bool y = cross(c-b, p-c) < 0;
+  bool z = cross(a-c, p-a) < 0;
+  return x == y && y == z;
 }
 
 // Determina se o ponto esta num poligono convexo em O(lgn)
-bool pointInConvexPolygon(const vector<PT> &hull, PT point) {
-  int n = hull.size();
-  if(cmp(cross(point - hull[0], hull[1] - hull[0])) || cmp(cross(point - hull[0], hull[n-1] - hull[0]))) return false;
-  int l = 1, r = n - 1;
-  while(l != r) {
-    int mid = (l + r + 1) / 2;
-    if(cmp(cross(point - hull[0], hull[mid] - hull[0])) < 0) l = mid;
-    else r = mid - 1;
+bool pointInConvexPolygon(const vector<PT> &p, PT q) {
+  if (p.size() == 1) return p.front() == q;
+  int l = 1, r = p.size()-1;
+  while(abs(r-l) > 1) {
+    int m = (r+l)/2;
+    if(cross(p[m]-p[0] , q-p[0]) < 0) r = m;
+    else l = m;
   }
-  return cmp(cross(hull[(l+1)%n] - hull[l], point - hull[l])) >= 0;
+  return ptInsideTriangle(q, p[0], p[l], p[r]);
 }
 
 // Determina se o ponto esta num poligono possivelmente nao-convexo
