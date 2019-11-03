@@ -19,14 +19,6 @@ vector<PT> minkowskiSum(const vector<PT> &a, const vector<PT> &b){
     }
     return ret;
   }
-  auto insert = [&](PT p) {
-    while(ret.size() >= 2 && cmp(cross(p-ret.back(), p-ret[(int)ret.size()-2])) == 0) {
-      // removing colinear points
-      // needs the scalar product stuff it the result is a line
-      ret.pop_back();
-    }
-    ret.push_back(p);
-  };
   PT v1, v2, p = a[0]+b[0];
   ret.push_back(p);
   for (int i = 0, j = 0; i + j + 1 < n1+n2; ){
@@ -34,7 +26,12 @@ vector<PT> minkowskiSum(const vector<PT> &a, const vector<PT> &b){
     v2 = b[(j+1)%n2]-b[j];
     if(j == n2 || (i < n1 && comp(v1, v2))) p = p + v1, i++;
     else p = p + v2, j++;
-    insert(p);
+    while(ret.size() >= 2 && cmp(cross(p-ret.back(), p-ret[(int)ret.size()-2])) == 0) {
+      // removing colinear points
+      // needs the scalar product stuff it the result is a line
+      ret.pop_back();
+    }
+    ret.push_back(p);
   }
   return ret;
 }
