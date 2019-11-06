@@ -1,71 +1,69 @@
-//Centroid decomposition1
-
-void dfsSize(int v, int pa) {
-  sz[v] = 1;
-  for(int u : adj[v]) {
-    if (u == pa || rem[u]) continue;
-    dfsSize(u, v);
-    sz[v] += sz[u];
+template<typename T>
+struct CentroidDecomposition {
+  vector<int> sz, h, dad;
+  vector<vector<pair<int, T>>> adj;
+  vector<vector<T>> dis;
+  vector<bool> removed;
+  
+  
+  CentroidDecomposition (int n) {
+    sz.resize(n);
+    h.resize(n);
+    dis.resize(n, vector<T>(30, 0));
+    adj.resize(n);
+    removed.resize(n, 0);
+    dad.resize(n);
   }
-}
-
-int getCentroid(int v, int pa, int tam) {
-  for(int u : adj[v]) {
-    if (u == pa || rem[u]) continue;
-    if (2 * sz[u] > tam) return getCentroid(u, v, tam);
+  void add (int a, int b, T w = 1) {
+    adj[a].push_back({b, w});
+    adj[b].push_back({a, w});
   }
-  return v;
-}
-
-void decompose(int v, int pa = -1) {
-  //cout << v << ' ' << pa << '\n';
-  dfsSize(v, pa);
-  int c = getCentroid(v, pa, sz[v]);
-  //cout << c << '\n';
-  par[c] = pa;
-  rem[c] = 1;
-  for(int u : adj[c]) {
-    if (!rem[u] && u != pa) decompose(u, c);
-  }
-  adj[c].clear();
-}
-
-//Centroid decomposition2
-
-void dfsSize(int v, int par) {
-  sz[v] = 1;
-  for(int u : adj[v]) {
-    if (u == par || removed[u]) continue;
-    dfsSize(u, v);
-    sz[v] += sz[u];
-  }
-}
-
-int getCentroid(int v, int par, int tam) {
-  for(int u : adj[v]) {
-    if (u == par || removed[u]) continue;
-    if (2 * sz[u] > tam) return getCentroid(u, v, tam);
-  }
-  return v;
-}
-
-void setDis(int v, int par, int nv, int d) {
-  dis[v][nv] = d;
-  for(int u : adj[v]) {
-    if (u == par || removed[u]) continue;
-    setDis(u, v, nv, d + 1);
-  }
-}
-
-void decompose(int v, int par, int nv) {
-  dfsSize(v, par);
-  int c = getCentroid(v, par, sz[v]);
-  ct[c] = par;
-  removed[c] = 1;
-  setDis(c, par, nv, 0);
-  for(int u : adj[c]) {
-    if (!removed[u]) {
-      decompose(u, c, nv + 1);
+  
+  void dfsSize (int v, int par){
+    sz[v] = 1;
+    for (auto u : adj[v]){
+      if (u.x == par || removed[u.x]) continue;
+      dfsSize(u.x, v);
+      sz[v] += sz[u.x];
     }
   }
-}
+  
+  int getCentroid (int v, int par, int tam){
+    for (auto u : adj[v]) {
+      if (u.x == par || removed[u.x]) continue;
+      if ((sz[u.x]<<1) > tam) return getCentroid(u.x, v, tam);
+    }
+    return v;
+  }
+
+  void setDis (int v, int par, int nv){
+    for (auto u : adj[v]) {
+      if (u.x == par || removed[u.x]) continue;
+      dis[u.x][nv] = dis[v][nv]+u.y;
+      setDis(u.x, v, nv);
+    }
+  }
+
+  void decompose (int v, int par = -1, int nv = 0){
+    dfsSize(v, par);
+    int c = getCentroid(v, par, sz[v]);
+    dad[c] = par;
+    removed[c] = 1;
+    h[c] = nv;
+    setDis(c, par, nv);
+    for (auto u : adj[c]){
+      if (!removed[u.x]){
+        decompose(u.x, c, nv + 1);
+      }
+    }
+  }
+  
+  int operator [] (const int idx) const {
+    return dad[idx];
+  }
+  
+  T dist (int u, int v) {
+    if (h[u] < h[v]) swap(u, v);
+    return dis[u][h[v]];
+  }
+};
