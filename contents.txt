@@ -42,6 +42,8 @@ Graph/HLD.cpp	Heavy Light Decomposition
 Graph/CentroidDecomposition.cpp	Centroid Decomposition
 Graph/Sack.cpp	Sack
 Graph/Hungarian.cpp	Hungarian Algorithm - Maximum Cost Matching
+Graph/Burunduk.cpp	Burunduk
+Graph/Arborescence.cpp	Minimum Arborescence
 
 [Dynamic Programming]
 #DP/DynamicHull.cpp	Dynamic Hull
@@ -63,6 +65,7 @@ Math/ExtendedEuclides.cpp	Extended Euclides
 Math/MatrixFastExp.cpp	Matrix Fast Exponentiation
 Math/FFT.cpp	FFT - Fast Fourier Transform
 Math/NTT.cpp	NTT - Number Theoretic Transform
+Math/FastWalshHadamardTransform.cpp	Fast Walsh Hadamard Transform
 Math/MillerAndRho.cpp	Miller and Rho
 Math/DetMod.cpp	Determinant using Mod
 Math/Lagrange.cpp	Lagrange Interpolation
