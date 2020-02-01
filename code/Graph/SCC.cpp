@@ -30,7 +30,7 @@ bool solveSat(int n) {
   memset(idx, -1, sizeof idx);
   z = 1; ncomp = 0;
   for(int i = 0; i < 2*n; i++) dfs(i);
-  for(int i = 0; i < n; i++) if(comp[i] == comp[i^1]) return false;
+  for(int i = 0; i < 2*n; i++) if(comp[i] == comp[i^1]) return false;
   return true;
 }
 
