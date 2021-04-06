@@ -1,7 +1,8 @@
 Amigos do Beto - ICPC Library
 =================
 
-Algorithms and data structures library for competitive programming, mainly ICPC
+Algorithms and data structures library for competitive programming, mainly ICPC.
+
 Script to generate the pdf by Stanford University ACM team.
 
 Generating team notebook
