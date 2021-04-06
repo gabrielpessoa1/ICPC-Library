@@ -1,8 +1,8 @@
 Amigos do Beto - ICPC Library
 =================
 
-Biblioteca de algoritmos e estruturas de dados para programação competitiva, principalmente maratona de programação.
-Script para gerar o pdf feito por Stanford University ACM team.
+Algorithms and Data structures library for competitive programming, mainly ICPC
+Script to generate the pdf by Stanford University ACM team.
 
 Generating team notebook
 ========================
