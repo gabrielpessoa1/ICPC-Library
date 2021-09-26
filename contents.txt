@@ -79,6 +79,7 @@ Math/IntegerPoints.cpp	Count integer points inside triangle
 Geometry/Geometry.cpp	Geometry
 Geometry/ConvexHull.cpp	Convex Hull
 Geometry/CutPolygon.cpp	Cut Polygon
+Geometry/Voronoi.cpp	Voronoi
 Geometry/SpanningCircle.cpp	Smallest Enclosing Circle
 Geometry/Minkowski.cpp	Minkowski
 Geometry/HalfPlaneIntersection.cpp	Half Plane Intersection
