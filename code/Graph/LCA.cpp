@@ -1,6 +1,4 @@
 int par[ms][mlg+1], lvl[ms];
-vector<int> g[ms];
-
 void dfs(int v, int p, int l = 0) { // chamar como dfs(root, root)
   lvl[v] = l;
   par[v][0] = p;
@@ -11,7 +9,6 @@ void dfs(int v, int p, int l = 0) { // chamar como dfs(root, root)
     if(u != p) dfs(u, v, l + 1);
   }
 }
-
 int lca(int a, int b) {
   if(lvl[b] > lvl[a]) swap(a, b);
   for(int i = mlg; i >= 0; i--) {

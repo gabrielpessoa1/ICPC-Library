@@ -1,14 +1,11 @@
-const int ms = 1e3; // Quantidade maxima de vertices
-const int me = 1e5; // Quantidade maxima de arestas
-
+const int ms = 1e3; // vertices
+const int me = 1e5; // arestas
 int adj[ms], to[me], ant[me], wt[me], z, n;
 int copy_adj[ms], fila[ms], level[ms];
-
 void clear() { // Lembrar de chamar no main
   memset(adj, -1, sizeof adj);
   z = 0;
 }
-
 void add(int u, int v, int k) {
   to[z] = v;
   ant[z] = adj[u];
@@ -20,7 +17,6 @@ void add(int u, int v, int k) {
   wt[z] = 0; // Lembrar de colocar = 0
   adj[u] = z++;
 }
-
 int bfs(int source, int sink) {
   memset(level, -1, sizeof level);
   level[source] = 0;
@@ -37,7 +33,6 @@ int bfs(int source, int sink) {
   }
   return level[sink] != -1;
 }
-
 int dfs(int v, int sink, int flow) {
   if(v == sink) return flow;
   int f;
@@ -51,7 +46,6 @@ int dfs(int v, int sink, int flow) {
   }
   return 0;
 }
-
 int maxflow(int source, int sink) {
   int ret = 0, flow;
   while(bfs(source, sink)) {

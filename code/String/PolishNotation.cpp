@@ -1,7 +1,3 @@
-/*
- * Parenthetic to polish expression conversion
- */
-
 inline bool isOp(char c) {
 	return c=='+' || c=='-' || c=='*' || c=='/' || c=='^';
 }
@@ -9,7 +5,6 @@ inline bool isOp(char c) {
 inline bool isCarac(char c) {
 	return (c>='a' && c<='z') || (c>='A' && c<='Z') || (c>='0' && c<='9');
 }
-
 int paren2polish(char* paren, char* polish) {
 	map<char, int> prec;
 	prec['('] = 0;

@@ -1,9 +1,7 @@
 const int ms = 212345;
-
 vector<int> g[ms];
 int idx[ms], low[ms], z, comp[ms], ncomp;
 stack<int> st;
-
 int dfs(int u) {
   if(~idx[u]) return idx[u] ? idx[u] : z;
   low[u] = idx[u] = z++;
@@ -25,7 +23,6 @@ int dfs(int u) {
   }
   return low[u];
 }
-
 bool solveSat(int n) {
   memset(idx, -1, sizeof idx);
   z = 1; ncomp = 0;
@@ -33,7 +30,6 @@ bool solveSat(int n) {
   for(int i = 0; i < 2*n; i++) if(comp[i] == comp[i^1]) return false;
   return true;
 }
-
 int trad(int v) { return v < 0 ?(~v)*2^1 : v * 2; }
 void add(int a, int b) { g[trad(a)].push_back(trad(b)); }
 void addOr(int a, int b) { add(~a, b); add(~b, a); }

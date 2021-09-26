@@ -1,11 +1,5 @@
-//input: matrix n x m, n <= m
-//return vector p of size n, where p[i] is the match for i
-// and minimum cost
-// time complexity: O(n^2 * m)
-
 int u[ms], v[ms], p[ms], way[ms], minv[ms];
 bool used[ms];
-
 pair<vector<int>, int> solve(const vector<vector<int>> &matrix) {
   int n = matrix.size();
   if(n == 0) return {vector<int>(), 0};

@@ -1,23 +1,18 @@
 struct edge {
   int a, b, l, r;
 };
-
 typedef vector <edge> List;
- 
 int cnt[N + 1], ans[N], u[N], color[N], deg[N];
 vi g[N];
- 
 void add (int a, int b) {
   g[a].pb(b), g[b].pb(a);
 }
- 
 void dfs (int v, int value) {
   u[v] = 1, color[v] = value;
   forn(i, sz(g[v]))
     if (!u[g[v][i]])
       dfs(g[v][i], value);
 }
-
 int compress (List &v1, int vn, int &add_vn) {
   int vn1 = 0;
   forn (i, vn) u[i] = 0;
@@ -40,7 +35,6 @@ int compress (List &v1, int vn, int &add_vn) {
   }
   return vn1;
 }
- 
 void go (int l, int r, const List &v, int vn, int add_vn) {
   if (cnt[l] == cnt[r]) return;
   if (!sz(v)){
@@ -48,7 +42,6 @@ void go (int l, int r, const List &v, int vn, int add_vn) {
       ans[l++] = vn + add_vn;
     return;
   }
- 
   List v1;
   forn (i, vn) {
     g[i].clear();

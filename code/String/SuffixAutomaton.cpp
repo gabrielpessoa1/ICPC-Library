@@ -1,6 +1,5 @@
 int len[ms*2], link[ms*2], nxt[ms*2][sigma];
 int sz, last;
-
 void build(string &s) {
   len[0] = 0; link[0] = -1;
   sz = 1; last = 0;

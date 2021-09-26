@@ -12,7 +12,6 @@ void getreach(int u) {
     getreach(pairV[v]);
   }
 }
-
 void minimumcover () {
   memset(pairU, -1, sizeof pairU);
   memset(pairV, -1, sizeof pairV);

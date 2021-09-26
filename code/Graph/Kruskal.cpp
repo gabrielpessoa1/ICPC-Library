@@ -1,12 +1,10 @@
 // Usa a estrutura de Disjoint-Set acima
-
 struct Edge{
 	int u, v, cost;
 	bool operator < (Edge b) {
 		return cost < b.cost;
 	}
 };
-
 void Kruskal() {
 	vector<Edge> edge(m);
 	for (int i = 0; i < m; i++) {

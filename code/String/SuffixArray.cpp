@@ -28,7 +28,6 @@ vector<int> buildSa(const string& in) {
   }
   return out;
 }
-
 vector<int> buildLcp(string s, vector<int> sa) {
   int n = (int) s.size();
   vector<int> pos(n), lcp(n, 0);

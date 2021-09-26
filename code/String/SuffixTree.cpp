@@ -1,5 +1,3 @@
-//by adamant
-
 #define fpos adla
 const int inf = 1e9;
 const int maxn = 1e4;
@@ -8,14 +6,12 @@ map<int, int> to[maxn];
 int len[maxn], fpos[maxn], link[maxn];
 int node, pos;
 int sz = 1, n = 0;
- 
 int make_node(int _pos, int _len)
 {
     fpos[sz] = _pos;
     len [sz] = _len;
     return sz++;
 }
- 
 void go_edge()
 {
     while(pos > len[to[node][s[n - pos]]])
@@ -24,7 +20,6 @@ void go_edge()
         pos -= len[node];
     }
 }
- 
 void add_letter(int c)
 {
     s[n++] = c;
@@ -64,5 +59,4 @@ void add_letter(int c)
             node = link[node];
     }
 }
-
 //len[0] = inf

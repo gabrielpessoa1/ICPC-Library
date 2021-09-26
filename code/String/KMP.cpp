@@ -12,7 +12,6 @@ vector<int> getBorder(string str) {
   }
   return border;
 }
-
 int matchPattern(const string &txt, const string &pat, const vector<int> &border) {
   int freq = 0;
   for(int i = 0, j = -1; i < txt.size(); i++) {

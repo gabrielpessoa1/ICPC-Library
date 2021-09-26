@@ -1,7 +1,3 @@
-/*
- * Manacher's Algorithm O(n)
- */
-
 void manacher(char str[], int L[]) {
   int n = strlen(str), c = 0, r = 0;
   for(int i = 0; i < n; i++) {
@@ -12,11 +8,6 @@ void manacher(char str[], int L[]) {
     if(i+L[i]>r) { c=i; r=i+L[i]; }
   }
 }
-
-/*
- * Longest Palindromic Substring O(n)
- */
-
 int LPS(char T[]) {
   int n = 2*strlen(T) + 1;
   char tmp[n+1];
