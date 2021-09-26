@@ -6,7 +6,6 @@ struct edge {
   edge (int u, int v, int w = 0, int id = 0) : u(u), v(v), w(w), id(id) {};
   bool operator < (edge &other) const { return w < other.w; };
 };
-
 vector<edge> boruvka (vector<edge> &edges, int n) {
   vector<edge> mst;
   vector<edge> best(n);

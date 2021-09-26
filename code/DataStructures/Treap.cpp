@@ -1,8 +1,6 @@
 mt19937 rng ((int) chrono::steady_clock::now().time_since_epoch().count());
-
 typedef int Value;
 typedef struct item * pitem;
-
 struct item {
   item () {}
   item (Value v) { // add key if not implicit
@@ -17,16 +15,13 @@ struct item {
   int prio, cnt;
   bool rev;
 };
-
 int cnt (pitem it) {
   return it ? it->cnt : 0;
 }
-
 void fix (pitem it) {
   if (it)
     it->cnt = cnt(it->l) + cnt(it->r) + 1;
 }
-
 void pushLazy (pitem it) {
   if (it && it->rev) {
     it->rev = false;
@@ -35,7 +30,6 @@ void pushLazy (pitem it) {
     if (it->r)  it->r->rev ^= true;
   }
 }
-
 void merge (pitem & t, pitem l, pitem r) {
   pushLazy (l); pushLazy (r);
   if (!l || !r) t = l ? l : r;
@@ -45,7 +39,6 @@ void merge (pitem & t, pitem l, pitem r) {
     merge (r->l, l, r->l),  t = r;
   fix (t);
 }
-
 void split (pitem t, pitem & l, pitem & r, int key) {
   if (!t) return void( l = r = 0 );
   pushLazy (t);
@@ -56,7 +49,6 @@ void split (pitem t, pitem & l, pitem & r, int key) {
     split (t->r, t->r, r, key - (1 + cnt(t->l))),  l = t;
   fix (t);
 }
-
 void reverse (pitem t, int l, int r) {
   pitem t1, t2, t3;
   split (t, t1, t2, l);
@@ -65,7 +57,6 @@ void reverse (pitem t, int l, int r) {
   merge (t, t1, t2);
   merge (t, t, t3);
 }
-
 void unite (pitem & t, pitem l, pitem r) {
   if (!l || !r) return void ( t = l ? l : r );
   if (l->prio < r->prio)  swap (l, r);

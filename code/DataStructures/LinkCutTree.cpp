@@ -1,13 +1,3 @@
-/**
- * Author: Simon Lindholm
- * Date: 2016-07-25
- * Source: https://github.com/ngthanhtrung23/ACM_Notebook_new/blob/master/DataStructure/LinkCut.h
- * Description: Represents a forest of unrooted trees. You can add and remove
- * edges (as long as the result is still a forest), and check whether
- * two nodes are in the same tree.
- * Time: All operations take amortized O(\log N).
- * Status: Fuzz-tested a bit for N <= 20
- */
 #pragma once
 
 struct Node { // Splay tree. Root's pp contains tree's parent.

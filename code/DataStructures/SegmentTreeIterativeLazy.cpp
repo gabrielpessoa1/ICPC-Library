@@ -10,9 +10,7 @@ struct Node {
   bool canBreak(LazyContext lazy) { }
   bool canApply(LazyContext lazy) { }
   void apply(LazyContext &lazy) { }
-  // atributes
 };
-
 template <class i_t, class e_t, class lazy_cont>
 class SegmentTree {
 public:
@@ -31,7 +29,6 @@ public:
       lazy[i].reset();
     }
   }
-  
   i_t qry(int l, int r) {
     if(l >= r) return i_t();
     l += n, r += n;
@@ -44,7 +41,6 @@ public:
     }
     return i_t(lp, rp);
   }
-  
   void upd(int l, int r, lazy_cont lc) {
     if(l >= r) return;
     l += n, r += n;
@@ -58,7 +54,6 @@ public:
     build(l0);
     build(r0 - 1);
   }
-
   void upd(int pos, e_t v) {
     pos += n;
     push(pos);
@@ -70,7 +65,6 @@ private:
   std::vector<bool> dirty;
   std::vector<i_t> tree;
   std::vector<lazy_cont> lazy;
-
   void apply(int p, lazy_cont lc) {
     tree[p].apply(lc);
     if(p < n) {
@@ -78,7 +72,6 @@ private:
       lazy[p] += lc;
     }
   }
-
   void pushSingle(int p) {
     if(dirty[p]) {
       downUpd(p + p, lazy[p]);
@@ -87,13 +80,11 @@ private:
       dirty[p] = false;
     }
   }
-
   void push(int p) {
     for(int s = h; s > 0; s--) {
       pushSingle(p >> s);
     }
   }
-
   void downUpd(int p, lazy_cont lc) {
     if(tree[p].canBreak(lc)) {
       return;
@@ -106,7 +97,6 @@ private:
       tree[p] = i_t(tree[p + p], tree[p + p + 1]);
     }
   }
-
   void build(int p) {
     for(p /= 2; p > 0; p /= 2) {
       tree[p] = i_t(tree[p + p], tree[p + p + 1]);

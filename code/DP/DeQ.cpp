@@ -1,6 +1,5 @@
 int n, k;
 ll dpold[ms], dp[ms], c[ms][ms]; // c(i, j) pode ser funcao
-
 void compute(int l, int r, int optl, int optr) {
     if(l>r) return;
     int mid = (l+r)/2;
@@ -13,7 +12,6 @@ void compute(int l, int r, int optl, int optr) {
     compute(l, mid-1, optl, opt);
     compute(mid+1, r, opt, optr);
 }
-
 ll solve() {
     dp[0] = 0;
     for(int i = 1; i <= n; i++) dp[i] = inf; // initialize row 0 of the dp

@@ -1,7 +1,6 @@
 const int ms = 1e6;    // quantidade de caracteres
 const int sigma = 26;  // tamanho do alfabeto
 int trie[ms][sigma], fail[ms], terminal[ms], qtd;
-
 void init() {
   qtd = 1;
   memset(trie[0], -1, sizeof trie[0]);

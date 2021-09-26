@@ -1,17 +1,6 @@
 const int MOD = 998244353;
 const int me = 15;
 const int ms = 1 << me;
-ll fexp(ll x, ll e, ll mod = MOD) {
-  ll ans = 1;
-  x %= mod;
-  for(; e > 0; e /= 2) {
-    if(e & 1) {
-      ans = ans * x % mod;
-    }
-    x = x * x % mod;
-  }
-  return ans;
-}
 //is n primitive root of p ?
 bool test(ll x, ll p) {
   ll m = p - 1;
@@ -35,12 +24,9 @@ int get_root(int p) {
     return roots[p];
   }
 }
-
 #define add(x, y) x+y>=MOD?x+y-MOD:x+y
-
 const int gen = search(MOD);
 int bits[ms], root[ms];
-
 void initFFT() {
   root[1] = 1;
   for(int len = 2; len < ms; len += len) {
@@ -51,7 +37,6 @@ void initFFT() {
     }
   }
 }
-
 void pre(int n) {
   int LOG = 0;
   while(1 << (LOG + 1) < n) {
@@ -61,7 +46,6 @@ void pre(int n) {
     bits[i] = (bits[i >> 1] >> 1) | ((i & 1) << LOG);
   }
 }
-
 vector<int> fft(vector<int> a, int mod, bool inv = false) {
   int n = (int) a.size();
   pre(n);
@@ -89,7 +73,6 @@ vector<int> fft(vector<int> a, int mod, bool inv = false) {
   }
   return a;
 }
-
 std::vector<int> shift(const std::vector<int> &a, int s) {
   int n = std::max(0, s + (int) a.size());
   std::vector<int> b(n, 0);
@@ -106,7 +89,6 @@ std::vector<int> cut(const std::vector<int> &a, int n) {
   }
   return b;
 }
-
 std::vector<int> operator +(std::vector<int> a, const std::vector<int> &b) {
   int sz = (int) std::max(a.size(), b.size());
   a.resize(sz, 0);
@@ -115,7 +97,6 @@ std::vector<int> operator +(std::vector<int> a, const std::vector<int> &b) {
   }
   return a;
 }
-
 std::vector<int> operator -(std::vector<int> a, const std::vector<int> &b) {
   int sz = (int) std::max(a.size(), b.size());
   a.resize(sz, 0);
@@ -124,7 +105,6 @@ std::vector<int> operator -(std::vector<int> a, const std::vector<int> &b) {
   }
   return a;
 }
-
 std::vector<int> operator *(std::vector<int> a, std::vector<int> b) {
   while(!a.empty() && a.back() == 0) a.pop_back();
   while(!b.empty() && b.back() == 0) b.pop_back();
@@ -140,7 +120,6 @@ std::vector<int> operator *(std::vector<int> a, std::vector<int> b) {
   }
   return fft(a, true);
 }
-
 std::vector<int> inverse(const std::vector<int> &a, int k) {
   assert(!a.empty() && a[0] != 0);
   if(k == 0) {
@@ -151,7 +130,6 @@ std::vector<int> inverse(const std::vector<int> &a, int k) {
     return cut(c * cut(std::vector<int>(1, 2) - cut(a, n) * c, n), n);
   }
 }
-
 std::vector<int> log(const std::vector<int> &a, int k) {
   assert(!a.empty() && a[0] != 0);
   int n = 1 << k;
@@ -167,7 +145,6 @@ std::vector<int> log(const std::vector<int> &a, int k) {
   b[0] = 0;
   return b;
 }
-
 std::vector<int> exp(const std::vector<int> &a, int k) {
   assert(!a.empty() && a[0] == 0);
   if(k == 0) {
