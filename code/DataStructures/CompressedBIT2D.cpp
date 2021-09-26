@@ -1,7 +1,7 @@
-// src: tfg50
 template<class T = int>
 struct Bit2D {
 public:
+  // send updated points
   Bit2D(vector<pair<T, T>> pts) {
     sort(pts.begin(), pts.end());
     for(auto a : pts) {
@@ -27,7 +27,6 @@ public:
       fw[i].assign(coord[i].size() + 1, 0);
     }
   }
-
   void upd(T x, T y, T v) {
     for(int xx = upper_bound(ord.begin(), ord.end(), x) - ord.begin(); xx < fw.size(); xx += xx & -xx) {
       for(int yy = upper_bound(coord[xx].begin(), coord[xx].end(), y) - coord[xx].begin(); yy < fw[xx].size(); yy += yy & -yy) {
@@ -35,7 +34,6 @@ public:
       }
     }
   }
-
   T qry(T x, T y) {
     T ans = 0;
     for(int xx = upper_bound(ord.begin(), ord.end(), x) - ord.begin(); xx > 0; xx -= xx & -xx) {
@@ -45,12 +43,10 @@ public:
     }
     return ans;
   }
-
   T qry(T x1, T y1, T x2, T y2) {
     return qry(x2, y2) - qry(x2, y1 - 1) - qry(x1 - 1, y2) + qry(x1 - 1, y1 - 1);
   }
-
-  void upd(T x1, T y1, T x2, T y2, T v) { // !insert these points
+  void upd(T x1, T y1, T x2, T y2, T v) {
     upd(x1, y1, v);
     upd(x1, y2 + 1, -v);
     upd(x2 + 1, y1, -v);
