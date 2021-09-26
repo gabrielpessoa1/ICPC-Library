@@ -8,11 +8,11 @@
 #DataStructures/BIT.cpp	BIT - Binary Indexed Tree
 #DataStructures/BIT2D.cpp	BIT 2D
 DataStructures/CompressedBIT2D.cpp	BIT 2D Comprimida
-DataStructures/SegmentTreeIterative.cpp	Iterative Segment Tree
+#DataStructures/SegmentTreeIterative.cpp	Iterative Segment Tree
 #DataStructures/SegmentTreeIterativeReversed.cpp	Iterative Segment Tree with Interval Updates
-DataStructures/SegmentTreeIterativeLazy.cpp	Iterative Segment Tree with Lazy Propagation
+DataStructures/SegmentTreeIterativeLazy.cpp	Segment Tree with Lazy Propagation
 #DataStructures/SegmentTree.cpp	Recursive Segment Tree
-DataStructures/SegmentTreeLazy.cpp	Segment Tree with Lazy Propagation
+#DataStructures/SegmentTreeLazy.cpp	Segment Tree with Lazy Propagation
 #DataStructures/SegmentTreePersistent.cpp	Persistent Segment Tree
 DataStructures/Treap.cpp	Treap
 DataStructures/PersistentTreap.cpp	Persistent Treap
