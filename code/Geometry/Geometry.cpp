@@ -13,7 +13,7 @@ struct PT {
   PT operator - (const PT &p) const { return PT(x-p.x, y-p.y); }
   PT operator * (double c) const { return PT(x*c, y*c); }
   PT operator / (double c) const { return PT(x/c, y/c); }
-  
+
   bool operator <(const PT &p) const {
     if(cmp(x, p.x) != 0) return x < p.x;
     return cmp(y, p.y) < 0;

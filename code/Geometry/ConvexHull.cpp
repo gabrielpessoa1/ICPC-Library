@@ -15,7 +15,6 @@ vector<PT> convexHull(vector<PT> p, bool needs = 1) {
   h.resize(k); // n+1 points where the first is equal to the last
   return h;
 }
-
 void sortByAngle (vector<PT>::iterator first, vector<PT>::iterator last, const PT o) {
   first = partition(first, last, [&o] (const PT &a) { return a == o; });
   auto pivot = partition(first, last, [&o] (const PT &a) {
@@ -41,7 +40,6 @@ vector<PT> graham (vector<PT> v) {
   u.resize(top);
   return u;
 }
-
 vector<PT> splitHull(const vector<PT> &hull) {
   vector<PT> ans(hull.size());
   for(int i = 0, j = (int) hull.size()-1, k = 0; k < (int) hull.size(); k++) {
@@ -53,7 +51,6 @@ vector<PT> splitHull(const vector<PT> &hull) {
   }
   return ans;
 }
-
 vector<PT> ConvexHull(const vector<PT> &a, const vector<PT> &b) {
   auto A = splitHull(a);
   auto B = splitHull(b);
@@ -61,7 +58,6 @@ vector<PT> ConvexHull(const vector<PT> &a, const vector<PT> &b) {
   merge(A.begin(), A.end(), B.begin(), B.end(), C.begin());
   return ConvexHull(C, false);
 }
-
 int maximizeScalarProduct(const vector<PT> &hull, PT vec) {
   // this code assumes that there are no 3 colinear points
   int ans = 0;

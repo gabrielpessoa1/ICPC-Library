@@ -1,6 +1,5 @@
 int n, m, mid[ms][ms];
 ll dp[ms][ms];
-
 void knuth() {
   for(int i = n; i >= 0; i--) { // limites entre 0 e n
     dp[i][i+1] = 0; mid[i][i+1] = i; // caso base

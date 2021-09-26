@@ -2,20 +2,16 @@
 struct Edges {
   //set<pair<long long, int>> cost; O(Elog^2)
   long long cost[ms];
-
   // possible optimization, use vector of size n
   // instead of ms
   long long sum = 0;
-
   Edges() {
     memset(cost, 0x3f, sizeof cost);
   }
-
   void addEdge(int u, long long c) {
     // cost.insert({c - sum, u}); O(Elog^2)
     cost[u] = min(cost[u], c - sum);
   }
-
   pair<long long, int> getMin() {
     //return *cost.begin(); O(E*log^2)
     pair<long long, int> ans(cost[0], 0);
@@ -27,10 +23,8 @@ struct Edges {
     }
     return ans;
   }
-
   void unite(Edges &e) {
     /*
-
     O(E*log^2E)
     if(e.cost.size() > cost.size()) {
       cost.swap(e.cost);
@@ -41,7 +35,6 @@ struct Edges {
     }
     e.cost.clear();
     */
-
     // O(V^2)
     // can change ms to n
     for(int i = 0; i < ms; i++) {
@@ -49,9 +42,7 @@ struct Edges {
     }
   }
 };
-
 typedef vector<vector<pair<long long, int>>> Graph;
-
 Edges ed[ms];
 int par[ms];
 long long best[ms];
@@ -64,7 +55,6 @@ void makeUnion(int a, int b) {
   ed[a].unite(ed[b]);
   par[b] = a;
 }
-
 long long arborescence(Graph edges) {
   // root is 0
   // edges has transposed adjacency list (cost, from)
@@ -92,7 +82,6 @@ long long arborescence(Graph edges) {
     while(col[on] != 2) {
       assert(getPar(on) == on);
       if(col[on] == 1) {
-        // found cycle
         int v = on;
         vector<int> cycle;
         //cout << "found cycle\n";
@@ -101,8 +90,7 @@ long long arborescence(Graph edges) {
           cycle.push_back(st.back());
           st.pop_back();
         }
-        // compress cycle
-        for(auto u : cycle) {
+        for(auto u : cycle) { // compress cycle
           makeUnion(v, u);
         }
         v = getPar(v);
@@ -111,21 +99,16 @@ long long arborescence(Graph edges) {
       } else {
         // still no cycle
         // while best is in compressed cycle, remove
-
-        /*
-        THIS IS TO MAKE O(E*log^2) ALGORITHM!!
-        while(!ed[on].cost.empty() && getPar(on) == getPar(ed[on].getMin().second)) {
-          ed[on].cost.erase(ed[on].cost.begin());
-        }
-        */
-
+        // THIS IS TO MAKE O(E*log^2) ALGORITHM!!
+        // while(!ed[on].cost.empty() && getPar(on) == getPar(ed[on].getMin().second)) {
+        //   ed[on].cost.erase(ed[on].cost.begin());
+        // }
         // O(V^2)
         for(int x = 0; x < n; x++) {
           if(on == getPar(x)) {
             ed[on].cost[x] = 0x3f3f3f3f3f3f3f3fLL;
           }
         }
-
         // best edge
         auto e = ed[on].getMin();
         // O(E*log^2) assert(!ed[on].cost.empty()) if every vertex appears in the arborescence

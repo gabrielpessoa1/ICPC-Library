@@ -5,14 +5,12 @@ bool comp(const PT &a, const PT &b) {
   else { return a.y < b.y; }
 }
 long long sqrDist(PT a, PT b) { return (a - b) * (a - b); }
-
 class KD_Tree {
 public:
   struct Node {
     PT point;
     Node *left, *right;
   };
-
   void init(std::vector<PT> pts) {
     if(pts.size() == 0) {
       return;
@@ -20,18 +18,14 @@ public:
     int n = 0;
     tree.resize(2 * pts.size());
     build(pts.begin(), pts.end(), n);
-    //assert(n <= (int) tree.size());
   }
-
   long long nearestNeighbor(PT point) {
-    // assert(tree.size() > 0);
     long long ans = (long long) 1e18;
     nearestNeighbor(&tree[0], point, 0, ans);
     return ans;
   }
 private:
   std::vector<Node> tree;
-
   Node* build(std::vector<PT>::iterator l, std::vector<PT>::iterator r, int &n, int h = 0) {
     int id = n++;
     if(r - l == 1) {

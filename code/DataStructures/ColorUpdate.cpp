@@ -1,16 +1,12 @@
 struct range {
   int l, r;
   int v;
-
   range(int l = 0, int r = 0, int v = 0) : l(l), r(r), v(v) {}
-
   bool operator < (const range &a) const {
     return l < a.l;
   }
 };
-
 set<range> ranges;
-
 vector<range> update(int l, int r, int v) { // [l, r)
   vector<range> ans;
   if(l >= r) return ans;
@@ -41,7 +37,6 @@ vector<range> update(int l, int r, int v) { // [l, r)
   ranges.insert(range(l, r, v));
   return ans;
 }
-
 int query(int v) { // Substituir -1 por flag para quando nao houver resposta
   auto it = ranges.upper_bound(v);
   if(it == ranges.begin()) {

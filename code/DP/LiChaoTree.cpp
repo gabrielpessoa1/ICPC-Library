@@ -2,21 +2,17 @@
 typedef long long T;
 const T INF = 1e18, EPS = 1;
 const int BUFFER_SIZE = 1e4;
-
 struct Line {
   T m, b;
   
   Line(T m = 0, T b = INF): m(m), b(b){}
   T apply(T x) { return x * m + b; }
 };
-
-
 struct Node {
   Node *left, *right;
   Line line;
   Node(): left(NULL), right(NULL) {}
 };
-
 struct LiChaoTree {
   Node *root, buffer[BUFFER_SIZE];
   T min_value, max_value;

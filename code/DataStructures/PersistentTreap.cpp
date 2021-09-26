@@ -1,5 +1,4 @@
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
- 
 typedef int Key;
 struct Treap {
   Treap(){}
@@ -15,13 +14,10 @@ struct Treap {
   char val;
   int size;
 };
- 
 typedef Treap * PTreap;
- 
 bool leftSide(PTreap l, PTreap r) {
   return (int) (rng() % (l->size + r->size)) < l->size;
 }
- 
 void fix(PTreap t) {
   if (t == NULL) {
     return;
@@ -36,7 +32,6 @@ void fix(PTreap t) {
     t->size += t->r->size;
   }
 }
- 
 void split(PTreap t, Key key, PTreap &l, PTreap &r) {
   if (t == NULL) {
     l = r = NULL;
@@ -52,7 +47,6 @@ void split(PTreap t, Key key, PTreap &l, PTreap &r) {
     fix(r);
   }
 }
- 
 void merge(PTreap &t, PTreap l, PTreap r) {
   if (!l || !r) {
     t = l ? l : r;
@@ -68,9 +62,7 @@ void merge(PTreap &t, PTreap l, PTreap r) {
   }
   fix(t);
 }
- 
 vector<PTreap> ver = {NULL};
- 
 PTreap build(int l, int r, string& s) {
   if (l >= r) return NULL;
   int mid = (l + r) >> 1;
@@ -80,9 +72,7 @@ PTreap build(int l, int r, string& s) {
   fix(ans);
   return ans;
 }
- 
 int last = 0;
- 
 void go(PTreap t, int f) {
   if (!t) return;
   go(t->l, f);
@@ -90,7 +80,6 @@ void go(PTreap t, int f) {
   last += (t->val == 'c') * f;
   go(t->r, f);
 }
- 
 void insert(PTreap t, int pos, string& s) {
   PTreap l, r;
   split(t, pos + 1, l, r);
@@ -99,7 +88,6 @@ void insert(PTreap t, int pos, string& s) {
   merge(mid, mid, r);
   ver.push_back(mid);
 }
- 
 void erase(PTreap t, int L, int R) {
   PTreap l, mid, r;
   split(t, L, l, mid);
