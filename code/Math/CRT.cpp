@@ -1,60 +1,53 @@
-//by leon
-
-#include<bits/stdc++.h>
-using namespace std;
-const long long N = 20;
-
-long long GCD(long long a, long long b) { 
-  return (b == 0) ? a : GCD(b, a % b); 
-}
-inline long long get_LCM(long long a, long long b) { 
-  return a / GCD(a, b) * b; 
-}
-inline long long normalize(long long x, long long mod) { 
-  x %= mod; 
-  if (x < 0) x += mod; 
-  return x; 
+long long modinverse(long long a, long long b, long long s0 = 1, long long s1 = 0){
+  if(!b) return s0;
+  else return modinverse(b, a % b, s1, s0 - s1 * (a / b));
 }
 
-struct GCD_type { 
-  long long x, y, d; 
-};
-GCD_type ex_GCD(long long a, long long b){
-  if (b == 0) return {1, 0, a};
-  GCD_type pom = ex_GCD(b, a % b);
-  return {pom.y, pom.x - a / b * pom.y, pom.d};
+long long gcd(long long a, long long b){
+  if(!b) return a;
+  else return gcd(b, a % b);
 }
 
-long long testCases;
-long long t;
-long long a[N], n[N], ans, LCM;
+ll mul(ll a, ll b, ll m) {
+  ll q = (long double) a * (long double) b / (long double) m;
+  ll r = a * b - q * m;
+  return (r + 5 * m) % m;
+}
 
-int main() {
-  ios_base::sync_with_stdio(0);
-  cin.tie(0);
-  t = 2;
-  long long T;
-  cin >> T;
-  while(T--) {
-    for(long long i = 1; i <= t; i++) {
-      cin >> a[i] >> n[i];
-      normalize(a[i], n[i]);
+long long safemod(long long a, long long m){
+  return (a % m + m) % m;
+}
+
+struct equation{
+  equation(long long a, long long m){mod = m, ans = a, valid = true;}
+  equation(){valid = false;}
+  equation(equation a, equation b) {
+    if(!a.valid || !b.valid) {
+      valid = false;
+      return;
     }
-    ans = a[1];
-    LCM = n[1];
-    bool impossible = false;
-    for(long long i = 2; i <= t; i++) {
-      auto pom = ex_GCD(LCM, n[i]);
-      long long x1 = pom.x;
-      long long d = pom.d;
-      if((a[i] - ans) % d != 0) {
-        impossible = true;
-      }
-      ans = normalize(ans + x1 * (a[i] - ans) / d % (n[i] / d) * LCM, LCM * n[i] / d);
-      LCM = get_LCM(LCM, n[i]);
+    long long g = gcd(a.mod, b.mod);
+    if((a.ans - b.ans) % g != 0) {
+      valid = false;
+      return;
     }
-    if (impossible) cout << "no solution\n";
-    else cout << ans << " " << LCM << endl;
+    valid = true;
+    mod = a.mod * (b.mod / g);
+    ans = a.ans +
+    mul(
+      mul(a.mod, modinverse(a.mod, b.mod), mod),
+      (b.ans - a.ans) / g
+      , mod);
+    ans = safemod(ans, mod);
   }
-  return 0;
-}
+  long long mod, ans;
+  bool valid;
+
+  void print()
+  {
+    if(!valid)
+      std::cout << "equation is not valid\n";
+    else
+      std::cout << "equation is " << ans << " mod " << mod << '\n';
+  }
+};

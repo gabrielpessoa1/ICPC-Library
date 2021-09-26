@@ -1,56 +1,36 @@
-// src: tfg
 class HLD {
 public:
-  void init(int n) {
-    // this doesn't delete edges!
-    sz.resize(n);
-    in.resize(n);
-    out.resize(n);
-    rin.resize(n);
-    p.resize(n);
-    edges.resize(n);
-    nxt.resize(n);
-    h.resize(n);
-  }
-
+  void init(int n) { /* resize everything */ }
   void addEdge(int u, int v) {
     edges[u].push_back(v);
     edges[v].push_back(u);
   }
-
-  void setRoot(int n) {
+  void setRoot(int r) {
     t = 0;
-    p[n] = n;
-    h[n] = 0;
-    prep(n, n);
-    nxt[n] = n;
-    hld(n);
+    p[r] = r;
+    h[r] = 0;
+    prep(r, r);
+    nxt[r] = r;
+    hld(r);
   }
-
   int getLCA(int u, int v) {
-    while(!inSubtree(nxt[u], v)) {
-      u = p[nxt[u]];
-    }
-    while(!inSubtree(nxt[v], u)) {
-      v = p[nxt[v]];
-    }
+    while(!inSubtree(nxt[u], v)) u = p[nxt[u]];
+    while(!inSubtree(nxt[v], u)) v = p[nxt[v]];
     return in[u] < in[v] ? u : v;
   }
-
-  bool inSubtree(int u, int v) {
-    // is v in the subtree of u?
+  // is v in the subtree of u?
+  bool inSubtree(int u, int v) { 
     return in[u] <= in[v] && in[v] < out[u];
   }
-
-  vector<pair<int, int>> getPathtoAncestor(int u, int anc) {
-    // returns ranges [l, r) that the path has
-    vector<pair<int, int>> ans;
-    //assert(inSubtree(anc, u));
+  // returns ranges [l, r) that the path has
+  vector<pair<int, int>> getPath(int u, int anc) {
+    vector<std::pair<int, int>> ans;
+    //assert(inSubtree(anc, u)); 
     while(nxt[u] != nxt[anc]) {
       ans.emplace_back(in[nxt[u]], in[u] + 1);
       u = p[nxt[u]];
     }
-    // this includes the ancestor!
+    // this includes the ancestor! care
     ans.emplace_back(in[anc], in[u] + 1);
     return ans;
   }
@@ -58,7 +38,6 @@ private:
   vector<int> in, out, p, rin, sz, nxt, h;
   vector<vector<int>> edges;
   int t;
-
   void prep(int on, int par) {
     sz[on] = 1;
     p[on] = par;
@@ -78,7 +57,6 @@ private:
       }
     }
   }
-
   void hld(int on) {
     in[on] = t++;
     rin[in[on]] = on;

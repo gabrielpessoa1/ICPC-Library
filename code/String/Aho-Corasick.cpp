@@ -1,36 +1,49 @@
-// Construa a Trie do seu dicionario com o codigo acima
+const int ms = 1e6;    // quantidade de caracteres
+const int sigma = 26;  // tamanho do alfabeto
+int trie[ms][sigma], fail[ms], terminal[ms], qtd;
 
-int fail[ms];
-queue<int> q;
-
+void init() {
+  qtd = 1;
+  memset(trie[0], -1, sizeof trie[0]);
+}
+void add(string &s) {
+  int node = 0;
+  for (char ch : s) {
+    int pos = val(ch);  // no caso de alfabeto a-z: val(ch) = ch - 'a'
+    if (trie[node][pos] == -1) {
+      memset(trie[qtd], -1, sizeof trie[qtd]);
+      terminal[qtd] = 0;
+      trie[node][pos] = qtd++;
+    }
+    node = trie[node][pos];
+  }
+  ++terminal[node];  // trocar pela info que quiser
+}
 void buildFailure() {
-  q.push(0);
-  while(!q.empty()) {
-    int node = q.front();
-    q.pop();
-    for(int pos = 0; pos < sigma; pos++) {
+  memset(fail, 0, sizeof(int) * qtd);
+  queue<int> Q;
+  Q.push(0);
+  while (Q.size()) {
+    int node = Q.front();
+    Q.pop();
+    for (int pos = 0; pos < sigma; ++pos) {
       int &v = trie[node][pos];
       int f = node == 0 ? 0 : trie[fail[node]][pos];
-      if(v == -1) {
+      if (v == -1) {
         v = f;
       } else {
         fail[v] = f;
-        q.push(v);
-        // juntar as informacoes da borda para o V ja q um match em V implica um match na borda
-        terminal[v] += terminal[f];
+        Q.push(v);
+        // dar merge nas infos (por ex: terminal[v] += terminal[f])
       }
     }
   }
 }
-
-int search(string &txt) {
+void search(string &s) {
   int node = 0;
-  int ans = 0;
-  for(int i = 0; i < txt.length(); i++) {
-    int pos = get_id(txt[i]);
+  for (char ch : s) {
+    int pos = val(ch);
     node = trie[node][pos];
-    // processar informacoes no no atual
-     ans += terminal[node];
+    // processar infos no nó atual (por ex: ocorrencias += terminal[node])
   }
-  return ans;
 }

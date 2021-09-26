@@ -31,6 +31,7 @@ DataStructures/ColorUpdate.cpp	Color Updates Structure
 #Graph/DisjointSet.cpp	Disjoint-Set / Union-Find
 #Graph/Kruskal.cpp	Kruskal's MST - Minimum Spanning Tree
 Graph/SimpleDisjointSet.cpp	Simple Disjoint Set
+Graph/Blossom.cpp	Blossom
 Graph/Boruvka.cpp	Boruvka
 Graph/Dinic.cpp	Dinic Max Flow
 Graph/VertexCover.cpp	Minimum Vertex Cover
@@ -58,6 +59,8 @@ Math/CRT.cpp	Chinese Remainder Theorem
 Math/Diophantine.cpp	Diophantine Equations
 Math/DiscreteLog.cpp	Discrete Logarithm
 Math/DiscreteRoot.cpp	Discrete Root
+Math/DivisionTrick.cpp	Division Trick
+Math/ModularSum.cpp	Modular Sum
 Math/PrimitiveRoot.cpp	Primitive Root
 #Math/GCD.cpp	GCD - Greatest Common Divisor
 #Math/Sieve.cpp	Sieve of Eratosthenes
@@ -95,6 +98,8 @@ String/ZAlgorithm.cpp	Algoritmo de Z
 String/SuffixArray.cpp	Suffix Array
 String/SuffixTree.cpp	Suffix Tree
 String/SuffixAutomaton.cpp	Suffix Automaton
+String/Manacher.cpp	Manacher
+String/PolishNotation.cpp	Polish Notation
 
 [Miscellaneous]
 Miscellaneous/LIS.cpp	LIS - Longest Increasing Subsequence

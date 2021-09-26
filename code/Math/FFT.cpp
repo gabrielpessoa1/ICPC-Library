@@ -42,7 +42,6 @@ void pre(int n) {
   }
 }
 
-
 CVector fft(CVector a, bool inv = false) {
   int n = a.size();
   pre(n);
@@ -94,7 +93,6 @@ void ifft2in1(CVector &a, CVector &b) {
     a[i] = Complex(a[i].real, 0);
   }
 }
-
 
 std::vector<long long> mod_mul(const std::vector<long long> &a, const std::vector<long long> &b, long long cut = 1 << 15) {
   // TODO cut memory here by /2
