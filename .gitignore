@@ -3,3 +3,5 @@ notebook.*
 !notebook.pdf
 !notebook.tex
 .vscode
+.DS_Store
+code/.DS_Store

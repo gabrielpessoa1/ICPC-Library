@@ -1,5 +1,5 @@
 // + Dinic
-vector<int> coverU, U, coverV, V; // ITA - Partição U LEFT, partição V RIGHT, 0 indexed
+vector<int> coverU, U, coverV, V; // ITA - Particao U LEFT, particao V RIGHT, 0 indexed
 bool Zu[mx], Zv[mx];
 int pairU[mx], pairV[mx];
 void getreach(int u) {

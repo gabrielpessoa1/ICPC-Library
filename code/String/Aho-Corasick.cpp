@@ -44,6 +44,6 @@ void search(string &s) {
   for (char ch : s) {
     int pos = val(ch);
     node = trie[node][pos];
-    // processar infos no nó atual (por ex: ocorrencias += terminal[node])
+    // processar infos no no atual (por ex: ocorrencias += terminal[node])
   }
 }
