@@ -12,15 +12,3 @@ struct Matrix {
     return ans;
   }
 };
-
-Matrix fExp(Matrix a, ll b) {
-  Matrix ans;
-  for(int i = 0; i < m; i++) for(int j = 0; j < m; j++)
-    ans.mat[i][j] = i == j;
-  while(b) {
-    if(b & 1) ans = ans * a;
-    a = a * a;
-    b >>= 1;
-  }
-  return ans;
-}

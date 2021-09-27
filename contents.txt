@@ -34,7 +34,7 @@ Graph/SimpleDisjointSet.cpp	Simple Disjoint Set
 Graph/Blossom.cpp	Blossom
 Graph/Boruvka.cpp	Boruvka
 Graph/Dinic.cpp	Dinic Max Flow
-Graph/VertexCover.cpp	Minimum Vertex Cover
+#Graph/VertexCover.cpp	Minimum Vertex Cover
 Graph/MinCostMaxFlow.cpp	Min Cost Max Flow
 Graph/EulerPath.cpp	Euler Path and Circuit
 Graph/BiconnectedComponents.cpp	Articulation Points/Bridges/Biconnected Components
@@ -66,14 +66,14 @@ Math/PrimitiveRoot.cpp	Primitive Root
 #Math/Sieve.cpp	Sieve of Eratosthenes
 Math/ExtendedEuclides.cpp	Extended Euclides
 #Math/FastExp.cpp	Fast Exponentiation
-Math/MatrixFastExp.cpp	Matrix Fast Exponentiation
+Math/Matrix.cpp	Matrix
 Math/FFT.cpp	FFT - Fast Fourier Transform
 Math/NTT.cpp	NTT - Number Theoretic Transform
 Math/FastWalshHadamardTransform.cpp	Fast Walsh Hadamard Transform
 Math/MillerAndRho.cpp	Miller and Rho
 Math/DetMod.cpp	Determinant using Mod
 Math/Lagrange.cpp	Lagrange Interpolation
-Math/IntegerPoints.cpp	Count integer points inside triangle
+#Math/IntegerPoints.cpp	Count integer points inside triangle
 
 [Geometry]
 Geometry/Geometry.cpp	Geometry
@@ -117,9 +117,11 @@ Miscellaneous/SosDP.cpp	Sum over Subsets DP
 Miscellaneous/Dates.cpp	Dates
 #Miscellaneous/Regex.java	Regular Expressions
 #Miscellaneous/LatLong.cpp	Lat Long
+Miscellaneous/StableMarriage.cpp	Stable Marriage
 
 [Teoremas e formulas uteis]
 Theorems/Graph.txt	Grafos
 Theorems/Math.txt	Math
 Theorems/Geometry.txt	Geometry
+Theorems/DP.txt	Dynamic Programming
 #Theorems/Mersenne.txt	Mersenne's Primes

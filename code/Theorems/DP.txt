@@ -1,0 +1,6 @@
+Divide and conquer - dp[i][j] = mink < j{dp[i - 1][k] + C[k][j]}
+dividir o subsegmento ate j em i segmentos com custo, valido se A[i][j] <= A[i][j+1] 
+Knuth - p[i][j] = mini < k < j{dp[i][k] + dp[k][j]} + C[i][j], valido se A[i, j - 1] <= A[i][j] <= A[i+1, j]
+onde A[i][j] eh o menor k que da a resposta otima
+slope trick - funcao piecewise linear convexa, descrita pelos pontos de mudanca de slope (multiset/heap)
+lembre que existe fft, cht, aliens trick e bitset

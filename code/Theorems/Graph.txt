@@ -14,11 +14,15 @@ Caley Formula: n^(n-2) arvores em N vertices com label
 Prufer code: Cada etapa voce remove a folha com menor label e o label do vizinho eh adicionado ao codigo ate ter 2 vertices
 
 Flow:
+Recuperar min cut eh ver se level[u] != -1 ai eh do lado do source
 Max Edge-disjoint paths: Max flow com arestas com peso 1
 Max Node-disjoint paths: Faz a mesma coisa mas separa cada vertice em um com as arestas de chegadas e um com as arestas de saida e uma aresta de peso 1 conectando o vertice com aresta de chegada com ele mesmo com arestas de saida
 Konig's Theorem: minimum node cover = maximum matching se o grafo for bipartido, complemento eh o maximum independent set
+Min vertex cover sao os vertices da particao do source que nao tao do lado do source do cut e os do sink que tao do lado do source, independent set o contrario
+Min edge cover eh N - match, pega as arestas do match mais qualquer aresta dos outros vertices
 Min Node disjoint path cover: formar grafo bipartido de vertices duplicados, onde aresta sai do vertice tipo A e chega em tipo B, entao o path cover eh N - matching
 Min General path cover: Mesma coisa mas colocando arestas de A pra B sempre que houver caminho de A pra B
 Dilworth's Theorem: Min General Path cover = Max Antichain (set de vertices tal que nao existe caminho no grafo entre vertices desse set)
 Hall's marriage: um grafo tem um matching completo do lado X se para cada subconjunto W de X, 
     |W| <= |vizinhosW| onde |W| eh quantos vertices tem em W
+feasible flow in a network with both upper and lower capacity constraints, no source or sink: capacities are changed to upper bound - lower bound. Add a new source and a sink. let M[v] = (sum of lower bounds of ingoing edges to v) - (sum of lower bounds of outgoing edges from v). For all v, if M[v] > 0 then add edge (S,v) with capcity M, otherwise add (v,T) with capacity -M. If all outgoing edges from S are full, then a feasible flow exists, it is the flow plus the original lower_bounds

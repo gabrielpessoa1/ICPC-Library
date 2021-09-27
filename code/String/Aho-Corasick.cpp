@@ -1,6 +1,6 @@
 const int ms = 1e6;    // quantidade de caracteres
 const int sigma = 26;  // tamanho do alfabeto
-int trie[ms][sigma], fail[ms], terminal[ms], qtd;
+int trie[ms][sigma], fail[ms], superfail[ms], terminal[ms], qtd;
 void init() {
   qtd = 1;
   memset(trie[0], -1, sizeof trie[0]);
@@ -19,7 +19,7 @@ void add(string &s) {
   ++terminal[node];  // trocar pela info que quiser
 }
 void buildFailure() {
-  memset(fail, 0, sizeof(int) * qtd);
+  memset(fail, 0, sizeof(int) * qtd), memset(superfail, 0, sizeof(int) * qtd);
   queue<int> Q;
   Q.push(0);
   while (Q.size()) {
@@ -28,10 +28,14 @@ void buildFailure() {
     for (int pos = 0; pos < sigma; ++pos) {
       int &v = trie[node][pos];
       int f = node == 0 ? 0 : trie[fail[node]][pos];
+      // int sf = present[f] ? f : superfail[f];
+      // present marks if that vertex is a terminal node or not
+      // if summing up on terminal, doesn't work
       if (v == -1) {
         v = f;
       } else {
         fail[v] = f;
+      // superfail[v] = sf;
         Q.push(v);
         // dar merge nas infos (por ex: terminal[v] += terminal[f])
       }
@@ -46,3 +50,4 @@ void search(string &s) {
     // processar infos no no atual (por ex: ocorrencias += terminal[node])
   }
 }
+// se tiver usando super fail, cuidado com o estado que voce ta, antes de subir pro sf, porque pode ser que o estado que ta nao seja no terminal
