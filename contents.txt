@@ -15,9 +15,9 @@ DataStructures/SegmentTreeIterativeLazy.cpp	Segment Tree with Lazy Propagation
 #DataStructures/SegmentTreeLazy.cpp	Segment Tree with Lazy Propagation
 #DataStructures/SegmentTreePersistent.cpp	Persistent Segment Tree
 DataStructures/Treap.cpp	Treap
-DataStructures/PersistentTreap.cpp	Persistent Treap
+#DataStructures/PersistentTreap.cpp	Persistent Treap
 DataStructures/KDTree.cpp	KD-Tree
-DataStructures/LinkCutTree.cpp	Link Cut Tree
+#DataStructures/LinkCutTree.cpp	Link Cut Tree
 DataStructures/SparseTable.cpp	Sparse Table
 DataStructures/MaxQueue.cpp	Max Queue
 DataStructures/PolicyBased.cpp	Policy Based Structures
