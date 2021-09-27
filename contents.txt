@@ -61,7 +61,7 @@ Math/DiscreteLog.cpp	Discrete Logarithm
 Math/DiscreteRoot.cpp	Discrete Root
 Math/DivisionTrick.cpp	Division Trick
 Math/ModularSum.cpp	Modular Sum
-#Math/PrimitiveRoot.cpp	Primitive Root
+Math/PrimitiveRoot.cpp	Primitive Root
 #Math/GCD.cpp	GCD - Greatest Common Divisor
 #Math/Sieve.cpp	Sieve of Eratosthenes
 Math/ExtendedEuclides.cpp	Extended Euclides
@@ -108,17 +108,18 @@ String/PolishNotation.cpp	Polish Notation
 Miscellaneous/TernarySearch.cpp	Ternary Search
 Miscellaneous/CountSort.cpp	Count Sort
 Miscellaneous/Random.cpp	Random Number Generator
-Miscellaneous/Rect.cpp	Rectangle Hash
+#Miscellaneous/Rect.cpp	Rectangle Hash
+Miscellaneous/SafeHash.cpp	Safe Hash
 Miscellaneous/UnorderedMapTricks.cpp	Unordered Map Tricks
 Miscellaneous/SubmaskEnumeration.cpp	Submask Enumeration
 Miscellaneous/SosDP.cpp	Sum over Subsets DP
 #Miscellaneous/FastIO.java	Java Fast I/O
 Miscellaneous/Dates.cpp	Dates
 #Miscellaneous/Regex.java	Regular Expressions
-Miscellaneous/LatLong.cpp	Lat Long
+#Miscellaneous/LatLong.cpp	Lat Long
 
 [Teoremas e formulas uteis]
 Theorems/Graph.txt	Grafos
 Theorems/Math.txt	Math
 Theorems/Geometry.txt	Geometry
-Theorems/Mersenne.txt	Mersenne's Primes
+#Theorems/Mersenne.txt	Mersenne's Primes
