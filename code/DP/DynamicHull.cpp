@@ -4,7 +4,6 @@ typedef long long int ll;
 class HullDynamic {
 public:
   const double_t inf = 1e9;
-
   struct Line {
     ll m, b;
     double_t start;
@@ -17,7 +16,6 @@ public:
     ll eval(ll x) { 
       return m * x + b; 
     }
-
     double_t intersect(const Line& l) const {
       return (double_t) (l.b - b) / (m - l.m);
     }
@@ -27,7 +25,6 @@ public:
       return (start < l.start);
     }
   };
-
   typedef set<Line>::iterator iterator_t;
 
   bool has_prev(iterator_t it) {
