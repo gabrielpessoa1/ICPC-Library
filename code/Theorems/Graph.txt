@@ -5,7 +5,7 @@ Kirchhoff's Theorem: Monta matriz onde Mi,i = Grau[i] e Mi,j = -1 se houver ares
 Grafo contem caminho hamiltoniano se:
 Dirac's theorem: Se o grau de cada vertice for pelo menos n/2
 Ore's theorem: Se a soma dos graus que cada par nao-adjacente de vertices for pelo menos n
-Boruvka's: enquanto grafo não conexo, para cada componente conexa use a aresta que sai de menor custo.
+Boruvka's: enquanto grafo nao conexo, para cada componente conexa use a aresta que sai de menor custo.
 
 Trees:
 Tem Catalan(N) Binary trees de N vertices

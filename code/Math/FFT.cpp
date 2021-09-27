@@ -1,7 +1,5 @@
 typedef double ld;
-
 const ld PI = acos(-1);
-
 struct Complex {
   ld real, imag;
   Complex conj() { return Complex(real, -imag); }
@@ -13,14 +11,10 @@ struct Complex {
   void operator *= (Complex o) { *this = *this * o; }
   void operator /= (ld o) { real /= o, imag /= o; }
 };
-
 typedef std::vector<Complex> CVector;
-
 const int ms = 1 << 22;
-
 int bits[ms];
 Complex root[ms];
-
 void initFFT() {
   root[1] = Complex(1);
   for(int len = 2; len < ms; len += len) {
@@ -31,7 +25,6 @@ void initFFT() {
     }
   }
 }
-
 void pre(int n) {
   int LOG = 0;
   while(1 << (LOG + 1) < n) {
@@ -41,7 +34,6 @@ void pre(int n) {
     bits[i] = (bits[i >> 1] >> 1) | ((i & 1) << LOG);
   }
 }
-
 CVector fft(CVector a, bool inv = false) {
   int n = a.size();
   pre(n);
@@ -69,7 +61,6 @@ CVector fft(CVector a, bool inv = false) {
   }
   return a;
 }
-
 void fft2in1(CVector &a, CVector &b) {
   int n = (int) a.size();
   for(int i = 0; i < n; i++) {
@@ -81,26 +72,19 @@ void fft2in1(CVector &a, CVector &b) {
     b[i] = (c[i] - c[(n-i) % n].conj()) * Complex(0, -0.5);
   }
 }
-
 void ifft2in1(CVector &a, CVector &b) {
   int n = (int) a.size();
-  for(int i = 0; i < n; i++) {
-    a[i] = a[i] + b[i] * Complex(0, 1);
-  }
+  for(int i = 0; i < n; i++) a[i] = a[i] + b[i] * Complex(0, 1);
   a = fft(a, true);
   for(int i = 0; i < n; i++) {
     b[i] = Complex(a[i].imag, 0);
     a[i] = Complex(a[i].real, 0);
   }
 }
-
 std::vector<long long> mod_mul(const std::vector<long long> &a, const std::vector<long long> &b, long long cut = 1 << 15) {
-  // TODO cut memory here by /2
   int n = (int) a.size();
   CVector C[4];
-  for(int i = 0; i < 4; i++) {
-    C[i].resize(n);
-  }
+  for(int i = 0; i < 4; i++) C[i].resize(n);
   for(int i = 0; i < n; i++) {
     C[0][i] = a[i] % cut;
     C[1][i] = a[i] / cut;
@@ -126,7 +110,6 @@ std::vector<long long> mod_mul(const std::vector<long long> &a, const std::vecto
   }
   return ans;
 }
-
 std::vector<int> mul(const std::vector<int> &a, const std::vector<int> &b) {
   int n = 1;
   while (n - 1 < (int) a.size() + (int) b.size() - 2) n += n;

@@ -1,28 +1,14 @@
-int primitiveRoot(int p) {
-  vector<int> fact;
-  int phi = p - 1, n = phi;
-  for (int i = 2; i * i <= n; i++) {
-    if (n % i == 0) {
-      fact.push_back(i);
-      while (n % i == 0) {
-        n /= i;
-      }
-    }
-  }
-  if (n > 1) {
-    fact.push_back(n);
-  }
-  for (int res = 2; res <= p; res++) {
-    bool ok = true;
-    for (auto it : fact) {
-      ok &= fexp(res, phi / it, p) != 1;
-      if (!ok) {
-        break;
-      }
-    }
-    if (ok) {
-      return res;
-    }
-  }
-  return -1;
+//is n primitive root of p ?
+bool test(long long x, long long p) {
+	long long m = p - 1;
+	for(int i = 2; i * i <= m; ++i) if(!(m % i)) {
+		if(fexp(x, i, p) == 1) return false;
+		if(fexp(x, m / i, p) == 1) return false;
+	}
+	return true;
+}
+//find the smallest primitive root for p
+int search(int p) {
+	for(int i = 2; i < p; i++) if(test(i, p)) return i;
+	return -1;
 }

@@ -74,6 +74,7 @@ Math/MillerAndRho.cpp	Miller and Rho
 Math/DetMod.cpp	Determinant using Mod
 Math/Lagrange.cpp	Lagrange Interpolation
 #Math/IntegerPoints.cpp	Count integer points inside triangle
+Math/PrimeCounting.cpp	Prime Counting
 
 [Geometry]
 Geometry/Geometry.cpp	Geometry

@@ -1,31 +1,11 @@
 const int MOD = 998244353;
 const int me = 15;
 const int ms = 1 << me;
-//is n primitive root of p ?
-bool test(ll x, ll p) {
-  ll m = p - 1;
-  for(int i = 2; i * i <= m; ++i) if(!(m % i)) {
-    if(fexp(x, i, p) == 1) return false;
-    if(fexp(x, m / i, p) == 1) return false;
-  }
-  return true;
-}
-//find the largest primitive root for p
-int search(int p) {
-  for(int i = p - 1; i >= 2; --i) if(test(i, p)) return i;
-  return -1;
-}
-map<int, int> roots;
-int get_root(int p) {
-  if(roots[p]) {
-    return roots[p];
-  } else {
-    roots[p]=search(p);
-    return roots[p];
-  }
-}
+
 #define add(x, y) x+y>=MOD?x+y-MOD:x+y
-const int gen = search(MOD);
+
+const int gen = 3; // use search() from PrimitiveRoot.cpp if MOD isn't 998244353
+
 int bits[ms], root[ms];
 void initFFT() {
   root[1] = 1;
