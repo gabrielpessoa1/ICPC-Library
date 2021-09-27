@@ -30,6 +30,14 @@ void pushLazy (pitem it) {
     if (it->r)  it->r->rev ^= true;
   }
 }
+void insert (pitem & t, pitem it) {
+  if (!t)
+    t = it;
+  else if (it->prio > t->prio)
+    split (t, it->key, it->l, it->r),  t = it;
+  else
+    insert (t->key <= it->key ? t->r : t->l, it);
+}
 void merge (pitem & t, pitem l, pitem r) {
   pushLazy (l); pushLazy (r);
   if (!l || !r) t = l ? l : r;
@@ -38,6 +46,15 @@ void merge (pitem & t, pitem l, pitem r) {
   else
     merge (r->l, l, r->l),  t = r;
   fix (t);
+}
+void erase (pitem & t, int key) {
+  if (t->key == key) {
+    pitem th = t;
+    merge (t, t->l, t->r);
+    delete th;
+  }
+  else
+    erase (key < t->key ? t->l : t->r, key);
 }
 void split (pitem t, pitem & l, pitem & r, int key) {
   if (!t) return void( l = r = 0 );
@@ -66,3 +83,21 @@ void unite (pitem & t, pitem l, pitem r) {
   unite (l-> r, l->r, rt);
   t = l;
 }
+pitem kth_element(pitem t, int k) {
+	if(!t) return NULL;
+	if(t->l) {
+		if(t->l->size >= k) return kth_element(t->l, k);
+		else k -= t->l->cnt;
+	}
+	return (k == 1) ? t : kth_element(t->r, k - 1);
+}
+int countLeft(pitem t, int key) {
+	if(!t) {
+		return 0;
+	} else if(t->key < key) {
+		return 1 + (t->l ? t->l->size : 0) + countLeft(t->r, key);
+	} else {
+		return countLeft(t->l, key);
+	}
+}
+
