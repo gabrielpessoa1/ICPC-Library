@@ -40,6 +40,7 @@ Graph/EulerPath.cpp	Euler Path and Circuit
 Graph/BiconnectedComponents.cpp	Articulation Points/Bridges/Biconnected Components
 Graph/SCC.cpp	SCC - Strongly Connected Components / 2SAT
 Graph/LCA.cpp	LCA - Lowest Common Ancestor
+Graph/FastLCA.cpp	LCA O(1)
 Graph/HLD.cpp	Heavy Light Decomposition
 Graph/CentroidDecomposition.cpp	Centroid Decomposition
 Graph/Sack.cpp	Sack
