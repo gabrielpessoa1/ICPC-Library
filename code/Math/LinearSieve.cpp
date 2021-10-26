@@ -2,7 +2,7 @@
 vector <int> prime;
 bool is_composite[MAXN];
 int cnt[MAXN];
-int primePow[MAXN];
+long long primePow[MAXN];
 long long func[MAXN];
 
 long long getFunction(int i, int p) {
