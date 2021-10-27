@@ -47,6 +47,7 @@ Graph/Sack.cpp	Sack
 Graph/Hungarian.cpp	Hungarian Algorithm - Maximum Cost Matching
 Graph/Burunduk.cpp	Burunduk
 Graph/Arborescence.cpp	Minimum Arborescence
+Graph/dominator.cpp	Dominator Tree
 
 [Dynamic Programming]
 #DP/DynamicHull.cpp	Dynamic Hull
@@ -65,6 +66,7 @@ Math/ModularSum.cpp	Modular Sum
 Math/PrimitiveRoot.cpp	Primitive Root
 #Math/GCD.cpp	GCD - Greatest Common Divisor
 #Math/Sieve.cpp	Sieve of Eratosthenes
+Math/LinearSieve.cpp	Linear Sieve
 Math/ExtendedEuclides.cpp	Extended Euclides
 #Math/FastExp.cpp	Fast Exponentiation
 Math/Matrix.cpp	Matrix
@@ -113,6 +115,7 @@ Miscellaneous/Random.cpp	Random Number Generator
 #Miscellaneous/Rect.cpp	Rectangle Hash
 Miscellaneous/SafeHash.cpp	Safe Hash
 Miscellaneous/UnorderedMapTricks.cpp	Unordered Map Tricks
+Miscellaneous/MasksByBitcount.cpp	Iterate masks in bitcount order
 Miscellaneous/SubmaskEnumeration.cpp	Submask Enumeration
 Miscellaneous/SosDP.cpp	Sum over Subsets DP
 #Miscellaneous/FastIO.java	Java Fast I/O
