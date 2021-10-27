@@ -52,4 +52,4 @@ V(X) = E(X^2) - E(X^2)
 
 PG: a1 * (q^n - 1)/(q - 1)
 
-Mobius Inverse: Sum(d|n): mobius(d) = [n = 1] (expressão booleana)
+Mobius Inverse: Sum(d|n): mobius(d) = [n = 1] (expressao booleana)
