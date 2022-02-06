@@ -26,7 +26,7 @@ void pre(int n) {
     bits[i] = (bits[i >> 1] >> 1) | ((i & 1) << LOG);
   }
 }
-vector<int> fft(vector<int> a, int mod, bool inv = false) {
+vector<int> fft(vector<int> a, bool inv = false) {
   int n = (int) a.size();
   pre(n);
   if(inv) {
