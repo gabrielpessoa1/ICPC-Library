@@ -29,6 +29,7 @@ int main () {
   }
   
   for (int i = 0; i < n; i++) {
+    if (used1[i]) continue;
     used.assign(n, false);
     try_kuhn(i);
   }
