@@ -7,8 +7,8 @@ struct Node {
   Node() { }
   Node() { }
   Node(Node l, Node r) { }
-  bool canBreak(LazyContext lazy) { }
-  bool canApply(LazyContext lazy) { }
+  bool canBreak(LazyContext lazy) { } // false if non beats
+  bool canApply(LazyContext lazy) { } // true if non beats
   void apply(LazyContext &lazy) { }
 };
 template <class i_t, class e_t, class lazy_cont>

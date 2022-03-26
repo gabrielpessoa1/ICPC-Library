@@ -8,16 +8,16 @@
 #DataStructures/BIT.cpp	BIT - Binary Indexed Tree
 #DataStructures/BIT2D.cpp	BIT 2D
 DataStructures/CompressedBIT2D.cpp	BIT 2D Comprimida
-#DataStructures/SegmentTreeIterative.cpp	Iterative Segment Tree
-#DataStructures/SegmentTreeIterativeReversed.cpp	Iterative Segment Tree with Interval Updates
+DataStructures/SegmentTreeIterative.cpp	Iterative Segment Tree
+DataStructures/SegmentTreeIterativeReversed.cpp	Iterative Segment Tree with Interval Updates
 DataStructures/SegmentTreeIterativeLazy.cpp	Segment Tree with Lazy Propagation
 #DataStructures/SegmentTree.cpp	Recursive Segment Tree
-#DataStructures/SegmentTreeLazy.cpp	Segment Tree with Lazy Propagation
-#DataStructures/SegmentTreePersistent.cpp	Persistent Segment Tree
+DataStructures/SegmentTreeLazy.cpp	Segment Tree with Lazy Propagation
+DataStructures/SegmentTreePersistent.cpp	Persistent Segment Tree
 DataStructures/Treap.cpp	Treap
-#DataStructures/PersistentTreap.cpp	Persistent Treap
+DataStructures/PersistentTreap.cpp	Persistent Treap
 DataStructures/KDTree.cpp	KD-Tree
-#DataStructures/LinkCutTree.cpp	Link Cut Tree
+DataStructures/LinkCutTree.cpp	Link Cut Tree
 DataStructures/SparseTable.cpp	Sparse Table
 DataStructures/MaxQueue.cpp	Max Queue
 DataStructures/PolicyBased.cpp	Policy Based Structures
@@ -68,7 +68,7 @@ Math/PrimitiveRoot.cpp	Primitive Root
 #Math/Sieve.cpp	Sieve of Eratosthenes
 Math/LinearSieve.cpp	Linear Sieve
 Math/ExtendedEuclides.cpp	Extended Euclides
-#Math/FastExp.cpp	Fast Exponentiation
+Math/FastExp.cpp	Fast Exponentiation
 Math/Matrix.cpp	Matrix
 Math/FFT.cpp	FFT - Fast Fourier Transform
 Math/NTT.cpp	NTT - Number Theoretic Transform
@@ -77,7 +77,7 @@ Math/MillerAndRho.cpp	Miller and Rho
 Math/DetMod.cpp	Determinant using Mod
 Math/Lagrange.cpp	Lagrange Interpolation
 Math/LagrangeQuadratic.cpp	Lagrange extracting polynomial
-#Math/IntegerPoints.cpp	Count integer points inside triangle
+Math/IntegerPoints.cpp	Count integer points inside triangle
 Math/PrimeCounting.cpp	Prime Counting
 Math/BerlekampMassey.cpp	Berlekamp Massey
 
@@ -114,7 +114,7 @@ String/PolishNotation.cpp	Polish Notation
 Miscellaneous/TernarySearch.cpp	Ternary Search
 Miscellaneous/CountSort.cpp	Count Sort
 Miscellaneous/Random.cpp	Random Number Generator
-#Miscellaneous/Rect.cpp	Rectangle Hash
+Miscellaneous/Rect.cpp	Rectangle Hash
 Miscellaneous/SafeHash.cpp	Safe Hash
 Miscellaneous/UnorderedMapTricks.cpp	Unordered Map Tricks
 Miscellaneous/MasksByBitcount.cpp	Iterate masks in bitcount order
@@ -122,8 +122,8 @@ Miscellaneous/SubmaskEnumeration.cpp	Submask Enumeration
 Miscellaneous/SosDP.cpp	Sum over Subsets DP
 #Miscellaneous/FastIO.java	Java Fast I/O
 Miscellaneous/Dates.cpp	Dates
-#Miscellaneous/Regex.java	Regular Expressions
-#Miscellaneous/LatLong.cpp	Lat Long
+Miscellaneous/Regex.java	Regular Expressions
+Miscellaneous/LatLong.cpp	Lat Long
 Miscellaneous/StableMarriage.cpp	Stable Marriage
 
 [Teoremas e formulas uteis]
@@ -131,4 +131,4 @@ Theorems/Graph.txt	Grafos
 Theorems/Math.txt	Math
 Theorems/Geometry.txt	Geometry
 Theorems/DP.txt	Dynamic Programming
-#Theorems/Mersenne.txt	Mersenne's Primes
+Theorems/Mersenne.txt	Mersenne's Primes
