@@ -53,3 +53,6 @@ V(X) = E(X^2) - E(X^2)
 PG: a1 * (q^n - 1)/(q - 1)
 
 Mobius Inverse: Sum(d|n): mobius(d) = [n = 1] (expressao booleana)
+
+Soma dos cubos de 1 a N = a^2 onde a = somatorio de 1 a N
+Lindstrom-Gessel-Viennot: quantidade de caminhos disjuntos nas linhas do grid eh o determinante da matriz de qnts caminhos
