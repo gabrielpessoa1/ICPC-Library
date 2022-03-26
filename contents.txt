@@ -108,6 +108,7 @@ String/SuffixTree.cpp	Suffix Tree
 String/SuffixAutomaton.cpp	Suffix Automaton
 String/Manacher.cpp	Manacher
 String/PolishNotation.cpp	Polish Notation
+String/Hash.cpp	String Hash
 
 [Miscellaneous]
 #Miscellaneous/LIS.cpp	LIS - Longest Increasing Subsequence
@@ -126,6 +127,7 @@ Miscellaneous/Dates.cpp	Dates
 Miscellaneous/Regex.java	Regular Expressions
 Miscellaneous/LatLong.cpp	Lat Long
 Miscellaneous/StableMarriage.cpp	Stable Marriage
+Miscellaneous/Mo.cpp	Mo
 
 [Teoremas e formulas uteis]
 Theorems/Graph.txt	Grafos
