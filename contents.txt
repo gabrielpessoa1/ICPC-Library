@@ -48,6 +48,7 @@ Graph/Hungarian.cpp	Hungarian Algorithm - Maximum Cost Matching
 Graph/Burunduk.cpp	Burunduk
 Graph/Arborescence.cpp	Minimum Arborescence
 Graph/dominator.cpp	Dominator Tree
+Graph/Kuhn.cpp	Kuhn
 
 [Dynamic Programming]
 #DP/DynamicHull.cpp	Dynamic Hull
