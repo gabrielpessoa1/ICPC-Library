@@ -9,10 +9,10 @@
 #DataStructures/BIT2D.cpp	BIT 2D
 DataStructures/CompressedBIT2D.cpp	BIT 2D Comprimida
 DataStructures/SegmentTreeIterative.cpp	Seg Tree
-DataStructures/SegmentTreeIterativeReversed.cpp	Seg Tree cm update de range
-DataStructures/SegmentTreeIterativeLazy.cpp	Seg Tree cm Lazy Iterativa
+DataStructures/SegmentTreeIterativeReversed.cpp	Seg Tree update de range
+DataStructures/SegmentTreeIterativeLazy.cpp	Seg Tree Lazy Iterativa
 #DataStructures/SegmentTree.cpp	Seg Tree
-DataStructures/SegmentTreeLazy.cpp	Seg Tree cm Lazy
+DataStructures/SegmentTreeLazy.cpp	Seg Tree Lazy
 DataStructures/SegmentTreePersistent.cpp	Persistent Segment Tree
 DataStructures/Treap.cpp	Treap
 DataStructures/PersistentTreap.cpp	Persistent Treap
