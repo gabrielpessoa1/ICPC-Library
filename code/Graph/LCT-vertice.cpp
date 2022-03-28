@@ -1,6 +1,4 @@
 // by brunomaletta
-// Link-cut Tree - vertice
-//
 // Valores nos vertices
 // make_tree(v, w) cria uma nova arvore com um
 // vertice soh com valor 'w'

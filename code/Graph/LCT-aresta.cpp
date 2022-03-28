@@ -1,6 +1,4 @@
 // by brunomaletta
-// Link-cut Tree - aresta
-//
 // Valores nas arestas
 // rootify(v) torna v a raiz de sua arvore
 // query(v, w) retorna a soma do caminho v--w

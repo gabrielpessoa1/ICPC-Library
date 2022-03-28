@@ -49,6 +49,10 @@ Graph/Burunduk.cpp	Burunduk
 Graph/Arborescence.cpp	Minimum Arborescence
 Graph/dominator.cpp	Dominator Tree
 Graph/Kuhn.cpp	Kuhn
+Graph/bipartite_check.cpp	Bipartite Check
+Graph/LCT.cpp	Link Cut Tree Padrao
+Graph/LCT-aresta.cpp	Link Cut Tree Aresta
+Graph/LCT-vertice.cpp	Link Cut Tree Vertice
 
 [Dynamic Programming]
 #DP/DynamicHull.cpp	Dynamic Hull

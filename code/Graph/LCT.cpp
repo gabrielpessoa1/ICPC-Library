@@ -1,6 +1,4 @@
 // by brunomaletta
-// Link-cut Tree
-//
 // Link-cut tree padrao
 //
 // Todas as operacoes sao O(log(n)) amortizado
