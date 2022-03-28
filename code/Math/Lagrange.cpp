@@ -1,6 +1,6 @@
 class LagrangePoly {
 public:
-  LagrangePoly(std::vector<long long> _a) {
+  LagrangePoly(vector<long long> _a) {
     //f(i) = _a[i]
     //interpola o vetor em um polinomio de grau y.size() - 1
     y = _a;
@@ -21,7 +21,7 @@ public:
     if(x < n) {
       //return y[(int) x];
     }
-    std::vector<long long> l, r;
+    vector<long long> l, r;
     l.resize(n);
     l[0] = 1;
     for(int i = 1; i < n; i++) {
@@ -41,7 +41,7 @@ public:
   }
   
 private:
-  std::vector<long long> y, den;
+  vector<long long> y, den;
 };
 
 int main(){
@@ -52,12 +52,12 @@ int main(){
   }
   // Codeforces 622F
   int x, k;
-  std::cin >> x >> k;
-  std::vector<long long> a;
+  cin >> x >> k;
+  vector<long long> a;
   a.push_back(0);
   for(long long i = 1; i <= k + 1; i++) {
     a.push_back((a.back() + fexp(i, k)) % MOD);
   }
   LagrangePoly f(a);
-  std::cout << f.getVal(x) << '\n';
+  cout << f.getVal(x) << '\n';
 }
