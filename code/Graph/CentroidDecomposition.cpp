@@ -1,4 +1,5 @@
-vector<int> g[ms], dis[ms]; //resize all dis[i] to 30
+vector<int> g[ms];
+int dis[ms][30];
 int par[ms], sz[ms], rem[ms], h[ms];
 
 void dfsSubtree(int u, int p) {
@@ -31,7 +32,7 @@ void decompose(int u, int p = -1, int nv = 0) {
   dfsSubtree(u, -1);
   int ctr = getCentroid(u, -1, sz[u]);
   par[ctr] = p; 
-  h[u] = nv; 
+  h[ctr] = nv; 
   rem[ctr] = 1;
   setDis(ctr, p, nv);
   for(auto v : g[ctr]) {
