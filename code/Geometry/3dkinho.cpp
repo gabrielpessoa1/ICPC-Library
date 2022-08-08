@@ -5,8 +5,7 @@ struct PT {
     return PT(x - other.x, y - other.y, z - other.z);
   }
   bool operator == (const PT other) {
-    PT norm = *this - other;
-    return (abs(norm.y) < 1e-9 && abs(norm.y) < 1e-9 && abs(norm.x) < 1e-9);
+    return !cmp(x, other.x) && !cmp(y, other.y) && !cmp(z, other.z);
   }
 };
 
@@ -18,5 +17,11 @@ double dot (PT a, PT b) {
   return a.x*b.x + a.y*b.y + a.z*b.z;
 }
 
-// same plane (a, b, c, p) = norm = cross((a-b), (c-b)), dot(norm, p) == dot(norm, a)
-// same line (a, b, c) = cross((a-b), (c-b)) == PT(0, 0, 0)
+boolean samePlane (PT a, PT b, PT c, PT p) {
+  PT norm = cross(a-b, c-b);
+  return !cmp(dot(norm, p), dot(norm, a));
+}
+
+boolean sameLine (PT a, PT b, PT c, PT p) {
+  return cross(a-b, c-b) == PT();
+}
