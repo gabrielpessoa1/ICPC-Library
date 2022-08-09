@@ -1,25 +1,21 @@
 const int ms = 1e6;    // quantidade de caracteres
 const int sigma = 26;  // tamanho do alfabeto
-int trie[ms][sigma], fail[ms], superfail[ms], terminal[ms], qtd;
-void init() {
-  qtd = 1;
-  memset(trie[0], -1, sizeof trie[0]);
-}
+int trie[ms][sigma], fail[ms], superfail[ms], terminal[ms], z = 1;
+
 void add(string &s) {
   int node = 0;
   for (char ch : s) {
     int pos = val(ch);  // no caso de alfabeto a-z: val(ch) = ch - 'a'
-    if (trie[node][pos] == -1) {
-      memset(trie[qtd], -1, sizeof trie[qtd]);
-      terminal[qtd] = 0;
-      trie[node][pos] = qtd++;
+    if (!trie[node][pos]) {
+      terminal[z] = 0;
+      trie[node][pos] = z++;
     }
     node = trie[node][pos];
   }
   ++terminal[node];  // trocar pela info que quiser
 }
 void buildFailure() {
-  memset(fail, 0, sizeof(int) * qtd), memset(superfail, 0, sizeof(int) * qtd);
+  memset(fail, 0, sizeof(int) * z), memset(superfail, 0, sizeof(int) * z);
   queue<int> Q;
   Q.push(0);
   while (Q.size()) {
@@ -31,7 +27,7 @@ void buildFailure() {
       // int sf = present[f] ? f : superfail[f];
       // present marks if that vertex is a terminal node or not
       // if summing up on terminal, doesn't work
-      if (v == -1) {
+      if (!v) {
         v = f;
       } else {
         fail[v] = f;
