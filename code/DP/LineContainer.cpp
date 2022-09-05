@@ -5,7 +5,7 @@ struct Line {
     return Q ? p < o.p : k < o.k;
   }
 };
-struct LineContainer : multiset<Line> {
+struct LineContainer : multiset<Line> { // max
   // (for doubles, use inf = 1/.0, div(a,b) = a/b)
   const ll inf = LLONG_MAX;
   ll div(ll a, ll b) { // floored division
