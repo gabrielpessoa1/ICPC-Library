@@ -86,6 +86,7 @@ Math/LagrangeQuadratic.cpp	Lagrange extracting polynomial
 Math/IntegerPoints.cpp	Count integer points inside triangle
 Math/PrimeCounting.cpp	Prime Counting
 Math/BerlekampMassey.cpp	Berlekamp Massey
+Math/first_coef_exp.cpp	Polynomial exp
 
 [Geometry]
 Geometry/Geometry.cpp	Geometry
