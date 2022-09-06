@@ -127,6 +127,7 @@ Miscellaneous/UnorderedMapTricks.cpp	Unordered Map Tricks
 Miscellaneous/MasksByBitcount.cpp	Iterate masks in bitcount order
 Miscellaneous/SubmaskEnumeration.cpp	Submask Enumeration
 Miscellaneous/SosDP.cpp	Sum over Subsets DP
+Miscellaneous/SubsetSum.cpp	Subset Sum
 #Miscellaneous/FastIO.java	Java Fast I/O
 Miscellaneous/Dates.cpp	Dates
 Miscellaneous/Regex.java	Regular Expressions
