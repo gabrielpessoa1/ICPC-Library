@@ -11,7 +11,7 @@ vector<int> berlekampMassey(const vector<int> &s) {
         vector<int> temp = c;
         int coef = d * fexp(ld, mod-2) % mod;
         for (int j=m; j<n; j++) 
-            (c[j] = (c[j] - coef * b[j-m]) % mod + mod) % mod;
+            c[j] = ((c[j] - coef * b[j-m]) % mod + mod) % mod;
         if (2 * l <= i) {
             l = i + 1 - l;
             b = temp;
