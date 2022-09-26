@@ -1,4 +1,4 @@
-const double inf = 1e100, eps = 1e-12;
+const double inf = 1e100, eps = 1e-7;
 const double PI = acos(-1.0L);
 int cmp (double a, double b = 0) {
   if (abs(a-b) < eps) return 0;
