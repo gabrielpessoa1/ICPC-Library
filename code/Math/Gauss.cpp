@@ -61,6 +61,24 @@ int gauss (vector <bitset<ms>> a, int m) {
                 a[i] ^= a[row];
         }
         ++row;
+    }  
+    for(int i = 0; i < m; ++i)
+        if(where[i] != -1) {
+          ans[i] = a[where[i]][m];
+        }
+ 
+    for(int i = 0; i < n; ++i) {
+        int sum = 0;
+        for(int j = 0; j < m; ++j) {
+          sum ^= (ans[j] & a[i][j]);
+        }
+        if(sum != a[i][m]) {
+          return 0;
+        }
     }
-    //same above
+
+    for(int i = 0; i < m; ++i)
+        if(where[i] == -1)
+          return 1e9;
+    return 1;
 }
