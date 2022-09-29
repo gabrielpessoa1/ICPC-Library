@@ -44,7 +44,7 @@ int gauss (vector<vector<double>> a, vector<double> & ans) {
 }
 
 // mod 2 (xor);
-int gauss (vector <bitset<ms>> a, int m) {
+int gauss (vector <bitset<ms>> a, int m, bitset<ms> &ans) {
     int n = (int) a.size();
     vector<int> where (m, -1);
     for (int col=0, row=0; col<m && row<n; ++col) {
