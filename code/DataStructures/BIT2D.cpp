@@ -1,7 +1,7 @@
 int bit[ms][ms];
 void update(int v, int x, int y) {
   for (x++, y++; x < ms; x += x&-x) {
-    for (int y1 = y+1; y1 < ms; y1 += y1&-y1) {
+    for (int y1 = y; y1 < ms; y1 += y1&-y1) {
       bit[x][y1] += v;
     }
   }
