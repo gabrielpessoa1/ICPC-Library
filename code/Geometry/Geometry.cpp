@@ -33,6 +33,30 @@ double polarAngle (PT p) {
   double a = atan2(p.y,p.x);
   return a < 0 ? a + 2*PI : a;
 }
+
+struct polar_angle {
+  PT o;
+  polar_angle(PT _o) : o(_o) {}
+ 
+  int quad(PT p) {
+    if (p.y > 0) return 1;
+    if (p.y < 0) return 2;
+    if (p.x > 0) return 1;
+    return 2;
+  }
+ 
+  bool operator()(pair<PT, int> &lhs, pair<PT, int> &rhs) {
+    PT l = lhs.first - o;
+    PT r = rhs.first - o;
+    int lq = quad(l);
+    int rq = quad(r);
+    if (lq != rq) return lq < rq;
+    int c = cross(l, r);
+    if (c) return c > 0;
+    return lhs.second < rhs.second;
+  }
+};
+
 PT rotateCCW90 (PT p) { return PT(-p.y, p.x); }
 PT rotateCW90 (PT p) { return PT(p.y, -p.x); }
 PT rotateCCW (PT p, double t) {
