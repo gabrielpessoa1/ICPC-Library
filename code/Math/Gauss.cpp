@@ -1,4 +1,4 @@
-const double eps = 1e-7;
+const double eps = 1e-9;
 
 int gauss (vector<vector<double>> a, vector<double> & ans) {
     int n = (int) a.size();
