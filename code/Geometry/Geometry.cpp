@@ -1,4 +1,4 @@
-const double inf = 1e100, eps = 1e-7;
+const double inf = 1e100, eps = 1e-9;
 const double PI = acos(-1.0L);
 int cmp (double a, double b = 0) {
   if (abs(a-b) < eps) return 0;
@@ -33,29 +33,6 @@ double polarAngle (PT p) {
   double a = atan2(p.y,p.x);
   return a < 0 ? a + 2*PI : a;
 }
-
-struct polar_angle {
-  PT o;
-  polar_angle(PT _o) : o(_o) {}
- 
-  int quad(PT p) {
-    if (p.y > 0) return 1;
-    if (p.y < 0) return 2;
-    if (p.x > 0) return 1;
-    return 2;
-  }
- 
-  bool operator()(pair<PT, int> &lhs, pair<PT, int> &rhs) {
-    PT l = lhs.first - o;
-    PT r = rhs.first - o;
-    int lq = quad(l);
-    int rq = quad(r);
-    if (lq != rq) return lq < rq;
-    int c = cross(l, r);
-    if (c) return c > 0;
-    return lhs.second < rhs.second;
-  }
-};
 
 PT rotateCCW90 (PT p) { return PT(-p.y, p.x); }
 PT rotateCW90 (PT p) { return PT(p.y, -p.x); }
@@ -123,7 +100,7 @@ bool segInter (PT a, PT b, PT c, PT d) {
 // Para intersecao de segmentos, cheque primeiro se os segmentos se intersectam e que nao sao paralelos
 PT lineLine (PT a, PT b, PT c, PT d) {
   b = b - a; d = c - d; c = c - a;
-  assert(cmp(cross(b, d)) != 0);
+  // assert(cmp(cross(b, d)) != 0);
   return a + b * cross(c, d) / cross(b, d);
 }
 PT circleCenter (PT a, PT b, PT c) {
