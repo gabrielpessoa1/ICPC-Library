@@ -19,7 +19,7 @@ struct PT {
   bool operator != (const PT &p) const {return !(p == *this);}
 };
 ostream &operator<<(ostream &os, const PT &p) {
-  os << "(" << p.x << "," << p.y << ")"; 
+  return os << "(" << p.x << "," << p.y << ")"; 
 }
 double dot (PT p, PT q) { return p.x * q.x + p.y*q.y; }
 double cross (PT p, PT q) { return p.x * q.y - p.y*q.x; }
@@ -88,7 +88,7 @@ double distPtPlane(double x, double y, double z, double a, double b, double c, d
 }
 bool segInter (PT a, PT b, PT c, PT d) {
   if (collinear(a, b, c, d)) {
-    if (cmp(dist(a, c)) == 0 || cmp(dist(a, d)) == 0 || cmp(dist(b, c)) == 0 || cmp(dist(b, d)) == 0) return true;
+    if (a == c || a == d || b == c || b == d) return true;
     if (cmp(dot(c - a, c - b)) > 0 && cmp(dot(d - a, d - b)) > 0 && cmp(dot(c - b, d - b)) > 0) return false;
     return true;
   }
