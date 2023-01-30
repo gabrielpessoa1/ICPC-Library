@@ -29,23 +29,30 @@ bool check (L la, L lb, L lc) {
     return cmp(det) < 0;
 }
 vector<PT> hpi (vector<L> line) {
+    vector<PT> box = {PT(inf, inf), PT(-inf, inf), PT(-inf, -inf), PT(inf, -inf)};
+    for(int i = 0; i<4; i++) { 
+        line.emplace_back(box[i], box[(i + 1) % 4]);
+    }
     sort(line.begin(), line.end());
     vector<L> pl(1, line[0]);
-    for (int i = 0; i < (int)line.size(); ++i) if (cmp(cross(line[i].dir, pl.back().dir)) != 0) pl.push_back(line[i]);
-    vector<int> dq;
+    for (int i = 0; i < (int)line.size(); ++i) if (cmp(cross(line[i].dir, pl.back().dir)) != 0) pl.push_back(line[i]);    vector<int> dq;
     int start = 0;
-    dq.push_back(0);
-    dq.push_back(1);
-    for (int i = 2; i < (int)pl.size(); ++i) {
+    for (int i = 0; i < (int)pl.size(); ++i) {
         while ((int)dq.size() - start > 1 && check(pl[i], pl[dq.back()], pl[dq[dq.size() - 2]])) dq.pop_back();
         while ((int)dq.size() - start > 1 && check(pl[i], pl[dq[start]], pl[dq[start + 1]])) start++;
+        if((int)dq.size() - start > 0 && cmp(cross(pl[i].dir, pl[dq.back()].dir)) == 0) {
+          if(cmp(dot(pl[i].dir, pl[dq.back()].dir)) < 0) return vector<PT>();
+          if(cmp(cross(pl[i].dir, pl[dq.back()].a - pl[i].a)) < 0) dq.pop_back(); 
+          else continue;
+        }
         dq.push_back(i);
     }
     while ((int)dq.size() - start > 1 && check(pl[dq[start]], pl[dq.back()], pl[dq[dq.size() - 2]])) dq.pop_back();
     while ((int)dq.size() - start > 1 && check(pl[dq.back()], pl[dq[start]], pl[dq[start + 1]])) start++;
     vector<PT> res;
+    if((int)dq.size() - start < 3) return vector<PT>(); // remove this if res can be point/line
     for (int i = start; i < (int)dq.size(); ++i){
-        res.emplace_back(computeLineIntersection(pl[dq[i]], pl[dq[i + 1 == dq.size() ? start : i + 1]]));
+      res.emplace_back(computeLineIntersection(pl[dq[i]], pl[dq[i + 1 == dq.size() ? start : i + 1]]));
     }
     return res;
 }
