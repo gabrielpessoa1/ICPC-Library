@@ -35,7 +35,8 @@ vector<PT> hpi (vector<L> line) {
     }
     sort(line.begin(), line.end());
     vector<L> pl(1, line[0]);
-    for (int i = 0; i < (int)line.size(); ++i) if (cmp(cross(line[i].dir, pl.back().dir)) != 0) pl.push_back(line[i]);    vector<int> dq;
+    for (int i = 0; i < (int)line.size(); ++i) if (cmp(cross(line[i].dir, pl.back().dir)) != 0) pl.push_back(line[i]);
+    vector<int> dq;
     int start = 0;
     for (int i = 0; i < (int)pl.size(); ++i) {
         while ((int)dq.size() - start > 1 && check(pl[i], pl[dq.back()], pl[dq[dq.size() - 2]])) dq.pop_back();
