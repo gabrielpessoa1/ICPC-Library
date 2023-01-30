@@ -13,11 +13,11 @@ struct L { // salvar (p[i], p[i + 1]) poligono CCW, (p[i + 1], p[i]) poligono CW
     bool operator < (const L &l) const {
       int q1 = quadrant(), q2 = l.quadrant();
       if (q1 != q2) return q1 < q2;
-      int c = cross(dir, l.dir);
-      if(c == 0) {
-        return cross((l.b - l.a), (b - l.a)) > eps;
+      double c = cross(dir, l.dir);
+      if(cmp(c) == 0) {
+        return cmp(cross((l.b - l.a), (b - l.a))) > 0;
       }
-      return c > 0;
+      return cmp(c) > 0;
     }
 };
 PT computeLineIntersection (L la, L lb) {
