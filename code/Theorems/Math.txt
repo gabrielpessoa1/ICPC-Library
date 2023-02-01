@@ -6,7 +6,8 @@ Zeckendorf's: todo numero pode ser representado pela soma de dois numeros de fib
 Euclid's: toda tripla de pitagoras primitiva pode ser gerada com 
     (n^2 - m^2, 2nm, n^2+m^2) onde n, m sao coprimos e um deles eh par
 Wilson's: n eh primo quando (n-1)! mod n = n - 1
-Mcnugget: Para dois coprimos x, y o maior inteiro que nao pode ser escrito como ax + by eh (x-1)(y-1)/2
+Mcnugget: Para dois coprimos x, y  a quantidade de inteiros que nao pode ser escrito como ax + by eh (x-1)(y-1)/2, 
+     o maior inteiro que nao consegue eh x*y-x-y
 
 Fermat: Se p eh primo entao a^(p-1) % p = 1
 Se x e m tambem forem coprimos entao x^k % m = x^(k mod(m-1)) % m
