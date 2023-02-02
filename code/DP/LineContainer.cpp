@@ -1,17 +1,16 @@
-bool Q;
 struct Line {
   mutable ll k, m, p;
-  bool operator<(const Line& o) const {
-    return Q ? p < o.p : k < o.k;
-  }
+  bool operator<(const Line& o) const { return k < o.k; }
+  bool operator<(ll x) const { return p < x; }
 };
-struct LineContainer : multiset<Line> { // max
+
+struct LineContainer : multiset<Line, less<>> {
   // (for doubles, use inf = 1/.0, div(a,b) = a/b)
-  const ll inf = LLONG_MAX;
+  static const ll inf = LLONG_MAX;
   ll div(ll a, ll b) { // floored division
     return a / b - ((a ^ b) < 0 && a % b); }
   bool isect(iterator x, iterator y) {
-    if (y == end()) { x->p = inf; return false; }
+    if (y == end()) return x->p = inf, 0;
     if (x->k == y->k) x->p = x->m > y->m ? inf : -inf;
     else x->p = div(y->m - x->m, x->k - y->k);
     return x->p >= y->p;
@@ -25,7 +24,7 @@ struct LineContainer : multiset<Line> { // max
   }
   ll query(ll x) {
     assert(!empty());
-    Q = 1; auto l = *lower_bound({0,0,x}); Q = 0;
+    auto l = *lower_bound(x);
     return l.k * x + l.m;
   }
 };
