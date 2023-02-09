@@ -173,13 +173,6 @@ bool pointInPolygon(const vector<PT> &p, PT q) {
   }
   return c;
 }
-// Determina se o ponto esta na borda do poligno
-bool pointOnPolygon(const vector<PT> &p, PT q) {
-  for(int i = 0; i < p.size(); i++)
-    if(cmp(dist(projPtSeg(p[i], p[(i + 1) % p.size()], q), q)) == 0)
-      return true;
-    return false;
-}
 // area / semiperimeter
 double rIncircle (PT a, PT b, PT c) {
   double ab = norm(a-b), bc = norm(b-c), ca = norm(c-a);
