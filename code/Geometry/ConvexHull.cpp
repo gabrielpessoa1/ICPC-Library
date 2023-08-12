@@ -5,11 +5,11 @@ vector<PT> convexHull(vector<PT> p, bool needs = 1) {
   if(n <= 1) return p;
   vector<PT> h(n + 2); // se der wa bota n*2
   for(int i = 0; i < n; i++) {
-    while(k >= 2 && cross(h[k - 1] - h[k - 2], p[i] - h[k - 2]) <= 0) k--;
+    while(k >= 2 && (h[k - 1] - h[k - 2]) % (p[i] - h[k - 2]) <= 0) k--;
     h[k++] = p[i];
   }
   for(int i = n - 2, t = k + 1; i >= 0; i--) {
-    while(k >= t && cross(h[k - 1] - h[k - 2], p[i] - h[k - 2]) <= 0) k--;
+    while(k >= t && (h[k - 1] - h[k - 2]) % (p[i] - h[k - 2]) <= 0) k--;
     h[k++] = p[i];
   }
   h.resize(k); // n+1 points where the first is equal to the last
@@ -40,28 +40,28 @@ int maximizeScalarProduct(const vector<PT> &hull, PT vec) {
   int n = hull.size();
   if(n < 20) {
     for(int i = 0; i < n; i++) {
-      if(dot(hull[i], vec) > dot(hull[ans], vec)) {
+      if(hull[i] * vec > hull[ans] * vec) {
         ans = i;
       }
     }
   } else {
-    if(dot(hull[1], vec) > dot(hull[ans], vec)) {
+    if(hull[1] * vec > hull[ans] * vec)) {
       ans = 1;
     }
     for(int rep = 0; rep < 2; rep++) {
       int l = 2, r = n - 1;
       while(l != r) {
         int mid = (l + r + 1) / 2;
-        bool flag = dot(hull[mid], vec) >= dot(hull[mid-1], vec);
-        if(rep == 0) { flag = flag && dot(hull[mid], vec) >= dot(hull[0], vec); }
-        else { flag = flag || dot(hull[mid-1], vec) < dot(hull[0], vec); }
+        bool flag = hull[mid] * vec >= hull[mid-1] * vec;
+        if(rep == 0) { flag = flag && hull[mid] * vec >= hull[0] * vec; }
+        else { flag = flag || hull[mid-1] * vec < hull[0] * vec; }
         if(flag) {
           l = mid;
         } else {
           r = mid - 1;
         }
       }
-      if(dot(hull[ans], vec) < dot(hull[l], vec)) {
+      if(hull[ans] * vec) < hull[l] * vec) {
         ans = l;
       }
     }
