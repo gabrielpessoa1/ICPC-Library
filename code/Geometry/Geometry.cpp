@@ -29,8 +29,6 @@ ostream &operator<<(ostream &os, const PT &p) {
   return os << "(" << p.x << "," << p.y << ")"; 
 }
 
-double dist2 (PT p, PT q = PT(0, 0)) { return (p-q)*(p-q); }
-double dist (PT p, PT q) { return hypot(p.x-q.x, p.y-q.y); }
 double angle (PT p, PT q) { return atan2(p % q, p * q); }
 double angle (PT p) { return atan2(p.y, p.x); }
 double polarAngle (PT p) {
@@ -59,7 +57,7 @@ PT projPtSeg (PT a, PT b, PT c) { // c no segmento a - b
   return a + (b - a) * r;
 }
 double distancePointSegment (PT a, PT b, PT c) { //  ponto c e o segmento a - b
-  return dist(c, projPtSeg(a, b, c));
+  return !(c - projPtSeg(a, b, c));
 }
 bool ptInSegment (PT a, PT b, PT c) { // ponto c esta em um segmento a - b
   if (a == b) return a == c;
@@ -100,7 +98,7 @@ PT circleCenter (PT a, PT b, PT c) {
 }
 vector<PT> circle2PtsRad (PT p1, PT p2, double r) {
   vector<PT> ret;
-  double d2 = dist2(p1, p2);
+  double d2 = p1 * p2;
   double det = r * r / d2 - 0.25;
   if (det < 0.0) return ret;
   double h = sqrt(det);
@@ -113,7 +111,7 @@ vector<PT> circle2PtsRad (PT p1, PT p2, double r) {
   return ret;
 }
 bool circleLineIntersection(PT a, PT b, PT c, double r) {
-    return cmp(dist(c, projPtLine(a, b, c)), r) <= 0;
+    return cmp(!(c - projPtLine(a, b, c)), r) <= 0;
 }
 vector<PT> circleLine (PT a, PT b, PT c, double r) {
   vector<PT> ret;
@@ -222,7 +220,7 @@ PT normalize (PT p) { return p/!p; }
 vector< pair<PT, PT> > getTangentSegs (PT c1, double r1, PT c2, double r2) {
   if (r1 < r2) swap(c1, c2), swap(r1, r2);
   vector<pair<PT, PT> > ans;
-  double d = dist(c1, c2);
+  double d = !(c1 - c2);
   if (cmp(d) <= 0) return ans;
   double dr = abs(r1 - r2), sr = r1 + r2;
   if (cmp(dr, d) >= 0) return ans;
