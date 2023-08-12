@@ -42,21 +42,23 @@ PT rotateCCW (PT p, double t) {
   return PT(p.x*cos(t)-p.y*sin(t), p.x*sin(t)+p.y*cos(t));
 }
 PT projPtLine (PT a, PT b, PT c) { // ponto c na linha a - b, a.b = |a| cost * |b|
-  return a + (b-a) * ((b-a)*(c-a))/((b-a)*(b-a));
+  PT b = b - a, c = c  - a;
+  return a + b*(c*b)/(b*b);
 }
 PT reflectPointLine (PT a, PT b, PT c) {
   PT p = projPtLine(a, b, c);
   return p*2 - c;
 }
 PT projPtSeg (PT a, PT b, PT c) { // c no segmento a - b
-  double r = (b-a)*(b-a);
+  b = b - a, c = c - a;
+  double r = b * b;
   if (cmp(r) == 0) return a;
-  r = (b-a)*(c-a)/r;
+  r = c * b / r;
   if (cmp(r, 0) < 0) return a;
-  if (cmp(r, 1) > 0) return b;
-  return a + (b - a) * r;
+  if (cmp(r, 1) > 0) return a + b;
+  return a + b * r;
 }
-double distancePointSegment (PT a, PT b, PT c) { //  ponto c e o segmento a - b
+double distPtSeg (PT a, PT b, PT c) { //  ponto c e o segmento a - b
   return !(c - projPtSeg(a, b, c));
 }
 bool ptInSegment (PT a, PT b, PT c) { // ponto c esta em um segmento a - b
@@ -71,7 +73,7 @@ bool collinear (PT a, PT b, PT c, PT d) {
   return parallel(a, b, c, d) && cmp((a - b)%(a - c)) == 0 && cmp((c - d)%(c - a)) == 0;
 }
 // Calcula distancia entre o ponto (x, y, z) e o plano ax + by + cz = d
-double distPtPlane(double x, double y, double z, double a, double b, double c, double d) {
+double distPtPlane (double x, double y, double z, double a, double b, double c, double d) {
     return abs(a * x + b * y + c * z - d) / sqrt(a * a + b * b + c * c);
 }
 bool segInter (PT a, PT b, PT c, PT d) {
@@ -110,7 +112,7 @@ vector<PT> circle2PtsRad (PT p1, PT p2, double r) {
   }
   return ret;
 }
-bool circleLineIntersection(PT a, PT b, PT c, double r) {
+bool circleLineIntersection (PT a, PT b, PT c, double r) {
     return cmp(!(c - projPtLine(a, b, c)), r) <= 0;
 }
 vector<PT> circleLine (PT a, PT b, PT c, double r) {
@@ -128,7 +130,7 @@ vector<PT> circleLine (PT a, PT b, PT c, double r) {
   }
   return ret;
 }
-bool ptInsideTriangle(PT p, PT a, PT b, PT c) {
+bool ptInsideTriangle (PT p, PT a, PT b, PT c) {
   if((b-a) % (c-b) < 0) swap(a, b);
   if(ptInSegment(a,b,p)) return 1;
   if(ptInSegment(b,c,p)) return 1;
@@ -138,7 +140,7 @@ bool ptInsideTriangle(PT p, PT a, PT b, PT c) {
   bool z = (a-c)%(p-a) < 0;
   return x == y && y == z;
 }
-bool pointInConvexPolygon(const vector<PT> &p, PT q) {
+bool pointInConvexPolygon (const vector<PT> &p, PT q) {
   if (p.size() == 1) return p.front() == q;
   int l = 1, r = p.size()-1;
   while(abs(r-l) > 1) {
@@ -151,7 +153,7 @@ bool pointInConvexPolygon(const vector<PT> &p, PT q) {
 // Determina se o ponto esta num poligono possivelmente nao-convexo
 // Retorna 1 para pontos estritamente dentro, 0 para pontos estritamente fora do poligno 
 // e 0 ou 1 para os pontos restantes
-bool pointInPolygon(const vector<PT> &p, PT q) {
+bool pointInPolygon (const vector<PT> &p, PT q) {
   bool c = 0;
   for(int i = 0; i < p.size(); i++){
     int j = (i + 1) % p.size();
@@ -192,8 +194,8 @@ double computeSignedArea (const vector<PT> &p) {
   }
   return area/2.0;
 }
-double computeArea(const vector<PT> &p) { return abs(computeSignedArea(p)); }
-PT computeCentroid(const vector<PT> &p) {
+double computeArea (const vector<PT> &p) { return abs(computeSignedArea(p)); }
+PT computeCentroid (const vector<PT> &p) {
   PT c(0,0);
   double scale = 6.0 * computeSignedArea(p);
   for(int i = 0; i < p.size(); i++){
@@ -203,7 +205,7 @@ PT computeCentroid(const vector<PT> &p) {
   return c / scale;
 }
 // Testa se o poligno listada em ordem CW ou CCW eh simples (nenhuma linha se intersecta)
-bool isSimple(const vector<PT> &p) {
+bool isSimple (const vector<PT> &p) {
   for(int i = 0; i < p.size(); i++) {
     for(int k = i + 1; k < p.size(); k++) {
       int j = (i + 1) % p.size();
