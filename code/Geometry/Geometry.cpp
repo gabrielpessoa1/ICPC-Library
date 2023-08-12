@@ -42,7 +42,7 @@ PT rotateCCW (PT p, double t) {
   return PT(p.x*cos(t)-p.y*sin(t), p.x*sin(t)+p.y*cos(t));
 }
 PT projPtLine (PT a, PT b, PT c) { // ponto c na linha a - b, a.b = |a| cost * |b|
-  PT b = b - a, c = c  - a;
+  b = b - a, c = c  - a;
   return a + b*(c*b)/(b*b);
 }
 PT reflectPointLine (PT a, PT b, PT c) {
