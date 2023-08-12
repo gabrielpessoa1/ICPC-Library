@@ -1,3 +1,6 @@
+#include <bits/stdc++.h>
+using namespace std;
+
 const double inf = 1e100, eps = 1e-9;
 const double PI = acos(-1.0L);
 int cmp (double a, double b = 0) {
@@ -5,12 +8,16 @@ int cmp (double a, double b = 0) {
   return (a < b) ? -1 : +1;
 }
 struct PT {
-  double x, y;
-  PT(double x = 0, double y = 0) : x(x), y(y) {}
+  typedef long long T;
+  T x, y;
+  PT(T x = 0, T y = 0) : x(x), y(y) {}
   PT operator + (const PT &p) const { return PT(x+p.x, y+p.y); }
   PT operator - (const PT &p) const { return PT(x-p.x, y-p.y); }
   PT operator * (double c) const { return PT(x*c, y*c); }
   PT operator / (double c) const { return PT(x/c, y/c); }
+  T operator * (const PT &p) const { return x*p.x + y*p.y; }
+  T operator % (const PT &p) const { return x*p.y - y*p.x; }
+  double operator !()        const { return hypot(x, y);   }
   bool operator <(const PT &p) const {
     if(cmp(x, p.x) != 0) return x < p.x;
     return cmp(y, p.y) < 0;
@@ -21,13 +28,10 @@ struct PT {
 ostream &operator<<(ostream &os, const PT &p) {
   return os << "(" << p.x << "," << p.y << ")"; 
 }
-double dot (PT p, PT q) { return p.x * q.x + p.y*q.y; }
-double cross (PT p, PT q) { return p.x * q.y - p.y*q.x; }
-double dist2 (PT p, PT q = PT(0, 0)) { return dot(p-q, p-q); }
+
+double dist2 (PT p, PT q = PT(0, 0)) { return (p-q)*(p-q); }
 double dist (PT p, PT q) { return hypot(p.x-q.x, p.y-q.y); }
-double norm (PT p) { return hypot(p.x, p.y); }
-PT normalize (PT p) { return p/hypot(p.x, p.y); }
-double angle (PT p, PT q) { return atan2(cross(p, q), dot(p, q)); }
+double angle (PT p, PT q) { return atan2(p % q, p * q); }
 double angle (PT p) { return atan2(p.y, p.x); }
 double polarAngle (PT p) {
   double a = atan2(p.y,p.x);
@@ -39,31 +43,17 @@ PT rotateCW90 (PT p) { return PT(p.y, -p.x); }
 PT rotateCCW (PT p, double t) {
   return PT(p.x*cos(t)-p.y*sin(t), p.x*sin(t)+p.y*cos(t));
 }
-typedef pair<PT, int> Line;
-PT getDir (PT a, PT b) {
-  if (a.x == b.x) return PT(0, 1);
-  if (a.y == b.y) return PT(1, 0);
-  int dx = b.x-a.x;
-  int dy = b.y-a.y;
-  int g = __gcd(abs(dx), abs(dy));
-  if (dx < 0) g = -g;
-  return PT(dx/g, dy/g);
-}
-Line getLine (PT a, PT b) {
-  PT dir = getDir(a, b);
-  return {dir, cross(dir, a)};
-}
 PT projPtLine (PT a, PT b, PT c) { // ponto c na linha a - b, a.b = |a| cost * |b|
-  return a + (b-a) * dot(b-a, c-a)/dot(b-a, b-a);
+  return a + (b-a) * ((b-a)*(c-a))/((b-a)*(b-a));
 }
 PT reflectPointLine (PT a, PT b, PT c) {
   PT p = projPtLine(a, b, c);
   return p*2 - c;
 }
 PT projPtSeg (PT a, PT b, PT c) { // c no segmento a - b
-  double r = dot(b-a, b-a);
+  double r = (b-a)*(b-a);
   if (cmp(r) == 0) return a;
-  r = dot(b-a, c-a)/r;
+  r = (b-a)*(c-a)/r;
   if (cmp(r, 0) < 0) return a;
   if (cmp(r, 1) > 0) return b;
   return a + (b - a) * r;
@@ -74,13 +64,13 @@ double distancePointSegment (PT a, PT b, PT c) { //  ponto c e o segmento a - b
 bool ptInSegment (PT a, PT b, PT c) { // ponto c esta em um segmento a - b
   if (a == b) return a == c;
   a = a-c, b = b-c;
-  return cmp(cross(a, b)) == 0 && cmp(dot(a, b)) <= 0;
+  return cmp(a % b) == 0 && cmp(a * b) <= 0;
 }
 bool parallel (PT a, PT b, PT c, PT d) {
-  return cmp(cross(b - a, c - d)) == 0;
+  return cmp((b - a)%(c - d)) == 0;
 }
 bool collinear (PT a, PT b, PT c, PT d) {
-  return parallel(a, b, c, d) && cmp(cross(a - b, a - c)) == 0 && cmp(cross(c - d, c - a)) == 0;
+  return parallel(a, b, c, d) && cmp((a - b)%(a - c)) == 0 && cmp((c - d)%(c - a)) == 0;
 }
 // Calcula distancia entre o ponto (x, y, z) e o plano ax + by + cz = d
 double distPtPlane(double x, double y, double z, double a, double b, double c, double d) {
@@ -89,11 +79,11 @@ double distPtPlane(double x, double y, double z, double a, double b, double c, d
 bool segInter (PT a, PT b, PT c, PT d) {
   if (collinear(a, b, c, d)) {
     if (a == c || a == d || b == c || b == d) return true;
-    if (cmp(dot(c - a, c - b)) > 0 && cmp(dot(d - a, d - b)) > 0 && cmp(dot(c - b, d - b)) > 0) return false;
+    if (cmp((c - a)*(c - b)) > 0 && cmp((d - a)*(d - b)) > 0 && cmp((c - b)*(d - b)) > 0) return false;
     return true;
   }
-  if (cmp(cross(d - a, b - a) * cross(c - a, b - a)) > 0) return false;
-  if (cmp(cross(a - c, d - c) * cross(b - c, d - c)) > 0) return false;
+  if (cmp((d - a)%(b - a) * ((c - a)%(b - a))) > 0) return false;
+  if (cmp((a - c)%(d - c) * ((b - c)%(d - c))) > 0) return false;
   return true;
 }
 // Calcula a intersecao entre as retas a - b e c - d assumindo que uma unica intersecao existe
@@ -101,7 +91,7 @@ bool segInter (PT a, PT b, PT c, PT d) {
 PT lineLine (PT a, PT b, PT c, PT d) {
   b = b - a; d = c - d; c = c - a;
   // assert(cmp(cross(b, d)) != 0);
-  return a + b * cross(c, d) / cross(b, d);
+  return a + b * (c % d) / (b % d);
 }
 PT circleCenter (PT a, PT b, PT c) {
   b = (a + b) / 2; // bissector
@@ -128,26 +118,26 @@ bool circleLineIntersection(PT a, PT b, PT c, double r) {
 vector<PT> circleLine (PT a, PT b, PT c, double r) {
   vector<PT> ret;
   PT p = projPtLine(a, b, c), p1;
-  double h = norm(c-p);
+  double h = !(c-p);
   if (cmp(h,r) == 0) {
     ret.push_back(p);
   } else if (cmp(h,r) < 0) {
     double k = sqrt(r*r - h*h);
-    p1 = p + (b-a)/(norm(b-a))*k;
+    p1 = p + (b-a)/(!(b-a))*k;
     ret.push_back(p1);
-    p1 = p - (b-a)/(norm(b-a))*k;
+    p1 = p - (b-a)/(!(b-a))*k;
     ret.push_back(p1);
   }
   return ret;
 }
 bool ptInsideTriangle(PT p, PT a, PT b, PT c) {
-  if(cross(b-a, c-b) < 0) swap(a, b);
+  if((b-a) % (c-b) < 0) swap(a, b);
   if(ptInSegment(a,b,p)) return 1;
   if(ptInSegment(b,c,p)) return 1;
   if(ptInSegment(c,a,p)) return 1;
-  bool x = cross(b-a, p-b) < 0;
-  bool y = cross(c-b, p-c) < 0;
-  bool z = cross(a-c, p-a) < 0;
+  bool x = (b-a)%(p-b) < 0;
+  bool y = (c-b)%(p-c) < 0;
+  bool z = (a-c)%(p-a) < 0;
   return x == y && y == z;
 }
 bool pointInConvexPolygon(const vector<PT> &p, PT q) {
@@ -155,7 +145,7 @@ bool pointInConvexPolygon(const vector<PT> &p, PT q) {
   int l = 1, r = p.size()-1;
   while(abs(r-l) > 1) {
     int m = (r+l)/2;
-    if(cross(p[m]-p[0] , q-p[0]) < 0) r = m;
+    if((p[m]-p[0])%(q-p[0]) < 0) r = m;
     else l = m;
   }
   return ptInsideTriangle(q, p[0], p[l], p[r]);
@@ -175,12 +165,12 @@ bool pointInPolygon(const vector<PT> &p, PT q) {
 }
 // area / semiperimeter
 double rIncircle (PT a, PT b, PT c) {
-  double ab = norm(a-b), bc = norm(b-c), ca = norm(c-a);
-  return abs(cross(b-a, c-a)/(ab+bc+ca));
+  double ab = !(a-b), bc = !(b-c), ca = !(c-a);
+  return abs((b-a)%(c-a)/(ab+bc+ca));
 }
 vector<PT> circleCircle (PT a, double r, PT b, double R) {
   vector<PT> ret;
-  double d = norm(a-b);
+  double d = !(a-b);
   if (d > r + R || d + min(r, R) < max(r, R)) return ret;
   double x = (d*d - R*R + r*r) / (2*d); // x = r*cos(R opposite angle)
   double y = sqrt(r*r - x*x);
@@ -227,6 +217,8 @@ bool isSimple(const vector<PT> &p) {
   }
   return true;
 }
+
+PT normalize (PT p) { return p/!p; }
 vector< pair<PT, PT> > getTangentSegs (PT c1, double r1, PT c2, double r2) {
   if (r1 < r2) swap(c1, c2), swap(r1, r2);
   vector<pair<PT, PT> > ans;
