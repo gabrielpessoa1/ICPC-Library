@@ -45,7 +45,7 @@ int maximizeScalarProduct(const vector<PT> &hull, PT vec) {
       }
     }
   } else {
-    if(hull[1] * vec > hull[ans] * vec)) {
+    if(hull[1] * vec > hull[ans] * vec) {
       ans = 1;
     }
     for(int rep = 0; rep < 2; rep++) {
