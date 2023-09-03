@@ -3,7 +3,7 @@ vector<PT> convexHull(vector<PT> p, bool needs = 1) {
   p.erase(unique(p.begin(), p.end()), p.end());
   int n = p.size(), k = 0;
   if(n <= 1) return p;
-  vector<PT> h(n + 2); // se der wa bota n*2
+  vector<PT> h(2*n + 5);
   for(int i = 0; i < n; i++) {
     while(k >= 2 && cross(h[k - 1] - h[k - 2], p[i] - h[k - 2]) <= 0) k--;
     h[k++] = p[i];
