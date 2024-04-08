@@ -53,38 +53,6 @@ vector<int> fft(vector<int> a, bool inv = false) {
   }
   return a;
 }
-std::vector<int> shift(const std::vector<int> &a, int s) {
-  int n = std::max(0, s + (int) a.size());
-  std::vector<int> b(n, 0);
-  for(int i = std::max(-s, 0); i < (int) a.size(); i++) {
-    b[i + s] = a[i];
-  }
-  return b;
-}
-
-std::vector<int> cut(const std::vector<int> &a, int n) {
-  std::vector<int> b(n, 0);
-  for(int i = 0; i < (int) a.size() && i < n; i++) {
-    b[i] = a[i];
-  }
-  return b;
-}
-std::vector<int> operator +(std::vector<int> a, const std::vector<int> &b) {
-  int sz = (int) std::max(a.size(), b.size());
-  a.resize(sz, 0);
-  for(int i = 0; i < (int) b.size(); i++) {
-    a[i] = add(a[i], b[i]);
-  }
-  return a;
-}
-std::vector<int> operator -(std::vector<int> a, const std::vector<int> &b) {
-  int sz = (int) std::max(a.size(), b.size());
-  a.resize(sz, 0);
-  for(int i = 0; i < (int) b.size(); i++) {
-    a[i] = add(a[i], MOD - b[i]);
-  }
-  return a;
-}
 std::vector<int> operator *(std::vector<int> a, std::vector<int> b) {
   while(!a.empty() && a.back() == 0) a.pop_back();
   while(!b.empty() && b.back() == 0) b.pop_back();
@@ -99,39 +67,4 @@ std::vector<int> operator *(std::vector<int> a, std::vector<int> b) {
     a[i] = (int) ((long long) a[i] * b[i] % MOD); 
   }
   return fft(a, true);
-}
-std::vector<int> inverse(const std::vector<int> &a, int k) {
-  assert(!a.empty() && a[0] != 0);
-  if(k == 0) {
-    return std::vector<int>(1, (int) fexp(a[0], MOD - 2));
-  } else {
-    int n = 1 << k;
-    auto c = inverse(a, k-1);
-    return cut(c * cut(std::vector<int>(1, 2) - cut(a, n) * c, n), n);
-  }
-}
-std::vector<int> log(const std::vector<int> &a, int k) {
-  assert(!a.empty() && a[0] != 0);
-  int n = 1 << k;
-  std::vector<int> b(n, 0);
-  for(int i = 0; i+1 < (int) a.size() && i < n; i++) {
-    b[i] = (int)((i + 1LL) * a[i+1] % MOD);
-  }
-  b = cut(b * inverse(a, k), n);
-  assert((int) b.size() == n);
-  for(int i = n - 1; i > 0; i--) {
-    b[i] = (int) (b[i-1] * fexp(i, MOD - 2) % MOD);
-  }
-  b[0] = 0;
-  return b;
-}
-std::vector<int> exp(const std::vector<int> &a, int k) {
-  assert(!a.empty() && a[0] == 0);
-  if(k == 0) {
-    return std::vector<int>(1, 1);
-  } else {
-    auto b = exp(a, k-1);
-    int n = 1 << k;
-    return cut(b * cut(std::vector<int>(1, 1) + cut(a, n) - log(b, k), n), n);
-  }
 }

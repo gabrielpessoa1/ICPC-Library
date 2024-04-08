@@ -1,5 +1,19 @@
 int arr[ms],  seg[4 * ms], lazy[4 * ms], n;
 
+struct LazyContext {
+  LazyContext() { }
+  void reset() { }
+  void operator += (LazyContext o) { }
+};
+struct Node {
+  Node() { }
+  Node() { }
+  Node(Node l, Node r) { }
+  bool canBreak(LazyContext lazy) { } // false if non beats
+  bool canApply(LazyContext lazy) { } // true if non beats
+  void apply(LazyContext &lazy) { }
+};
+
 void build(int idx = 0, int l = 0, int r = n-1) {
   int mid = (l+r)/2;
   lazy[idx] = 0;
