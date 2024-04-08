@@ -7,21 +7,28 @@
 \usepackage{tocloft}
 \usepackage{pdflscape}
 \usepackage{multicol}
+\usepackage[scaled]{beramono}
+\usepackage[T1]{fontenc}
+\usepackage{sectsty}
+\usepackage{titlesec}
 
-\renewcommand*{\ttdefault}{pcr}
 \renewcommand\cftsecfont{\fontsize{8}{9}\bfseries}
 \renewcommand\cftsecpagefont{\fontsize{8}{9}\mdseries}
 \renewcommand\cftsubsecfont{\fontsize{5}{6}\mdseries}
 \renewcommand\cftsubsecpagefont{\fontsize{5}{6}\mdseries}
 \renewcommand\cftsecafterpnum{\vspace{-1ex}}
 \renewcommand\cftsubsecafterpnum{\vspace{-1ex}}
+\sectionfont{\fontsize{12}{12}\selectfont}
+\subsectionfont{\fontsize{9}{5}\selectfont}
+\titlespacing*{\section}{0pt}{0.5\baselineskip}{0.2\baselineskip}
+\titlespacing*{\subsection}{0pt}{0.5\baselineskip}{0.05\baselineskip}
 
 \lstdefinestyle{shared}{
-  belowcaptionskip=1\baselineskip,
+  belowcaptionskip=0.05\baselineskip,
   breaklines=true,
   xleftmargin=\parindent,
   showstringspaces=false,
-  basicstyle=\fontsize{6.5}{6}\ttfamily,
+  basicstyle=\fontsize{6}{5.5}\ttfamily,
 }
 \lstdefinestyle{cpp}{
   style=shared,
