@@ -25,7 +25,6 @@ vector<int> berlekampMassey(const vector<int> &s) {
         x = mod-x;
     return c;
 }
-
 // p = p*q % h
 void mull(vector<int> &p,vector<int> &q, vector<int> &h, int m) {
 	vector<int> t_(m+m);
@@ -38,13 +37,10 @@ void mull(vector<int> &p,vector<int> &q, vector<int> &h, int m) {
 			t_[i-j-1]=(t_[i-j-1]+t_[i]*h[j])%mod;
 	for(int i=0;i<m;++i) p[i]=t_[i];
 }
-
 // a = caso base, h = recorrencia, m = tamanho da recorrencia
 inline int calc(vector<int> &a, vector<int> &h, int K, int m) {
 	vector<int> s(m), t(m);
-	//init
 	s[0]=1; if(m!=1) t[1]=1; else t[0]=h[0];
-	//binary-exponentiation
 	while(K) {
 		if(K&1) mull(s,t,h,m);
 		mull(t,t,h,m); K>>=1;

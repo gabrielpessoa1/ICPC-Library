@@ -19,7 +19,7 @@ DataStructures/Treap.cpp	Treap
 DataStructures/KDTree.cpp	KD-Tree
 #DataStructures/LinkCutTree.cpp	Link Cut Tree - TFG
 DataStructures/SparseTable.cpp	Sparse Table
-#DataStructures/MaxQueue.cpp	Max Queue
+DataStructures/MaxQueue.cpp	Max Queue
 DataStructures/PolicyBased.cpp	Policy Based Structures
 DataStructures/ColorUpdate.cpp	Color Updates Structure
 
@@ -30,7 +30,7 @@ DataStructures/ColorUpdate.cpp	Color Updates Structure
 #Graph/FloydWarshall.cpp	Floyd-Warshall / Shortest path between all pairs
 #Graph/DisjointSet.cpp	Disjoint-Set / Union-Find
 #Graph/Kruskal.cpp	Kruskal's MST - Minimum Spanning Tree
-#Graph/SimpleDisjointSet.cpp	Simple Disjoint Set
+Graph/SimpleDisjointSet.cpp	Simple Disjoint Set
 Graph/Blossom.cpp	Blossom
 #Graph/Boruvka.cpp	Boruvka
 Graph/Dinic.cpp	Dinic Max Flow
@@ -71,7 +71,7 @@ Math/ModularSum.cpp	Modular Sum
 Math/PrimitiveRoot.cpp	Primitive Root
 #Math/GCD.cpp	GCD - Greatest Common Divisor
 #Math/Sieve.cpp	Sieve of Eratosthenes
-#Math/LinearSieve.cpp	Linear Sieve
+Math/LinearSieve.cpp	Linear Sieve
 Math/ExtendedEuclides.cpp	Extended Euclides
 #Math/FastExp.cpp	Fast Exponentiation
 Math/Matrix.cpp	Matrix
@@ -130,11 +130,11 @@ Miscellaneous/SubmaskEnumeration.cpp	Submask Enumeration
 Miscellaneous/SosDP.cpp	Sum over Subsets DP
 Miscellaneous/SubsetSum.cpp	Subset Sum
 #Miscellaneous/FastIO.java	Java Fast I/O
-#Miscellaneous/Dates.cpp	Dates
+Miscellaneous/Dates.cpp	Dates
 #Miscellaneous/Regex.java	Regular Expressions
 #Miscellaneous/LatLong.cpp	Lat Long
 Miscellaneous/StableMarriage.cpp	Stable Marriage
-#Miscellaneous/Mo.cpp	Mo
+Miscellaneous/Mo.cpp	Mo
 
 [Teoremas e formulas uteis]
 Theorems/Graph.txt	Grafos

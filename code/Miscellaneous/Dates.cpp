@@ -1,5 +1,4 @@
 string dayOfWeek[] = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
-
 // converts Gregorian date to integer (Julian day number)
 int dateToInt (int m, int d, int y){  
   return 
@@ -8,7 +7,6 @@ int dateToInt (int m, int d, int y){
     3 * ((y + 4900 + (m - 14) / 12) / 100) / 4 + 
     d - 32075;
 }
-
 // converts integer (Julian day number) to Gregorian date: month/day/year
 void intToDate (int jd, int &m, int &d, int &y){
   int x, n, i, j;
@@ -24,8 +22,5 @@ void intToDate (int jd, int &m, int &d, int &y){
   m = j + 2 - 12 * x;
   y = 100 * (n - 49) + i + x;
 }
-
 // converts integer (Julian day number) to day of week
-string intToDay (int jd){
-  return dayOfWeek[jd % 7];
-}
+string intToDay (int jd){ return dayOfWeek[jd % 7]; }

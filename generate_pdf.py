@@ -53,7 +53,9 @@ def get_tex(sections):
         for (filename, subsection_name) in subsections:
             tex += '\\subsection{%s}\n' % texify(subsection_name)
             tex += '\\raggedbottom\\lstinputlisting[style=%s]{%s/%s}\n' % (get_style(filename), code_dir, filename)
+            tex += '\\vspace{-.7\\baselineskip}'
             tex += '\\hrulefill\n'
+            tex += '\\vspace{0.1\\baselineskip}'
         tex += '\n'
     return tex
 
